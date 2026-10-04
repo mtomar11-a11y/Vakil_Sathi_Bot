@@ -3,54 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vakil Sathi - Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Vakil Sathi</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Inter',sans-serif;background:#f5f5f0;color:#1a1a1a}
-  .header{background:#0f172a;color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-  .header h1{font-size:18px}
-  .sanskrit{font-family:'Noto Serif Devanagari',serif;font-size:16px;letter-spacing:1px;color:#fbbf24;text-align:center;width:100%;order:-1}
-  @media(min-width:768px){.sanskrit{width:auto;order:0}}
-  .container{max-width:1200px;margin:0 auto;padding:16px}
-  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
-  @media(min-width:768px){.stats{grid-template-columns:repeat(4,1fr)}}
-  .card{background:white;padding:16px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:4px solid #0f172a}
-  .card h3{font-size:13px;color:#64748b;margin-bottom:4px}
-  .card p{font-size:22px;font-weight:700}
-  .actions{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-  .btn{padding:10px 16px;border-radius:8px;border:none;font-weight:600;cursor:pointer;font-size:14px}
-  .btn-primary{background:#0f172a;color:white;flex:1}
-  .btn-outline{background:white;border:1px solid #e2e8f0}
-  .case-list{display:grid;gap:12px}
-  .case{background:white;padding:16px;border-radius:12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-  @media(min-width:600px){.case{flex-direction:row;justify-content:space-between;align-items:center}}
-  .badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;display:inline-block;width:fit-content}
-  .search{width:100%;padding:12px;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:16px;font-size:14px}
+  body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a}
+  .header{background:#0f172a;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+  .logo{font-weight:700;display:flex;align-items:center;gap:8px;font-size:16px}
+  .sanskrit{font-family:'Noto Serif Devanagari',serif;color:#fbbf24;font-size:15px;letter-spacing:0.5px;position:absolute;left:50%;transform:translateX(-50%)}
+  @media(max-width:768px){.sanskrit{display:none} .sanskrit-mobile{display:block!important}}
+  .sanskrit-mobile{display:none;font-family:'Noto Serif Devanagari',serif;background:#1e293b;color:#fbbf24;text-align:center;padding:8px;font-size:14px}
+  .container{max-width:1200px;margin:auto;padding:12px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(min-width:900px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .card{background:#fff;padding:14px;border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid #e2e8f0}
+  .search{width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin:14px 0;font-size:14px}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  @media(min-width:600px){.actions{grid-template-columns:2fr 1fr}}
+  .btn{padding:12px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+  .btn-primary{background:#0f172a;color:#fff}
+  .btn-light{background:#fff;border:1px solid #e2e8f0}
+  .case-list{display:grid;gap:10px}
+  .case{background:#fff;padding:14px;border-radius:14px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+  .badge{background:#fef3c7;color:#92400e;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
 </style>
 </head>
 <body>
-  <div class="header">
-    <h1>⚖️ Vakil Sathi</h1>
-    <div class="sanskrit">|| यतो धर्मस्ततो जयः ||</div>
-    <button class="btn" style="background:#1e293b;color:white">+ New Case</button>
+<div class="header">
+  <div class="logo">⚖️ Vakil Sathi</div>
+  <div class="sanskrit">|| यतो धर्मस्ततो जयः ||</div>
+  <button class="btn btn-primary" onclick="addCase()" style="padding:8px 14px;font-size:13px">+ New Case</button>
+</div>
+<div class="sanskrit-mobile">|| यतो धर्मस्ततो जयः ||</div>
+
+<div class="container">
+  <div class="stats">
+    <div class="card"><small style="color:#64748b;font-weight:700">TOTAL CASES</small><h2>12</h2></div>
+    <div class="card" style="border-left:4px solid #f59e0b"><small style="color:#64748b;font-weight:700">TODAY'S HEARING</small><h2>3</h2></div>
+    <div class="card" style="border-left:4px solid #10b981"><small style="color:#64748b;font-weight:700">CLIENTS</small><h2>8</h2></div>
+    <div class="card" style="border-left:4px solid #ef4444"><small style="color:#64748b;font-weight:700">PENDING FEE</small><h2>₹45k</h2></div>
   </div>
-  <div class="container">
-    <input class="search" placeholder="Search case number, client, court...">
-    <div class="stats">
-      <div class="card"><h3>TOTAL CASES</h3><p>12</p></div>
-      <div class="card" style="border-color:#f59e0b"><h3>TODAY'S HEARING</h3><p>3</p></div>
-      <div class="card" style="border-color:#10b981"><h3>CLIENTS</h3><p>8</p></div>
-      <div class="card" style="border-color:#ef4444"><h3>PENDING FEE</h3><p>₹45k</p></div>
-    </div>
-    <div class="actions">
-      <button class="btn btn-primary">📅 Aaj ki Causelist Dekho</button>
-      <button class="btn btn-outline">🔍 eCourts se Fetch karo</button>
-    </div>
-    <div class="case-list">
-      <div class="case"><div><b>CS/123/2024 - Ramesh vs Suresh</b><br><small>District Court, Delhi | Next: 05 Oct</small></div><span class="badge">HEARING</span></div>
-      <div class="case"><div><b>BA/456/2024 - State vs Amit</b><br><small>Sessions Court | Next: 06 Oct</small></div><span class="badge">ARGUMENT</span></div>
-    </div>
+
+  <input class="search" id="search" placeholder="Search case number, client, court...">
+
+  <div class="actions">
+    <button class="btn btn-primary">📅 Aaj ki Causelist Dekho</button>
+    <button class="btn btn-light">🔍 eCourts se Fetch karo</button>
   </div>
+
+  <div class="case-list" id="caseList">
+    <div class="case"><div><b>CS/123/2024 - Ramesh vs Suresh</b><br><small>District Court, Delhi | Next: 05 Oct</small></div><span class="badge">HEARING</span></div>
+    <div class="case"><div><b>BA/456/2024 - State vs Amit</b><br><small>Sessions Court | Next: 06 Oct</small></div><span class="badge">ARGUMENT</span></div>
+  </div>
+</div>
+
+<script>
+function addCase(){ let c=prompt("Case No. likho: CS/XXX/2024"); if(c){ let d=document.createElement('div'); d.className='case'; d.innerHTML=`<div><b>${c}</b><br><small>New Case Added</small></div><span class="badge">NEW</span>`; document.getElementById('caseList').prepend(d);} }
+document.getElementById('search').addEventListener('input',function(e){ let v=e.target.value.toLowerCase(); document.querySelectorAll('.case').forEach(x=>{ x.style.display=x.innerText.toLowerCase().includes(v)?'flex':'none'; }); });
+</script>
 </body>
 </html>
