@@ -161,7 +161,8 @@ let currentCaptcha="";
 function generateCaptcha(){let canvas=document.getElementById('captchaCanvas');if(!canvas) return;let ctx=canvas.getContext('2d');ctx.clearRect(0,0,180,48);ctx.fillStyle='#fff';ctx.fillRect(0,0,180,48);currentCaptcha=Math.floor(1000+Math.random()*9000).toString();ctx.font='bold 28px Inter';ctx.fillStyle='#0f172a';ctx.fillText(currentCaptcha,40,34);for(let i=0;i<4;i++){ctx.strokeStyle='#94a3b8';ctx.beginPath();ctx.moveTo(Math.random()*180,Math.random()*48);ctx.lineTo(Math.random()*180,Math.random()*48);ctx.stroke();}}
 function verifyCaptcha(){let e=document.getElementById('captchaInput').value.trim();if(e!==currentCaptcha&&e!==""){alert('Galat Captcha');generateCaptcha();return;}document.getElementById('fetchStatus').innerText='✅ Verified - Dev link se fetch...';fetch(GOOGLE_SHEET_URL+"?cnr="+encodeURIComponent(document.getElementById('cNo').value)).then(r=>r.json()).then(data=>{fillData(data);}).catch(()=>{document.getElementById('cClient').value=document.getElementById('cNo').value+" vs State";});}
 <!-- Vakil Sathi Case Add Karne ka Box -->
-<div style="padding:20px; border:1px solid #ccc; border-radius:10px; max-width:400px;">
+
+  <div style="padding:20px; border:1px solid #ccc; border-radius:10px; max-width:400px;">
   <h3>Case Add Karo</h3>
   <input type="text" id="cnrInput" placeholder="CNR Number dalo - DLHC..." style="width:100%; padding:10px;">
   <button onclick="addCaseToSheet()" style="width:100%; padding:10px; background:#007bff; color:white; border:none; margin-top:10px; border-radius:5px;">Add Case</button>
