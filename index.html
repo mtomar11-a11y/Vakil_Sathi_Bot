@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vakil Sathi - Legal Case Management</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -11,12 +12,16 @@ body{background:#f5f7fb;display:flex;flex-direction:column;min-height:100vh}
 .logo{display:flex;align-items:center;gap:12px}
 .logo-icon{width:48px;height:48px;background:#1565d8;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;color:white}
 .logo h1{font-size:24px;font-weight:800;color:#0f1e3d}
+.logo p{font-size:12px;color:#6b7280}
 .search{width:380px;height:42px;background:#f1f3f6;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;color:#6b7280}
 .main{display:flex;flex:1}
 .sidebar{width:260px;background:#f8f9fb;border-right:1px solid #e5e7eb;padding:20px}
 .nav-item{display:flex;gap:12px;padding:12px 16px;border-radius:10px;margin-bottom:6px;cursor:pointer;color:#374151;font-weight:600}
 .nav-item.active{background:#1565d8;color:white}
+.upgrade{margin-top:30px;background:#dbe8ff;border-radius:16px;padding:20px;text-align:center}
+.upgrade button{width:100%;margin-top:12px;background:#1565d8;color:white;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer}
 .content{flex:1;padding:28px}
+.top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
 .btn-outline{padding:10px 18px;border:1px solid #d1d5db;background:white;border-radius:10px;font-weight:600;cursor:pointer}
 .btn-primary{padding:10px 20px;background:#1565d8;color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:28px}
@@ -29,74 +34,191 @@ th{background:#f8fafc;text-align:left;padding:14px 18px;font-size:13px;color:#47
 td{padding:14px 18px;font-size:14px;border-bottom:1px solid #f1f5f9}
 .badge{padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700}
 .badge.active{background:#dcfce7;color:#166534}.badge.hold{background:#fef3c7;color:#92400e}.badge.closed{background:#e5e7eb;color:#4b5563}
-.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:100}
-.modal-box{background:white;padding:24px;border-radius:16px;width:420px}
-.modal-box input,.modal-box select{width:100%;padding:10px;margin:8px 0;border:1px solid #d1d5db;border-radius:8px}
+.case-link{color:#1565d8;font-weight:600;text-decoration:none}
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:100;overflow-y:auto;padding:20px}
+.modal-box{background:white;padding:24px;border-radius:16px;width:480px;max-height:92vh;overflow-y:auto}
+.modal-box input,.modal-box select{width:100%;padding:11px;margin:7px 0;border:1px solid #d1d5db;border-radius:8px;font-size:14px}
+.modal-box label{font-size:11px;font-weight:800;color:#334155;margin-top:8px;display:block;letter-spacing:0.5px}
 </style>
 </head>
 <body>
-<div class="content">
-<h1>Dashboard</h1>
-<button class="btn-primary" onclick="openModal()">+ New Case</button>
-<div class="table-wrap" style="margin-top:20px"><table id="caseTable"><thead><tr><th>Case Number</th><th>Client</th><th>Court</th><th>Date</th><th>Status</th></tr></thead><tbody id="tableBody"></tbody></table></div>
+<div class="header">
+  <div class="logo"><div class="logo-icon">⚖️</div><div><h1>Vakil Sathi</h1><p>Legal Tech • Case Management</p></div></div>
+  <div class="search">🔍 Search cases...</div>
+  <div><b>॥ यतो धर्मस्ततो जय: ॥</b></div>
+</div>
+<div class="main">
+  <div class="sidebar">
+    <div class="nav-item active">🏠 Dashboard</div>
+    <div class="nav-item">📁 Cases</div>
+    <div class="nav-item">📅 Causelist</div>
+    <div class="nav-item">👥 Clients</div>
+    <div class="nav-item">📆 Calendar</div>
+    <div class="nav-item">📂 Documents</div>
+    <div class="nav-item">₹ Billing</div>
+    <div class="upgrade"><div style="font-size:32px">💡</div><h3>Upgrade</h3><p style="font-size:12px;color:#475569">Unlock advanced analytics</p><button>Upgrade Now</button></div>
+  </div>
+  <div class="content">
+    <div class="top-row"><h1 style="font-size:32px;font-weight:800">Dashboard</h1><div><button class="btn-outline">Filters</button> <button class="btn-primary" onclick="openModal()">+ New Case</button></div></div>
+    <div class="cards">
+      <div class="card blue"><h3>📅 Today's Hearings</h3><div class="num" id="todayCount">5</div><div style="font-size:12px;margin-top:8px">2 hearings in next 2 hours</div></div>
+      <div class="card orange"><h3>📝 Pending Tasks</h3><div class="num">12</div><div style="font-size:12px;margin-top:8px">4 overdue • 8 due today</div></div>
+      <div class="card green"><h3>₹ Revenue</h3><div class="num">₹1,24,500</div><div style="font-size:12px;margin-top:8px">+12.5% vs last month</div></div>
+    </div>
+    <h2 style="margin-bottom:12px">Case List - <span id="totalCases">5</span> cases</h2>
+    <div class="table-wrap">
+      <table id="caseTable">
+        <thead><tr><th>Case Number</th><th>Client Name</th><th>Court</th><th>Next Date</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <div class="modal" id="modal">
   <div class="modal-box">
-    <h3>Add New Case - Option 3 FREE</h3>
-    <input id="cNo" placeholder="CNR / Case Number e.g. DLHC010000012024">
-    <div style="display:flex;gap:8px;align-items:center">
-      <button id="fetchBtn" onclick="fetchFromECourts()" style="flex:1;padding:10px;background:#0ea5e9;color:white;border:0;border-radius:8px;font-weight:700">🔍 Fetch from eCourts</button>
-      <span id="fetchStatus" style="font-size:12px;color:#475569"></span>
+    <h3 style="margin-bottom:12px">Add New Case</h3>
+
+    <label>1. CNR NUMBER (SABSE UPAR)</label>
+    <input id="cNo" placeholder="e.g. DLHC01-000001-2024">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px">
+      <button id="fetchBtn" onclick="fetchFromECourts()" style="flex:1;padding:10px;background:#0ea5e9;color:white;border:0;border-radius:8px;font-weight:700;cursor:pointer">🔍 Fetch from eCourts</button>
+      <span id="fetchStatus" style="font-size:11px;color:#475569"></span>
     </div>
-    <!-- YEH RAHI CAPTCHA BOX - EXACT LOCATION -->
-    <div id="captchaBox" style="display:none; margin-top:10px; background:#f8fafc; padding:10px; border-radius:10px; border:1px dashed #94a3b8">
-      <img id="captchaImg" style="height:40px; border-radius:6px; margin-bottom:6px"><br>
-      <input id="captchaInput" placeholder="Captcha type karo" style="padding:8px; border:1px solid #cbd5e1; border-radius:8px; width:140px">
-      <button onclick="fetchWithCaptcha()" style="padding:8px 12px; background:#16a34a; color:#fff; border:0; border-radius:8px; margin-left:6px">Verify & Fetch</button>
+    <div id="captchaBox" style="display:none; margin-top:8px; background:#f8fafc; padding:10px; border-radius:10px; border:1px dashed #94a3b8; text-align:center">
+      <img id="captchaImg" style="height:42px; border-radius:6px; border:1px solid #e2e8f0"><br>
+      <div style="margin-top:6px; display:flex; justify-content:center">
+        <input id="captchaInput" placeholder="Captcha" style="padding:8px; border:1px solid #cbd5e1; border-radius:8px; width:120px; margin:0">
+        <button onclick="fetchWithCaptcha()" style="padding:8px 12px; background:#16a34a; color:#fff; border:0; border-radius:8px; margin-left:6px; cursor:pointer">Verify</button>
+      </div>
     </div>
 
-    <input id="cNumber" placeholder="Case Number">
-    <input id="cClient" placeholder="Client Name">
-    <input id="cCourt" placeholder="Court / Judge">
-    <input id="cDate" type="date">
+    <div style="height:1px;background:#e5e7eb;margin:14px 0"></div>
+    <div style="text-align:center;font-size:11px;color:#94a3b8;margin-bottom:6px;font-weight:700">OR ENTER MANUALLY</div>
+
+    <label>2. SELECT COURT</label>
+    <select id="cCourtSelect" onchange="updateCaseTypes()">
+      <option value="">-- Court Select Karo --</option>
+      <option value="Delhi High Court">Delhi High Court</option>
+      <option value="Supreme Court of India">Supreme Court of India</option>
+      <option value="Tis Hazari Court, Delhi">Tis Hazari Court, Delhi</option>
+      <option value="Karkardooma Court, Delhi">Karkardooma Court, Delhi</option>
+      <option value="Patiala House Court, Delhi">Patiala House Court, Delhi</option>
+      <option value="Rohini Court, Delhi">Rohini Court, Delhi</option>
+      <option value="Saket Court, Delhi">Saket Court, Delhi</option>
+      <option value="Bombay High Court">Bombay High Court</option>
+      <option value="Allahabad High Court">Allahabad High Court</option>
+      <option value="Patna District Court">Patna District Court</option>
+    </select>
+
+    <label>3. CASE TYPE (COURT KE HISAB SE)</label>
+    <select id="cCaseType">
+      <option value="">-- Pehle Court Select Karo --</option>
+    </select>
+
+    <label>4. CASE NUMBER</label>
+    <input id="cNumberOnly" type="number" placeholder="e.g. 1023">
+
+    <label>5. CASE YEAR</label>
+    <input id="cYear" type="number" placeholder="e.g. 2024" value="2024">
+
+    <div style="height:1px;background:#e5e7eb;margin:14px 0"></div>
+
+    <label>CLIENT NAME</label>
+    <input id="cClient" placeholder="e.g. Rajesh Kumar vs State">
+    <label>COURT DISPLAY</label>
+    <input id="cCourt" placeholder="Auto fill hoga">
+    <label>NEXT DATE</label>
+    <input id="cDate" type="datetime-local">
+    <label>STATUS</label>
     <select id="cStatus"><option value="active">Active</option><option value="hold">On Hold</option><option value="closed">Closed</option></select>
-    <div style="display:flex;gap:10px;margin-top:12px"><button class="btn-primary" style="flex:1" onclick="saveCase()">Save</button><button class="btn-outline" style="flex:1" onclick="closeModal()">Cancel</button></div>
+
+    <div style="display:flex;gap:10px;margin-top:16px"><button class="btn-primary" style="flex:1" onclick="saveCase()">Save Case</button><button class="btn-outline" style="flex:1" onclick="closeModal()">Cancel</button></div>
   </div>
 </div>
 
 <script>
-let cases=JSON.parse(localStorage.getItem('vakilCases')||'[]');
-function render(){let tb=document.getElementById('tableBody');tb.innerHTML='';cases.forEach(c=>{tb.innerHTML+=`<tr><td>${c.number}</td><td>${c.client}</td><td>${c.court}</td><td>${c.date}</td><td>${c.status}</td></tr>`})}
+const WEB_APP_URL="https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec";
+const caseTypeMap={
+  "Delhi High Court":["W.P.(C)","CRL.A.","CS(OS)","FAO","BAIL APPLN.","CM(M)","RFA","CRL.M.C.","W.P.(CRL)"],
+  "Supreme Court of India":["SLP(C)","SLP(Crl)","W.P.(C)","C.A.","Diary No."],
+  "Tis Hazari Court, Delhi":["CS","CR","MISC","BAIL","CRL","Suit","Execution"],
+  "Karkardooma Court, Delhi":["CS","CR","Bail","Challan","MACT"],
+  "default":["Civil Suit","Criminal Case","Writ Petition","Bail Application","Appeal","Execution","Misc Case"]
+};
+function updateCaseTypes(){
+  let court=document.getElementById('cCourtSelect').value;
+  let types=caseTypeMap[court]||caseTypeMap["default"];
+  let sel=document.getElementById('cCaseType'); sel.innerHTML="";
+  types.forEach(t=>{let o=document.createElement('option');o.value=t;o.text=t;sel.appendChild(o);});
+  document.getElementById('cCourt').value=court;
+}
+let cases=[{number:"CS/2024/1023",client:"Rajesh Kumar vs State of Delhi",court:"Delhi High Court",date:"12 Oct 2024 • 10:30 AM",status:"active"}];
+function render(){
+ let tbody=document.getElementById('tableBody'); tbody.innerHTML='';
+ cases.forEach((c,i)=>{
+  let badge=c.status==='active'?'<span class="badge active">● Active</span>': c.status==='hold'?'<span class="badge hold">● On Hold</span>':'<span class="badge closed">● Closed</span>';
+  tbody.innerHTML+=`<tr><td><a class="case-link" href="#">${c.number}</a></td><td>${c.client}</td><td>${c.court}</td><td>${c.date}</td><td>${badge}</td><td><button onclick="delCase(${i})">🗑️</button></td></tr>`;
+ });
+ document.getElementById('totalCases').innerText=cases.length;
+ document.getElementById('todayCount').innerText=cases.length;
+ localStorage.setItem('vakilCases',JSON.stringify(cases));
+}
 function openModal(){document.getElementById('modal').style.display='flex'}
 function closeModal(){document.getElementById('modal').style.display='none'}
-function saveCase(){let n=document.getElementById('cNumber').value, cl=document.getElementById('cClient').value, co=document.getElementById('cCourt').value, d=document.getElementById('cDate').value, s=document.getElementById('cStatus').value; if(!n||!cl){alert('bharo');return} cases.unshift({number:n,client:cl,court:co,date:d,status:s}); localStorage.setItem('vakilCases',JSON.stringify(cases)); render(); closeModal();}
-
-const WEB_APP_URL="https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec";
+function saveCase(){
+ let courtSel=document.getElementById('cCourtSelect').value;
+ let type=document.getElementById('cCaseType').value;
+ let num=document.getElementById('cNumberOnly').value;
+ let year=document.getElementById('cYear').value;
+ let fullNo = (type && num && year)? `${type} ${num}/${year}` : document.getElementById('cNo').value || "CS/2024/0001";
+ let cl=document.getElementById('cClient').value;
+ let co=document.getElementById('cCourt').value || courtSel;
+ let d=document.getElementById('cDate').value;
+ let s=document.getElementById('cStatus').value;
+ if(!fullNo||!cl){alert('Case Number aur Client bharo');return}
+ cases.unshift({number:fullNo,client:cl,court:co,date: d? new Date(d).toLocaleString() : 'TBD',status:s});
+ render(); closeModal();
+}
+function delCase(i){if(confirm('Delete?')){cases.splice(i,1);render()}}
+let saved=localStorage.getItem('vakilCases'); if(saved){cases=JSON.parse(saved)}
+render();
 let CURRENT_CASE_NO="";
 async function fetchFromECourts(){
-  let caseNo=document.getElementById('cNo').value.trim(); if(!caseNo){alert('CNR daal');return}
-  CURRENT_CASE_NO=caseNo; document.getElementById('fetchStatus').innerText='Captcha la raha hu...';
+  let caseNo=document.getElementById('cNo').value.trim();
+  if(!caseNo){alert('Pehle CNR daal bhai');return}
+  CURRENT_CASE_NO=caseNo;
+  let status=document.getElementById('fetchStatus');
+  status.innerText='Captcha la raha hu...';
   try{
-    let res=await fetch(WEB_APP_URL+"?action=getCaptcha"); let data=await res.json();
-    document.getElementById('captchaImg').src="data:image/png;base64,"+data.captcha;
+    if(WEB_APP_URL.includes("YAHAN_APNA")){
+      status.innerText='Demo - URL daal';
+      document.getElementById('captchaBox').style.display='block';
+      document.getElementById('captchaImg').src='https://via.placeholder.com/120x40?text=CAPTCHA';
+      return;
+    }
+    let res=await fetch(WEB_APP_URL+"?action=getCaptcha");
+    let data=await res.json();
+    document.getElementById('captchaImg').src="data:image/jpeg;base64,"+data.captcha;
     document.getElementById('captchaBox').style.display="block";
-    document.getElementById('fetchStatus').innerText='Captcha bharo';
-  }catch(e){document.getElementById('cNumber').value="Fetched: "+caseNo; document.getElementById('fetchStatus').innerText='Demo mode'}
+    status.innerText='Captcha bharo';
+  }catch(e){status.innerText='Error: '+e.message;}
 }
 async function fetchWithCaptcha(){
-  let cap=document.getElementById('captchaInput').value.trim(); if(!cap){alert('Captcha daal');return}
-  document.getElementById('fetchStatus').innerText='Fetching real data...';
-  let res=await fetch(WEB_APP_URL+"?caseNo="+encodeURIComponent(CURRENT_CASE_NO)+"&captcha="+cap);
-  let data=await res.json();
-  document.getElementById('cNumber').value=data.title||CURRENT_CASE_NO;
-  document.getElementById('cClient').value=data.title||'';
-  document.getElementById('cCourt').value=(data.court||'')+" | "+(data.judge||'');
-  if(data.nextDate) document.getElementById('cDate').value=data.nextDate.split('T')[0];
-  document.getElementById('fetchStatus').innerText='✅ '+data.message;
-  document.getElementById('captchaBox').style.display='none';
+  let cap=document.getElementById('captchaInput').value.trim();
+  if(!cap){alert('Captcha daal');return}
+  document.getElementById('fetchStatus').innerText='Fetching...';
+  try{
+    let res=await fetch(WEB_APP_URL+"?caseNo="+encodeURIComponent(CURRENT_CASE_NO)+"&captcha="+encodeURIComponent(cap));
+    let d=await res.json();
+    document.getElementById('cClient').value=d.title||CURRENT_CASE_NO;
+    document.getElementById('cCourt').value=(d.court||'')+" | "+(d.judge||'');
+    if(d.court){document.getElementById('cCourtSelect').value=d.court; updateCaseTypes();}
+    if(d.nextDate) document.getElementById('cDate').value=d.nextDate.split('T')[0]+"T10:00";
+    document.getElementById('fetchStatus').innerText='✅ '+d.message;
+    document.getElementById('captchaBox').style.display='none';
+  }catch(e){document.getElementById('fetchStatus').innerText='❌ '+e.message;}
 }
-render();
 </script>
 </body>
 </html>
