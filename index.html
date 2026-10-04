@@ -72,7 +72,7 @@ function openModal(){document.getElementById('modal').style.display='flex'}
 function closeModal(){document.getElementById('modal').style.display='none'}
 function saveCase(){let n=document.getElementById('cNumber').value, cl=document.getElementById('cClient').value, co=document.getElementById('cCourt').value, d=document.getElementById('cDate').value, s=document.getElementById('cStatus').value; if(!n||!cl){alert('bharo');return} cases.unshift({number:n,client:cl,court:co,date:d,status:s}); localStorage.setItem('vakilCases',JSON.stringify(cases)); render(); closeModal();}
 
-const WEB_APP_URL="YAHAN_APNA_WEB_APP_URL_PASTE_KARO";
+const WEB_APP_URL="https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec";
 let CURRENT_CASE_NO="";
 async function fetchFromECourts(){
   let caseNo=document.getElementById('cNo').value.trim(); if(!caseNo){alert('CNR daal');return}
