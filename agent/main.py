@@ -1,12 +1,8 @@
-import os
-import requests
-
+import requests, os
 TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
+CHAT_ID = "1755484304"  # direct daal diya
 
-message = "Namaste! Vakil Sathi Bot Live ho gaya hai ✅\nKal se aapke cases ke alerts yahi aayenge."
-
+print(f"Using CHAT_ID: {CHAT_ID}")
 url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-requests.post(url, data={"chat_id": CHAT_ID, "text": message})
-
-print("Message bhej diya")
+r = requests.post(url, data={"chat_id": CHAT_ID, "text": "✅ Fix ho gaya Mothi bhai! Bot live hai."})
+print(r.text)
