@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vakil Sathi - Legal Case Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#f5f7fb;display:flex;flex-direction:column;min-height:100vh}
+.header{height:72px;background:white;display:flex;align-items:center;justify-content:space-between;padding:0 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:48px;height:48px;background:#1565d8;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;color:white}
+.logo h1{font-size:24px;font-weight:800;color:#0f1e3d}
+.logo p{font-size:12px;color:#6b7280}
+.search{width:380px;height:42px;background:#f1f3f6;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;color:#6b7280}
+.main{display:flex;flex:1}
+.sidebar{width:260px;background:#f8f9fb;border-right:1px solid #e5e7eb;padding:20px}
+.nav-item{display:flex;gap:12px;padding:12px 16px;border-radius:10px;margin-bottom:6px;cursor:pointer;color:#374151;font-weight:600}
+.nav-item.active{background:#1565d8;color:white}
+.upgrade{margin-top:30px;background:#dbe8ff;border-radius:16px;padding:20px;text-align:center}
+.upgrade button{width:100%;margin-top:12px;background:#1565d8;color:white;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer}
+.content{flex:1;padding:28px}
+.top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.btn-outline{padding:10px 18px;border:1px solid #d1d5db;background:white;border-radius:10px;font-weight:600;cursor:pointer}
+.btn-primary{padding:10px 20px;background:#1565d8;color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:28px}
+.card{border-radius:16px;padding:20px}
+.card.blue{background:#c7d9ff} .card.orange{background:#ffe1b8} .card.green{background:#c8efc8}
+.card h3{font-size:15px;margin-bottom:12px} .card .num{font-size:40px;font-weight:800}
+.table-wrap{background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.05);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:700px}
+th{background:#f8fafc;text-align:left;padding:14px 18px;font-size:13px;color:#475569;border-bottom:1px solid #e5e7eb}
+td{padding:14px 18px;font-size:14px;border-bottom:1px solid #f1f5f9}
+.badge{padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700}
+.badge.active{background:#dcfce7;color:#166534} .badge.hold{background:#fef3c7;color:#92400e} .badge.closed{background:#e5e7eb;color:#4b5563}
+.case-link{color:#1565d8;font-weight:600;text-decoration:none}
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:100}
+.modal-box{background:white;padding:24px;border-radius:16px;width:400px}
+.modal-box input, .modal-box select{width:100%;padding:10px;margin:8px 0;border:1px solid #d1d5db;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo"><div class="logo-icon">⚖️</div><div><h1>Vakil Sathi</h1><p>Legal Tech • Case Management</p></div></div>
+  <div class="search">🔍 Search cases...</div>
+  <div><b>Adv. Rohan Mehta</b></div>
+</div>
+<div class="main">
+  <div class="sidebar">
+    <div class="nav-item active">🏠 Dashboard</div>
+    <div class="nav-item">📁 Cases</div>
+    <div class="nav-item">📅 Causelist</div>
+    <div class="nav-item">👥 Clients</div>
+    <div class="nav-item">📆 Calendar</div>
+    <div class="nav-item">📂 Documents</div>
+    <div class="nav-item">₹ Billing</div>
+    <div class="upgrade"><div style="font-size:32px">💡</div><h3>Upgrade</h3><p style="font-size:12px;color:#475569">Unlock advanced analytics</p><button>Upgrade Now</button></div>
+  </div>
+  <div class="content">
+    <div class="top-row"><h1 style="font-size:32px;font-weight:800">Dashboard</h1><div><button class="btn-outline">Filters</button> <button class="btn-primary" onclick="openModal()">+ New Case</button></div></div>
+    <div class="cards">
+      <div class="card blue"><h3>📅 Today's Hearings</h3><div class="num" id="todayCount">5</div><div style="font-size:12px;margin-top:8px">2 hearings in next 2 hours</div></div>
+      <div class="card orange"><h3>📝 Pending Tasks</h3><div class="num">12</div><div style="font-size:12px;margin-top:8px">4 overdue • 8 due today</div></div>
+      <div class="card green"><h3>₹ Revenue</h3><div class="num">₹1,24,500</div><div style="font-size:12px;margin-top:8px">+12.5% vs last month</div></div>
+    </div>
+    <h2 style="margin-bottom:12px">Case List - <span id="totalCases">5</span> cases</h2>
+    <div class="table-wrap">
+      <table id="caseTable">
+        <thead><tr><th>Case Number</th><th>Client Name</th><th>Court</th><th>Next Date</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h3 id="modalTitle">Add New Case</h3>
+    <input id="cNumber" placeholder="Case Number e.g. CS/2024/1023">
+    <input id="cClient" placeholder="Client Name e.g. Rajesh Kumar vs State">
+    <select id="cCourt"><option>Delhi High Court</option><option>Tis Hazari Court, Delhi</option><option>Bombay High Court</option><option>Patna District Court</option><option>Karkardooma Court, Delhi</option></select>
+    <input id="cDate" type="datetime-local">
+    <select id="cStatus"><option value="active">Active</option><option value="hold">On Hold</option><option value="closed">Closed</option></select>
+    <div style="display:flex;gap:10px;margin-top:12px"><button class="btn-primary" style="flex:1" onclick="saveCase()">Save</button><button class="btn-outline" style="flex:1" onclick="closeModal()">Cancel</button></div>
+  </div>
+</div>
+
+<script>
+let cases = [
+ {number:"CS/2024/1023",client:"Rajesh Kumar vs State of Delhi",court:"Delhi High Court",date:"12 Oct 2024 • 10:30 AM",status:"active"},
+ {number:"CS/2024/0987",client:"Priya Sharma vs HDFC Bank",court:"Tis Hazari Court, Delhi",date:"15 Oct 2024 • 02:00 PM",status:"hold"},
+ {number:"CS/2024/0876",client:"Ankit Patel vs Ramesh Singh",court:"Bombay High Court",date:"18 Oct 2024 • 11:00 AM",status:"active"},
+ {number:"CS/2024/0765",client:"Sunita Devi vs LIC India",court:"Patna District Court",date:"20 Oct 2024 • 09:30 AM",status:"closed"},
+ {number:"CS/2024/0654",client:"Mohammed Ali vs Transport",court:"Karkardooma Court, Delhi",date:"22 Oct 2024 • 01:45 PM",status:"active"}
+];
+function render(){
+ let tbody=document.getElementById('tableBody'); tbody.innerHTML='';
+ cases.forEach((c,i)=>{
+  let badge = c.status==='active'?'<span class="badge active">● Active</span>': c.status==='hold'?'<span class="badge hold">● On Hold</span>':'<span class="badge closed">● Closed</span>';
+  tbody.innerHTML+=`<tr><td><a class="case-link" href="#">${c.number}</a></td><td>${c.client}</td><td>${c.court}</td><td>${c.date}</td><td>${badge}</td><td><button onclick="delCase(${i})">🗑️</button></td></tr>`;
+ });
+ document.getElementById('totalCases').innerText=cases.length;
+ document.getElementById('todayCount').innerText=cases.length;
+ localStorage.setItem('vakilCases',JSON.stringify(cases));
+}
+function openModal(){document.getElementById('modal').style.display='flex'}
+function closeModal(){document.getElementById('modal').style.display='none'}
+function saveCase(){
+ let n=document.getElementById('cNumber').value, cl=document.getElementById('cClient').value, co=document.getElementById('cCourt').value, d=document.getElementById('cDate').value, s=document.getElementById('cStatus').value;
+ if(!n||!cl){alert('Case Number aur Client bharo');return}
+ cases.unshift({number:n,client:cl,court:co,date: d ? new Date(d).toLocaleString() : 'TBD',status:s});
+ render(); closeModal();
+}
+function delCase(i){if(confirm('Delete karna hai?')){cases.splice(i,1);render()}}
+let saved=localStorage.getItem('vakilCases'); if(saved){cases=JSON.parse(saved)}
+render();
+</script>
+</body>
+</html>
