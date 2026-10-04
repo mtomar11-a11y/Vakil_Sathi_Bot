@@ -8,111 +8,158 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:#f5f7fb}
 .header{height:72px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;margin:12px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-icon{width:48px;height:48px;background:#1565d8;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px}
-.logo h1{font-size:24px;font-weight:800;color:#1e293b;line-height:1}.logo p{font-size:12px;color:#64748b;font-weight:500}
-.search{width:420px;height:44px;background:#f8fafc;border:1px solid #d1d5db;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;color:#6b7280}
-.sanskrit{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:15px;color:#1e293b;line-height:1.2;text-align:right}
-.sanskrit span{font-size:12px;color:#64748b;font-weight:500;display:block}
-.layout{display:flex;gap:12px;padding:0 12px 12px}
-.sidebar{width:260px;background:#fff;border-radius:16px;border:1px solid #e5e7eb;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.03)}
-.menu{padding:12px 14px;border-radius:10px;margin:4px 0;display:flex;gap:12px;align-items:center;font-weight:600;color:#334155;cursor:pointer}
-.menu.active{background:#1565d8;color:#fff;box-shadow:0 4px 12px rgba(21,101,216,.3)}
-.main{flex:1;background:#fff;border-radius:16px;border:1px solid #e5e7eb;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,.03)}
-.card{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}
-.stat{border-radius:14px;padding:18px;position:relative;overflow:hidden}
-.stat.blue{background:#c6d8ff}.stat.orange{background:#ffdfb3}.stat.green{background:#c8eac8}
-.modal{position:fixed;inset:0;background:rgba(15,23,42,.5);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
-.modal-box{background:#fff;width:580px;max-height:90vh;overflow:auto;border-radius:18px;padding:26px}
-.modal-box input,.modal-box select{width:100%;padding:11px 12px;margin:6px 0;border:1px solid #cbd5e1;border-radius:10px}
-.btn{padding:11px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
-.btn-primary{background:#1565d8;color:#fff}
+.logo{display:flex;align-items:center;gap:12px}.logo-icon{width:48px;height:48px;background:#1565d8;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px}
+.sanskrit{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:15px;text-align:right}.sanskrit span{font-size:12px;color:#64748b;font-weight:500;display:block}
+.layout{display:flex;gap:12px;padding:0 12px 12px}.sidebar{width:260px;background:#fff;border-radius:16px;border:1px solid #e5e7eb;padding:18px}
+.menu{padding:12px 14px;border-radius:10px;margin:4px 0;display:flex;gap:12px;align-items:center;font-weight:600;color:#334155;cursor:pointer}.menu.active{background:#1565d8;color:#fff}
+.main{flex:1;background:#fff;border-radius:16px;border:1px solid #e5e7eb;padding:22px}
+.card{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}.stat{border-radius:14px;padding:18px}.stat.blue{background:#c6d8ff}.stat.orange{background:#ffdfb3}.stat.green{background:#c8eac8}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal-box{background:#fff;width:620px;max-height:92vh;overflow:auto;border-radius:20px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.tabs{display:flex;gap:8px;background:#f3f4f6;padding:6px;border-radius:14px;margin:16px 0;overflow-x:auto}
+.tab{padding:9px 16px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;border:0;background:#e5e7eb;color:#334155;transition:.2s}
+.tab.active{background:#1565d8;color:#fff;box-shadow:0 2px 8px rgba(21,101,216,.3)}
+.field-group{display:none}.field-group.active{display:block;animation:fade.2s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.modal-box input,.modal-box select{width:100%;padding:12px 14px;margin:7px 0;border:1px solid #cbd5e1;border-radius:11px;font-size:13.5px;outline:none}
+.modal-box input:focus,.modal-box select:focus{border-color:#1565d8;box-shadow:0 0 0 3px rgba(21,101,216,.1)}
+.btn{padding:12px 18px;border-radius:11px;border:0;font-weight:700;cursor:pointer}.btn-primary{background:#1565d8;color:#fff;width:100%;margin-top:12px;font-size:14px}.btn-outline{background:#fff;border:1px solid #cbd5e1;color:#334155}
+.label{font-size:11px;font-weight:800;color:#334155;margin-top:14px;display:block;letter-spacing:.3px;text-transform:uppercase}
 </style>
 </head>
 <body>
 
 <div class="header">
-<div class="logo"><div class="logo-icon">⚖️</div><div><h1>Vakil Sathi</h1><p>Legal Tech • Case Management</p></div></div>
-<div class="search">🔍 Search cases, clients, case number...</div>
-<div style="display:flex;gap:18px;align-items:center">
-<span style="font-size:22px">🔔<sup style="background:#ef4444;color:#fff;font-size:10px;padding:2px 6px;border-radius:10px;margin-left:-6px">3</sup></span><span style="font-size:22px">⚙️</span>
-<div style="text-align:right"><div class="sanskrit">॥ यतो धर्मस्ततो जय: ॥<span>धर्मो रक्षति रक्षित: ▾</span></div></div>
-<div style="width:44px;height:44px;background:#e2e8f0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px">⚖️</div>
-</div>
+<div class="logo"><div class="logo-icon">⚖️</div><div><h1 style="font-size:22px;font-weight:800">Vakil Sathi</h1><p style="font-size:11px;color:#64748b">Legal Tech • Case Management</p></div></div>
+<div style="width:380px;height:42px;background:#f8fafc;border:1px solid #d1d5db;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;color:#6b7280;font-size:13px">🔍 Search cases, clients, case number...</div>
+<div style="display:flex;gap:16px;align-items:center"><span>🔔<sup style="background:#ef4444;color:#fff;font-size:9px;padding:2px 5px;border-radius:10px">3</sup></span><span>⚙️</span><div style="text-align:right"><div class="sanskrit">॥ यतो धर्मस्ततो जय: ॥<span>धर्मो रक्षति रक्षित: ▾</span></div></div><div style="width:42px;height:42px;background:#e2e8f0;border-radius:50%;display:flex;align-items:center;justify-content:center">⚖️</div></div>
 </div>
 
 <div class="layout">
-<div class="sidebar">
-<div class="menu active">🏠 Dashboard</div>
-<div class="menu">📁 Cases</div>
-<div class="menu">🗓️ Causelist</div>
-<div class="menu">👥 Clients</div>
-<div class="menu">📅 Calendar</div>
-<div class="menu">📁 Documents</div>
-<div class="menu">₹ Billing</div>
-<div style="margin-top:20px;background:#dbeafe;border-radius:12px;padding:18px;text-align:center"><div style="width:48px;height:48px;background:#93c5fd;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center">💡</div><b>Upgrade</b><p style="font-size:12px;color:#334155;margin:6px 0">Unlock advanced analytics & e-filing</p><button class="btn btn-primary" style="width:100%;margin-top:10px">Upgrade Now</button></div>
-</div>
-
+<div class="sidebar"><div class="menu active">🏠 Dashboard</div><div class="menu">📁 Cases</div><div class="menu">🗓️ Causelist</div><div class="menu">👥 Clients</div><div class="menu">📅 Calendar</div><div class="menu">📁 Documents</div><div class="menu">₹ Billing</div></div>
 <div class="main">
-<div style="display:flex;justify-content:space-between;align-items:center"><h1 style="font-size:32px;font-weight:800">Dashboard</h1><div style="display:flex;gap:10px"><button class="btn" style="border:1px solid #cbd5e1;background:#fff">☰ Filters</button><button class="btn btn-primary" onclick="openModal()">+ New Case</button></div></div>
-
-<div class="card">
-<div class="stat blue"><div style="display:flex;gap:10px;align-items:center"><span style="background:#2563eb;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center">📅</span>Today's Hearings</div><div style="font-size:44px;font-weight:800;margin:12px 0">5</div><div style="font-size:12px">↗ 2 hearings in next 2 hours • 1 more than yesterday</div></div>
-<div class="stat orange"><div style="display:flex;gap:10px;align-items:center"><span style="background:#f97316;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center">☰</span>Pending Tasks</div><div style="font-size:44px;font-weight:800;margin:12px 0">12</div><div style="font-size:12px">⚠️ 4 overdue • 8 due today<br>2 tasks completed today</div></div>
-<div class="stat green"><div style="display:flex;gap:10px;align-items:center"><span style="background:#16a34a;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center">₹</span>Revenue</div><div style="font-size:32px;font-weight:800;margin:12px 0">₹1,24,500</div><div style="font-size:12px">↗ This month • +12.5% vs last month</div></div>
-</div>
-
-<h2 style="margin:18px 0">Case List</h2>
-<div id="caseList"></div>
+<div style="display:flex;justify-content:space-between"><h1 style="font-size:28px;font-weight:800">Dashboard</h1><button class="btn btn-primary" style="width:auto;padding:10px 20px" onclick="openModal()">+ New Case</button></div>
+<div class="card"><div class="stat blue"><b>Today's Hearings</b><div style="font-size:38px;font-weight:800">5</div><small>2 hearings in next 2 hours</small></div><div class="stat orange"><b>Pending Tasks</b><div style="font-size:38px;font-weight:800">12</div><small>4 overdue • 8 due today</small></div><div class="stat green"><b>Revenue</b><div style="font-size:28px;font-weight:800">₹1,24,500</div><small>This month • +12.5%</small></div></div>
+<div id="caseList" style="margin-top:16px"></div>
 </div>
 </div>
 
-<!-- MODAL WITH YOUR NEW GOOGLE SCRIPT LINK -->
+<!-- UPDATED MODAL WITH MULTI SEARCH -->
 <div class="modal" id="modal"><div class="modal-box">
-<h3>Add New Case - Vakil Sathi</h3><p style="font-size:12px;color:#64748b">CNR se auto-fetch • Link: dev wala active hai</p>
+<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-size:20px;font-weight:800">Add New Case - Vakil Sathi</h2><button onclick="closeModal()" style="width:36px;height:36px;border-radius:10px;border:0;background:#f3f4f6;cursor:pointer;font-size:18px">✕</button></div>
+<p style="font-size:11px;color:#64748b;margin-top:4px">CNR se auto-fetch • Link: dev wala active hai • Multi-search enabled</p>
 
-<label style="font-size:11px;font-weight:800;margin-top:14px;display:block">1. CNR NUMBER *</label>
-<input id="cNo" placeholder="DLHC01-000001-2024">
-<div style="display:flex;gap:10px;margin-top:10px"><button onclick="generateCaptcha()" class="btn btn-primary" style="flex:1">🔍 Fetch + Captcha</button><span id="fetchStatus" style="font-size:11px;color:#64748b;display:flex;align-items:center"></span></div>
-
-<div id="captchaBox" style="display:none;margin-top:14px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:16px;text-align:center">
-<canvas id="captchaCanvas" width="180" height="48" style="border:1px solid #e2e8f0;border-radius:10px;background:#fff"></canvas><br>
-<div style="display:flex;justify-content:center;gap:8px;margin-top:12px"><input id="captchaInput" placeholder="CODE" style="width:120px;margin:0;text-align:center;letter-spacing:3px;font-weight:700"><button onclick="verifyCaptcha()" class="btn btn-primary" style="background:#16a34a">✓ Verify</button><button onclick="generateCaptcha()" style="padding:10px 12px;border-radius:10px;border:1px solid #cbd5e1;background:#fff">↻</button></div>
+<!-- TABS -->
+<div class="tabs">
+<button class="tab active" onclick="switchTab('cnr',this)">CNR Search</button>
+<button class="tab" onclick="switchTab('casenumber',this)">Case Number</button>
+<button class="tab" onclick="switchTab('party',this)">Party Name</button>
+<button class="tab" onclick="switchTab('advocate',this)">Advocate Name</button>
+<button class="tab" onclick="switchTab('fir',this)">FIR No.</button>
 </div>
 
-<label style="font-size:11px;font-weight:800;margin-top:14px;display:block">2. COURT / 3. CASE TYPE / 4. NUMBER / 5. YEAR</label>
-<select id="cCourtSelect" onchange="updateCaseTypes()"><option value="">-- Court Select --</option><option>Supreme Court of India</option><option>Delhi High Court</option><option>Bombay High Court</option><option>Tis Hazari Court, Delhi</option></select>
-<select id="cCaseType" style="margin-top:8px"><option>-- Pehle Court Select --</option></select>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px"><input id="cNumberOnly" placeholder="Case Number 476"><input id="cYear" type="number" value="2024"></div>
+<!-- 1. CNR TAB -->
+<div id="tab-cnr" class="field-group active">
+<label class="label">CNR Number *</label>
+<input id="cNo" placeholder="MHHC010123452023">
+<div id="captchaBox" style="margin-top:12px">
+<div style="display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:center">
+<canvas id="captchaCanvas" width="180" height="48" style="border:1px solid #e2e8f0;border-radius:10px;background:#fff"></canvas>
+<div style="display:flex;gap:8px"><input id="captchaInput" placeholder="Enter captcha code" style="margin:0"><button onclick="generateCaptcha()" style="width:44px;border-radius:10px;border:1px solid #cbd5e1;background:#fff;cursor:pointer">↻</button></div>
+</div>
+</div>
+<button class="btn btn-primary" onclick="verifyCaptcha()">🔍 Fetch Case Details</button>
+<p style="font-size:11px;color:#6b7280;text-align:center;margin-top:8px">Enter CNR number to fetch from court database</p>
+</div>
 
-<div style="height:1px;background:#f1f5f9;margin:16px 0"></div>
-<label>CLIENT / TITLE</label><input id="cClient" placeholder="Sheet se auto ayega">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div><label>Diary</label><input id="cDiary"></div><div><label>Judge</label><input id="cJudge"></div></div>
-<label>Next Date</label><input id="cDate" type="date">
+<!-- 2. CASE NUMBER TAB -->
+<div id="tab-casenumber" class="field-group">
+<label class="label">Court *</label>
+<select id="cCourtSelect" onchange="updateCaseTypes()"><option value="">-- Court Select --</option><option>Supreme Court of India</option><option>Delhi High Court</option><option>Bombay High Court</option><option>Tis Hazari Court, Delhi</option><option>Patna District Court</option></select>
+<label class="label">Case Type</label><select id="cCaseType"><option>-- Pehle Court Select --</option></select>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><label class="label">Case Number</label><input id="cNumberOnly" placeholder="476"></div><div><label class="label">Year</label><input id="cYear" type="number" value="2024"></div></div>
+<button class="btn btn-primary" onclick="searchByCaseNumber()">🔍 Search by Case Number</button>
+</div>
 
-<div style="display:flex;gap:12px;margin-top:20px"><button class="btn btn-primary" style="flex:1" onclick="saveCase()">💾 Save Case</button><button class="btn" style="flex:1;border:1px solid #cbd5e1;background:#fff" onclick="closeModal()">Cancel</button></div>
+<!-- 3. PARTY NAME TAB -->
+<div id="tab-party" class="field-group">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><label class="label">Petitioner / Plaintiff *</label><input id="petitioner" placeholder="Rajesh Kumar"></div><div><label class="label">Respondent / Defendant</label><input id="respondent" placeholder="State of Delhi"></div></div>
+<label class="label">Year / Court (Optional)</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><input id="partyYear" type="number" placeholder="2024"><select id="partyCourt"><option>All Courts</option><option>Supreme Court</option><option>Delhi High Court</option></select></div>
+<button class="btn btn-primary" onclick="searchByParty()">🔍 Search by Party Name</button>
+</div>
+
+<!-- 4. ADVOCATE NAME TAB -->
+<div id="tab-advocate" class="field-group">
+<label class="label">Advocate Name *</label><input id="advName" placeholder="Adv. Sharma">
+<label class="label">Bar Code / Court</label><input id="barCode" placeholder="Optional">
+<button class="btn btn-primary" onclick="searchByAdvocate()">🔍 Search by Advocate</button>
+</div>
+
+<!-- 5. FIR NO TAB -->
+<div id="tab-fir" class="field-group">
+<label class="label">FIR Number *</label><input id="firNo" placeholder="0123/2024">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><label class="label">Police Station</label><input id="policeStation" placeholder="Connaught Place"></div><div><label class="label">Year</label><input id="firYear" type="number" value="2024"></div></div>
+<button class="btn btn-primary" onclick="searchByFIR()">🔍 Search by FIR No.</button>
+</div>
+
+<div style="height:1px;background:#f1f5f9;margin:18px 0"></div>
+<label class="label">CLIENT / TITLE (Auto from Sheet)</label><input id="cClient" placeholder="Sheet se auto ayega">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><label class="label">Diary</label><input id="cDiary"></div><div><label class="label">Judge</label><input id="cJudge"></div></div>
+<label class="label">Next Date</label><input id="cDate" type="date">
+<div style="display:flex;gap:12px;margin-top:18px"><button class="btn btn-primary" onclick="saveCase()">💾 Save Case</button><button class="btn btn-outline" style="flex:1" onclick="closeModal()">Cancel</button></div>
+<p id="fetchStatus" style="font-size:11px;color:#64748b;text-align:center;margin-top:10px"></p>
+
 </div></div>
 
 <script>
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbzlYM3b3rAPqPZ_9Z310pqDWUIf36iMZ9w0Lx739ljL/dev";
 const caseTypeMap={"Supreme Court of India":["Writ Petition","SLP (Criminal)","SLP(C)"],"Delhi High Court":["W.P.(C)","CRL.A.","CS(OS)"],"default":["Civil Suit","Criminal Case","Writ Petition"]};
 function updateCaseTypes(){let c=document.getElementById('cCourtSelect').value;let t=caseTypeMap[c]||caseTypeMap["default"];let s=document.getElementById('cCaseType');s.innerHTML="";t.forEach(v=>{let o=document.createElement('option');o.value=v;o.text=v;s.appendChild(o);});}
-let cases=[
-{num:"CS/2024/1023",client:"Rajesh Kumar vs State of Delhi",court:"Delhi High Court",date:"12 Oct 2024 • 10:30 AM",status:"Active"},
-{num:"CS/2024/0987",client:"Priya Sharma vs HDFC Bank",court:"Tis Hazari Court, Delhi",date:"15 Oct 2024 • 02:00 PM",status:"On Hold"},
-];
-function render(){let h="";cases.forEach((c,i)=>{h+=`<div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f1f5f9;font-size:13px"><b style="color:#1565d8">${c.num}</b><span>${c.client}</span><span>${c.court}</span><span>${c.date}</span><span style="background:${c.status=='Active'?'#dcfce7':'#fef3c7'};padding:3px 8px;border-radius:6px;font-size:11px">${c.status}</span></div>`;});document.getElementById('caseList').innerHTML=h;}
-render();
-function openModal(){document.getElementById('modal').style.display='flex'}
-function closeModal(){document.getElementById('modal').style.display='none'}
+function switchTab(id,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');document.querySelectorAll('.field-group').forEach(g=>g.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');}
+let cases=[{num:"CS/2024/1023",client:"Rajesh Kumar vs State of Delhi",court:"Delhi High Court",date:"12 Oct 2024",status:"Active"}];
+function render(){let h="";cases.forEach(c=>{h+=`<div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f1f5f9;font-size:13px"><b style="color:#1565d8">${c.num}</b><span>${c.client}</span><span>${c.court}</span><span>${c.date}</span><span style="background:#dcfce7;padding:3px 8px;border-radius:6px;font-size:11px">${c.status}</span></div>`;});document.getElementById('caseList').innerHTML=h;}render();
+function openModal(){document.getElementById('modal').style.display='flex';generateCaptcha();}function closeModal(){document.getElementById('modal').style.display='none';}
+
+// SEARCH FUNCTIONS - ALL USE YOUR DEV LINK
+function searchByCaseNumber(){
+  let court=document.getElementById('cCourtSelect').value, type=document.getElementById('cCaseType').value, num=document.getElementById('cNumberOnly').value, year=document.getElementById('cYear').value;
+  let q=`${court}|${type}|${num}|${year}`;
+  document.getElementById('fetchStatus').innerText='🔍 Searching by Case Number...';
+  fetch(GOOGLE_SHEET_URL+"?type=casenumber&court="+encodeURIComponent(court)+"&casetype="+encodeURIComponent(type)+"&number="+num+"&year="+year).then(r=>r.json()).then(data=>{fillData(data);}).catch(()=>{document.getElementById('cClient').value=type+" "+num+"/"+year;document.getElementById('fetchStatus').innerText='⚠️ Sheet me nahi, manual bharo';});
+}
+function searchByParty(){
+  let pet=document.getElementById('petitioner').value, res=document.getElementById('respondent').value, year=document.getElementById('partyYear').value;
+  document.getElementById('fetchStatus').innerText='🔍 Searching by Party: '+pet;
+  fetch(GOOGLE_SHEET_URL+"?type=party&petitioner="+encodeURIComponent(pet)+"&respondent="+encodeURIComponent(res)+"&year="+year).then(r=>r.json()).then(data=>fillData(data)).catch(()=>{document.getElementById('cClient').value=pet+" vs "+res;document.getElementById('fetchStatus').innerText='⚠️ Party search - manual';});
+}
+function searchByAdvocate(){
+  let adv=document.getElementById('advName').value;
+  document.getElementById('fetchStatus').innerText='🔍 Searching Advocate: '+adv;
+  fetch(GOOGLE_SHEET_URL+"?type=advocate&adv="+encodeURIComponent(adv)).then(r=>r.json()).then(data=>fillData(data)).catch(()=>{document.getElementById('fetchStatus').innerText='Advocate search - manual entry';});
+}
+function searchByFIR(){
+  let fir=document.getElementById('firNo').value, ps=document.getElementById('policeStation').value;
+  document.getElementById('fetchStatus').innerText='🔍 Searching FIR: '+fir;
+  fetch(GOOGLE_SHEET_URL+"?type=fir&fir="+encodeURIComponent(fir)+"&ps="+encodeURIComponent(ps)).then(r=>r.json()).then(data=>fillData(data)).catch(()=>{document.getElementById('cClient').value="FIR "+fir+" - "+ps;});
+}
+function fillData(data){
+  if(!data) return;
+  if(data.title) document.getElementById('cClient').value=data.title;
+  if(data.court) document.getElementById('cCourtSelect').value=data.court;
+  if(data.diary) document.getElementById('cDiary').value=data.diary;
+  if(data.judge) document.getElementById('cJudge').value=data.judge;
+  if(data.nextDate) document.getElementById('cDate').value=data.nextDate;
+  document.getElementById('fetchStatus').innerText='✅ Data aa gaya: '+(data.message||'Found');
+}
+
 function saveCase(){
-  let cnr=document.getElementById('cNo').value;
-  if(cnr){fetch(GOOGLE_SHEET_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({cnr:cnr,title:document.getElementById('cClient').value,court:document.getElementById('cCourtSelect').value,diary:document.getElementById('cDiary').value})});}
-  cases.unshift({num:cnr||"CS/2024/NEW",client:document.getElementById('cClient').value||cnr+" vs State",court:document.getElementById('cCourtSelect').value||"Supreme Court",date:document.getElementById('cDate').value||"Oct 5, 2026",status:"Active"});render();closeModal();
+  let cnr=document.getElementById('cNo').value||document.getElementById('cNumberOnly').value||document.getElementById('petitioner').value||document.getElementById('firNo').value||"NEW";
+  fetch(GOOGLE_SHEET_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({cnr:cnr,title:document.getElementById('cClient').value,court:document.getElementById('cCourtSelect').value,diary:document.getElementById('cDiary').value,searchType:document.querySelector('.tab.active').innerText})});
+  cases.unshift({num:cnr,client:document.getElementById('cClient').value||cnr+" vs State",court:document.getElementById('cCourtSelect').value||"Court",date:document.getElementById('cDate').value||"Oct 5, 2026",status:"Active"});render();closeModal();
 }
 let currentCaptcha="";
-function generateCaptcha(){let cnr=document.getElementById('cNo').value.trim();if(!cnr){alert('Pehle CNR daalo');return}document.getElementById('captchaBox').style.display='block';let canvas=document.getElementById('captchaCanvas');let ctx=canvas.getContext('2d');ctx.clearRect(0,0,180,48);ctx.fillStyle='#fff';ctx.fillRect(0,0,180,48);currentCaptcha=Math.floor(1000+Math.random()*9000).toString();ctx.font='bold 28px Inter';ctx.fillStyle='#0f172a';ctx.fillText(currentCaptcha,40,34);for(let i=0;i<4;i++){ctx.strokeStyle='#94a3b8';ctx.beginPath();ctx.moveTo(Math.random()*180,Math.random()*48);ctx.lineTo(Math.random()*180,Math.random()*48);ctx.stroke();}document.getElementById('fetchStatus').innerText='Code bharo 👇';}
-function verifyCaptcha(){let e=document.getElementById('captchaInput').value.trim();if(e===currentCaptcha){document.getElementById('fetchStatus').innerText='✅ Verified - Naye dev link se la raha hu...';fetch(GOOGLE_SHEET_URL+"?cnr="+encodeURIComponent(document.getElementById('cNo').value)).then(r=>r.json()).then(data=>{console.log(data);if(data.title)document.getElementById('cClient').value=data.title;if(data.court)document.getElementById('cCourtSelect').value=data.court;if(data.diary)document.getElementById('cDiary').value=data.diary;if(data.judge)document.getElementById('cJudge').value=data.judge;if(data.nextDate)document.getElementById('cDate').value=data.nextDate;document.getElementById('fetchStatus').innerText='✅ Data aa gaya!';}).catch(()=>{document.getElementById('fetchStatus').innerText='⚠️ Sheet me nahi mila';});document.getElementById('captchaBox').style.display='none';}else{alert('Galat Captcha');generateCaptcha();}}
+function generateCaptcha(){let canvas=document.getElementById('captchaCanvas');if(!canvas) return;let ctx=canvas.getContext('2d');ctx.clearRect(0,0,180,48);ctx.fillStyle='#fff';ctx.fillRect(0,0,180,48);currentCaptcha=Math.floor(1000+Math.random()*9000).toString();ctx.font='bold 28px Inter';ctx.fillStyle='#0f172a';ctx.fillText(currentCaptcha,40,34);for(let i=0;i<4;i++){ctx.strokeStyle='#94a3b8';ctx.beginPath();ctx.moveTo(Math.random()*180,Math.random()*48);ctx.lineTo(Math.random()*180,Math.random()*48);ctx.stroke();}}
+function verifyCaptcha(){let e=document.getElementById('captchaInput').value.trim();if(e!==currentCaptcha&&e!==""){alert('Galat Captcha');generateCaptcha();return;}document.getElementById('fetchStatus').innerText='✅ Verified - Dev link se fetch...';fetch(GOOGLE_SHEET_URL+"?cnr="+encodeURIComponent(document.getElementById('cNo').value)).then(r=>r.json()).then(data=>{fillData(data);}).catch(()=>{document.getElementById('cClient').value=document.getElementById('cNo').value+" vs State";});}
 </script>
 </body>
 </html>
