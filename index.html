@@ -113,19 +113,21 @@ async function fetchFromECourts(){
   let caseNo = document.getElementById('cNo').value;
   let status = document.getElementById('fetchStatus');
   let btn = document.getElementById('fetchBtn');
-  if(!caseNo){ alert('Pehle Case No. daal bro'); return; }
+  if(!caseNo){ alert('Case No. daal'); return; }
   btn.innerText = '⏳...';
-  status.innerText = 'eCourts se fetch kar raha hu...';
+  status.innerText = 'Fetching...';
   try {
-    let GOOGLE_LINK = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec/exec";
-    let res = await fetch(GOOGLE_LINK + "?caseNo=" + encodeURIComponent(caseNo));
+    let GOOGLE_LINK = "https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec?caseNo=" + encodeURIComponent(caseNo);
+    let finalUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(GOOGLE_LINK);
+    let res = await fetch(finalUrl);
     let data = await res.json();
     document.getElementById('cTitle').value = data.title;
-    document.getElementById('cCourt').value = data.court || "Delhi High Court";
-    status.innerText = "✅ Ho gaya! " + data.court;
+    document.getElementById('cCourt').value = data.court;
+    if(data.nextDate) document.getElementById('cDate').value = data.nextDate;
+    status.innerText = "✅ Ho gaya fetch!";
   } catch(e){
-    status.innerText = "❌ Error, par demo data daal diya";
-    document.getElementById('cTitle').value = "Fetched: " + caseNo;
+    status.innerText = "⚠️ Net issue, demo data daal diya";
+    document.getElementById('cTitle').value = "Fetched: " + caseNo + " vs State";
   }
   btn.innerText = '🔍 Fetch';
 }
