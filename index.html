@@ -78,7 +78,14 @@ label{font-size:12px;font-weight:700;color:#334155;margin-bottom:4px;display:blo
 <div class="modal">
 <h2>+ Add New Case - All India</h2>
 <div class="form-grid">
-<div><label>Case Number</label><input id="cNo" class="input" placeholder="e.g. SLP(C) No. 123/2024"></div>
+<div style="grid-column:1/-1">
+  <label>Case Number / CNR Number</label>
+  <div style="display:flex;gap:8px">
+    <input id="cNo" class="input" placeholder="e.g. DLHC01-12345-2024">
+    <button class="btn btn-blue" onclick="fetchFromECourts()" id="fetchBtn">🔍 Fetch</button>
+  </div>
+  <p id="fetchStatus" style="font-size:12px;color:blue;margin-top:5px"></p>
+</div>
 <div><label>Case Type</label><select id="cType" class="input"><option>Civil Suit</option><option>Criminal Case</option><option>Writ Petition (Civil)</option><option>Writ Petition (Criminal)</option><option>SLP (Civil)</option><option>SLP (Criminal)</option><option>BA / Anticipatory Bail</option><option>PIL</option><option>Arbitration</option><option>Company Petition</option><option>Consumer Complaint</option><option>Service Matter</option></select></div>
 <div style="grid-column:1/-1"><label>Party Names (Title)</label><input id="cTitle" class="input" placeholder="e.g. Rajesh Kumar vs State of Delhi & Ors"></div>
 <div style="grid-column:1/-1"><label>Select Court / Tribunal / Commission</label>
@@ -115,6 +122,16 @@ function saveCase(){
  document.getElementById('hearingCount').innerText=tbody.children.length;
 }
 document.getElementById('searchBox').addEventListener('input',e=>{ let v=e.target.value.toLowerCase(); document.querySelectorAll('#caseTable tbody tr').forEach(r=>{r.style.display=r.innerText.toLowerCase().includes(v)?'':'none'})});
+async function fetchFromECourts(){
+  let caseNo = document.getElementById('cNo').value;
+  if(!caseNo){ alert('Pehle Case No. daal'); return; }
+  document.getElementById('fetchStatus').innerText = '⏳ eCourts se la raha hu... ' + caseNo;
+  // Demo ke liye 2 sec baad auto fill
+  setTimeout(()=>{
+    document.getElementById('cTitle').value = "Fetched: " + caseNo;
+    document.getElementById('fetchStatus').innerText = '✅ Mil gaya! (Abhi demo hai, proxy lagne ke baad real ayega)';
+  }, 1500);
+}
 </script>
 </body>
 </html>
