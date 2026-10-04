@@ -110,21 +110,24 @@ function openModal(){document.getElementById('modal').classList.add('open')}
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 
 async function fetchFromECourts(){
-  let caseNo = document.getElementById('cNo').value;
+  let caseNo = document.getElementById('cNo').value.trim();
   let status = document.getElementById('fetchStatus');
   let btn = document.getElementById('fetchBtn');
   if(!caseNo){ alert('Case No. daal'); return; }
   btn.innerText = '⏳...';
-  status.innerText = 'Fetching...';
+  status.innerText = 'Fetching from Google...';
   try {
-    let GOOGLE_LINK = "https://script.google.com/macros/library/d/14Hd_uCccEFS2XlZNikrs2aezz6pkDnw_WmbfA6Dw5b9DuDIlCC3CJj1L/2/exec?caseNo=" + encodeURIComponent(caseNo);
-    let res = await fetch(GOOGLE_LINK);
+    let BASE_URL = "https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec";
+    let res = await fetch(BASE_URL + "?caseNo=" + encodeURIComponent(caseNo), { redirect: "follow" });
+    if(!res.ok) throw new Error("Google script error: " + res.status);
     let data = await res.json();
     document.getElementById('cTitle').value = data.title;
     document.getElementById('cCourt').value = data.court;
-    status.innerText = "✅ Ho gaya fetch! Real data";
+    status.innerText = "✅ Ho gaya! " + data.title;
   } catch(e){
-    status.innerText = "❌ Error: " + e.message;
+    console.error(e);
+    status.innerText = "❌ Failed: " + e.message + " | Demo daal diya";
+    document.getElementById('cTitle').value = "Fetched: " + caseNo + " vs State";
   }
   btn.innerText = '🔍 Fetch';
 }
