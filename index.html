@@ -124,13 +124,29 @@ function saveCase(){
 document.getElementById('searchBox').addEventListener('input',e=>{ let v=e.target.value.toLowerCase(); document.querySelectorAll('#caseTable tbody tr').forEach(r=>{r.style.display=r.innerText.toLowerCase().includes(v)?'':'none'})});
 async function fetchFromECourts(){
   let caseNo = document.getElementById('cNo').value;
-  if(!caseNo){ alert('Pehle Case No. daal'); return; }
-  document.getElementById('fetchStatus').innerText = '⏳ eCourts se la raha hu... ' + caseNo;
-  // Demo ke liye 2 sec baad auto fill
-  setTimeout(()=>{
-    document.getElementById('cTitle').value = "Fetched: " + caseNo;
-    document.getElementById('fetchStatus').innerText = '✅ Mil gaya! (Abhi demo hai, proxy lagne ke baad real ayega)';
-  }, 1500);
+  let status = document.getElementById('fetchStatus');
+  let btn = document.getElementById('fetchBtn');
+  
+  if(!caseNo){ alert('Pehle Case No. daal bro'); return; }
+  
+  btn.innerText = '⏳...';
+  status.innerText = 'eCourts se fetch kar raha hu...';
+
+  try {
+    // YAHAN APNA LINK PASTE KAR - neeche wali line me
+    let GOOGLE_LINK = "https://script.google.com/macros/s/TERA_LINK_YAHAN/exec";
+    
+    let res = await fetch(GOOGLE_LINK + "?caseNo=" + encodeURIComponent(caseNo));
+    let data = await res.json();
+    
+    document.getElementById('cTitle').value = data.title;
+    document.getElementById('cDate').value = data.nextDate;
+    status.innerText = "✅ Ho gaya fetch! " + data.court;
+    
+  } catch(e){
+    status.innerText = "❌ Error: " + e.message;
+  }
+  btn.innerText = '🔍 Fetch';
 }
   https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec
 </script>
