@@ -186,13 +186,13 @@ render();
 let CURRENT_CASE_NO="";
 async function fetchFromECourts(){
   let caseNo=document.getElementById('cNo').value.trim();
-  if(!caseNo){alert('Pehle CNR daal bhai');return}
+  if(!caseNo){alert('Please mentopn CNR first');return}
   CURRENT_CASE_NO=caseNo;
   let status=document.getElementById('fetchStatus');
   status.innerText='Captcha la raha hu...';
   try{
-    if(WEB_APP_URL.includes("YAHAN_APNA")){
-      status.innerText='Demo - URL daal';
+    if(WEB_APP_URL.includes("https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec")){
+      status.innerText='Demo - https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec';
       document.getElementById('captchaBox').style.display='block';
       document.getElementById('captchaImg').src='https://via.placeholder.com/120x40?text=CAPTCHA';
       return;
