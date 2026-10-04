@@ -117,17 +117,14 @@ async function fetchFromECourts(){
   btn.innerText = '⏳...';
   status.innerText = 'Fetching...';
   try {
-    let GOOGLE_LINK = "https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec?caseNo=" + encodeURIComponent(caseNo);
-    let finalUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(GOOGLE_LINK);
-    let res = await fetch(finalUrl);
+    let GOOGLE_LINK = "https://script.google.com/macros/library/d/14Hd_uCccEFS2XlZNikrs2aezz6pkDnw_WmbfA6Dw5b9DuDIlCC3CJj1L/2/exec?caseNo=" + encodeURIComponent(caseNo);
+    let res = await fetch(GOOGLE_LINK);
     let data = await res.json();
     document.getElementById('cTitle').value = data.title;
     document.getElementById('cCourt').value = data.court;
-    if(data.nextDate) document.getElementById('cDate').value = data.nextDate;
-    status.innerText = "✅ Ho gaya fetch!";
+    status.innerText = "✅ Ho gaya fetch! Real data";
   } catch(e){
-    status.innerText = "⚠️ Net issue, demo data daal diya";
-    document.getElementById('cTitle').value = "Fetched: " + caseNo + " vs State";
+    status.innerText = "❌ Error: " + e.message;
   }
   btn.innerText = '🔍 Fetch';
 }
