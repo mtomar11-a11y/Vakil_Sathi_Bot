@@ -117,7 +117,7 @@ async function fetchFromECourts(){
   btn.innerText = '⏳...';
   status.innerText = 'eCourts se fetch kar raha hu...';
   try {
-    let GOOGLE_LINK = "https://script.google.com/macros/s/PASTE_YOUR_LINK_HERE/exec";
+    let GOOGLE_LINK = "https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec/exec";
     let res = await fetch(GOOGLE_LINK + "?caseNo=" + encodeURIComponent(caseNo));
     let data = await res.json();
     document.getElementById('cTitle').value = data.title;
@@ -153,7 +153,6 @@ document.getElementById('searchBox').addEventListener('input',e=>{
     r.style.display=r.innerText.toLowerCase().includes(v)?'':'none'
   })
 });
-  https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec
 </script>
 </body>
 </html>
