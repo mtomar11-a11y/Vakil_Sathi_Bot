@@ -2,136 +2,52 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vakil Sathi - Workspace</title>
+<title>Vakil Sathi - Workspace - Final</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:#f8f9fb;color:#1a2332}
 .topbar{height:52px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:sticky;top:0;z-index:20}
-.topbar-left{display:flex;align-items:center;gap:16px}
-.logo{font-weight:800;letter-spacing:2px;display:flex;gap:2px}
-.logo b{background:#111;color:#fff;padding:2px 6px;border-radius:3px}
+.logo{font-weight:800;letter-spacing:2px;display:flex;gap:2px}.logo b{background:#111;color:#fff;padding:2px 6px;border-radius:3px}
 .search-global{width:380px;height:36px;background:#f1f3f6;border:1px solid #e5e7eb;border-radius:8px;display:flex;align-items:center;padding:0 12px;gap:8px;color:#94a3b8;font-size:13px}
-.layout{display:flex}
-.sidebar{width:220px;background:#fff;border-right:1px solid #e5e7eb;min-height:calc(100vh - 52px);padding:12px 8px}
-.side-search{height:34px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;display:flex;align-items:center;padding:0 10px;color:#94a3b8;font-size:13px;margin-bottom:12px}
-.menu-title{font-size:11px;font-weight:700;color:#64748b;padding:10px 10px 4px;display:flex;justify-content:space-between}
-.menu-item{padding:8px 10px;border-radius:6px;font-size:13px;color:#334155;cursor:pointer;margin:2px 0}
-.menu-item.active{background:#fff7cc;color:#854d0e;font-weight:600}
-.menu-item:hover{background:#f1f5f9}
-.main{flex:1;padding:14px 18px}
-.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px}
-.btn-new{background:#22c55e;color:#fff;border:0;padding:7px 14px;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer}
-.search-box{height:32px;border:1px solid #e5e7eb;background:#fff;border-radius:6px;display:flex;align-items:center;padding:0 10px;width:240px;color:#94a3b8;font-size:13px}
-.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}
-.stat{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px;text-align:center}
-.stat label{font-size:10px;color:#64748b;font-weight:600;display:block;margin-bottom:4px}
-.stat b{font-size:18px;font-weight:800}
-.list-toolbar{height:42px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;margin-bottom:12px;font-size:13px;color:#64748b}
-.case-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;margin-bottom:12px}
-.case-title{font-size:14px;font-weight:600;color:#1e40af;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.case-meta{font-size:11px;color:#64748b;margin-top:6px}
-.badge{padding:3px 8px;border-radius:4px;font-size:10px;font-weight:700}
-.badge.pending{background:#ffedd5;color:#ea580c;border:1px solid #fed7aa}
-.badge.lodged{background:#fee2e2;color:#dc2626;border:1px solid #fecaca}
-.date-box{background:#f8fafc;border:1px solid #e5e7eb;border-radius:6px;padding:8px 10px;min-width:110px}
-.tag{padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600}
-.tag.ss{background:#dcfce7;color:#166534}.tag.sepi{background:#ffe4e6;color:#be123c}
-.juris{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;font-size:12px}
-.juris span{color:#64748b;font-size:11px}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
-.modal-box{background:#fff;width:520px;max-height:94vh;overflow:auto;border-radius:12px;padding:20px}
-.modal-box label{font-size:11px;font-weight:800;color:#334155;margin-top:10px;display:block}
-.modal-box input,.modal-box select{width:100%;padding:10px;margin:5px 0;border:1px solid #cbd5e1;border-radius:8px;font-size:13px}
-.btn{padding:10px;border-radius:8px;border:0;font-weight:700;cursor:pointer}
-.btn-primary{background:#1565d8;color:#fff}
-.btn-outline{background:#fff;border:1px solid #cbd5e1}
+.layout{display:flex}.sidebar{width:220px;background:#fff;border-right:1px solid #e5e7eb;min-height:calc(100vh - 52px);padding:12px 8px}
+.menu-item{padding:8px 10px;border-radius:6px;font-size:13px;color:#334155;margin:2px 0;cursor:pointer}.menu-item.active{background:#fff7cc;color:#854d0e;font-weight:600}
+.main{flex:1;padding:14px 18px}.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}.stat{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px;text-align:center}.stat label{font-size:10px;color:#64748b;font-weight:600;display:block;margin-bottom:4px}.stat b{font-size:18px;font-weight:800}
+.case-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;margin-bottom:12px}.badge{padding:3px 8px;border-radius:4px;font-size:10px;font-weight:700}.badge.pending{background:#ffedd5;color:#ea580c}.badge.lodged{background:#fee2e2;color:#dc2626}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}.modal-box{background:#fff;width:520px;max-height:94vh;overflow:auto;border-radius:12px;padding:20px}.modal-box label{font-size:11px;font-weight:800;color:#334155;margin-top:10px;display:block}.modal-box input,.modal-box select{width:100%;padding:10px;margin:5px 0;border:1px solid #cbd5e1;border-radius:8px;font-size:13px}.btn{padding:10px;border-radius:8px;border:0;font-weight:700;cursor:pointer}.btn-primary{background:#1565d8;color:#fff}
 </style>
 </head>
 <body>
-<div class="topbar">
-<div class="topbar-left"><span>☰</span><div class="logo"><span>p r o</span><b>vakil</b></div><div class="search-global">🔍 Search across application</div></div>
-<div style="display:flex;gap:16px;color:#64748b"><span>✉️</span><span>🔔</span><span style="width:28px;height:28px;background:#334155;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px">SP</span></div>
-</div>
+<div class="topbar"><div style="font-weight:800">p r o<b style="background:#111;color:#fff;padding:2px 6px">vakil</b> - Vakil Sathi</div><div>mtomar11@gmail.com</div></div>
 <div class="layout">
-<div class="sidebar">
-<div class="side-search">🔍 Search</div>
-<div class="menu-title">📁 Cases</div>
-<div class="menu-item active">Workspace</div>
-<div class="menu-item">Daily Causelist</div>
-<div class="menu-item">Orders by Date</div>
-<div class="menu-item">Orders by Notification</div>
-<div class="menu-item">Display Board</div>
-<div class="menu-title">Labels</div>
-<div class="menu-item">👥 My Clients</div>
-<div class="menu-item">💳 Expenses</div>
-<div class="menu-item">🧾 Invoices</div>
-<div class="menu-item">📝 Notes</div>
-<div class="menu-item">☰ Tasks</div>
-<div class="menu-item">🔑 Keywords</div>
-<div class="menu-item">≡ Timeline</div>
-<div class="menu-item">⚖️ Acts</div>
-<div class="menu-item">📦 Archives</div>
+<div class="sidebar"><div class="menu-item active">Workspace</div><div class="menu-item">Daily Causelist</div><div class="menu-item">Orders by Date</div><div class="menu-item">Orders by Notification</div><div class="menu-item">Display Board</div><div class="menu-item">My Clients</div><div class="menu-item">Expenses</div></div>
+<div class="main"><div class="stats"><div class="stat"><label>TOTAL CASES</label><b id="total">317</b></div><div class="stat"><label>PENDING CASES</label><b>291</b></div><div class="stat"><label>DISPOSED CASES</label><b>21</b></div><div class="stat"><label>STATUS NOT AVAILABLE</label><b>5</b></div><div class="stat"><label>CASES ADDED LAST WEEK</label><b>1</b></div><div class="stat"><label>CUSTOM CASES</label><b>0</b></div></div><div id="caseList"></div><button onclick="openModal()" style="background:#22c55e;color:#fff;padding:8px 16px;border:0;border-radius:6px;margin-top:10px">+ New Case</button></div>
 </div>
-<div class="main">
-<div class="toolbar"><div style="display:flex;gap:8px"><button class="btn-new" onclick="openModal()">+ New</button><div class="search-box">🔍 Search</div></div><div style="color:#94a3b8;font-size:12px">Filters</div></div>
-<div class="stats">
-<div class="stat"><label>TOTAL CASES</label><b id="total">317</b></div>
-<div class="stat"><label>PENDING CASES</label><b>291</b></div>
-<div class="stat"><label>DISPOSED CASES</label><b>21</b></div>
-<div class="stat"><label>STATUS NOT AVAILABLE</label><b>5</b></div>
-<div class="stat"><label>CASES ADDED LAST WEEK</label><b>1</b></div>
-<div class="stat"><label>CUSTOM CASES</label><b>0</b></div>
-</div>
-<div class="list-toolbar"><div><input type="checkbox"> Action</div><div>Show 25 per page</div></div>
-<div id="caseList"></div>
-</div>
-</div>
-<div class="modal" id="modal">
-<div class="modal-box">
-<h3>Add New Case</h3>
-<label>1. CNR NUMBER (SABSE UPAR)</label>
-<input id="cNo" placeholder="DLHC01-000001-2024">
-<div style="display:flex;gap:8px;margin-top:6px"><button onclick="generateCaptcha()" class="btn btn-primary" style="flex:1">🔍 Fetch + Captcha</button><span id="fetchStatus" style="font-size:11px"></span></div>
-<div id="captchaBox" style="display:none;margin-top:10px;background:#f8fafc;border:1px dashed #94a3b8;border-radius:10px;padding:10px;text-align:center">
-<canvas id="captchaCanvas" width="160" height="44" style="border:1px solid #e2e8f0;border-radius:8px;background:#f8fafc"></canvas><br>
-<div style="display:flex;justify-content:center;gap:6px;margin-top:8px"><input id="captchaInput" placeholder="Code" style="width:100px;margin:0"><button onclick="verifyCaptcha()" class="btn btn-primary" style="background:#16a34a;padding:8px 12px">Verify</button><button onclick="generateCaptcha()" style="padding:8px;border-radius:8px;border:1px solid #cbd5e1;background:#fff">🔄</button></div>
-</div>
+<div class="modal" id="modal"><div class="modal-box"><h3>Add New Case - Google Sheet Connected</h3>
+<label>1. CNR NUMBER (SABSE UPAR)</label><input id="cNo" placeholder="DLHC01-000001-2024">
+<div style="display:flex;gap:8px;margin-top:6px"><button onclick="generateCaptcha()" class="btn btn-primary" style="flex:1">🔍 Fetch + Captcha</button><span id="fetchStatus" style="font-size:11px;color:#64748b"></span></div>
+<div id="captchaBox" style="display:none;margin-top:10px;background:#f8fafc;border:1px dashed #94a3b8;border-radius:10px;padding:10px;text-align:center"><canvas id="captchaCanvas" width="160" height="44" style="border:1px solid #e2e8f0;border-radius:8px;background:#f8fafc"></canvas><br><div style="display:flex;justify-content:center;gap:6px;margin-top:8px"><input id="captchaInput" placeholder="Code" style="width:100px;margin:0"><button onclick="verifyCaptcha()" class="btn btn-primary" style="background:#16a34a;padding:8px 12px">Verify</button><button onclick="generateCaptcha()" style="padding:8px;border-radius:8px;border:1px solid #cbd5e1;background:#fff">↻</button></div></div>
 <div style="height:1px;background:#e5e7eb;margin:14px 0"></div>
 <div style="text-align:center;font-size:10px;color:#94a3b8;font-weight:700">OR ENTER MANUALLY</div>
-<label>2. SELECT COURT</label>
-<select id="cCourtSelect" onchange="updateCaseTypes()"><option value="">-- Court Select --</option><option>Supreme Court</option><option>Delhi High Court</option><option>Bombay High Court</option><option>Tis Hazari Court, Delhi</option><option>Karkardooma Court, Delhi</option><option>Patiala House Court, Delhi</option><option>Rohini Court, Delhi</option><option>Saket Court, Delhi</option><option>Allahabad High Court</option><option>Patna District Court</option></select>
-<label>3. CASE TYPE (COURT KE HISAB SE)</label>
-<select id="cCaseType"><option value="">-- Pehle Court Select Karo --</option></select>
-<label>4. CASE NUMBER</label>
-<input id="cNumberOnly" placeholder="e.g. 476">
-<label>5. CASE YEAR</label>
-<input id="cYear" type="number" value="2024">
+<label>2. SELECT COURT</label><select id="cCourtSelect" onchange="updateCaseTypes()"><option value="">-- Court Select Karo --</option><option>Supreme Court</option><option>Delhi High Court</option><option>Bombay High Court</option><option>Tis Hazari Court, Delhi</option><option>Karkardooma Court, Delhi</option><option>Patiala House Court, Delhi</option><option>Rohini Court, Delhi</option><option>Saket Court, Delhi</option><option>Allahabad High Court</option><option>Patna District Court</option></select>
+<label>3. CASE TYPE (COURT KE HISAB SE)</label><select id="cCaseType"><option value="">-- Pehle Court Select Karo --</option></select>
+<label>4. CASE NUMBER</label><input id="cNumberOnly" placeholder="e.g. 476"><label>5. CASE YEAR</label><input id="cYear" type="number" value="2024">
 <div style="height:1px;background:#e5e7eb;margin:14px 0"></div>
-<label>CLIENT / TITLE</label>
-<input id="cClient" placeholder="Sh.Dayananda vs State">
-<label>DIARY NUMBER</label>
-<input id="cDiary" placeholder="33646/2012">
-<label>NEXT DATE</label>
-<input id="cDate" type="date">
-<div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-primary" style="flex:1" onclick="saveCase()">Save Case</button><button class="btn btn-outline" style="flex:1" onclick="closeModal()">Cancel</button></div>
-</div>
-</div>
+<label>CLIENT / TITLE</label><input id="cClient" placeholder="Auto fetch from Sheet"><label>DIARY NUMBER</label><input id="cDiary" placeholder="Auto"><label>NEXT DATE</label><input id="cDate" type="date">
+<div style="display:flex;gap:10px;margin-top:14px"><button onclick="saveCase()" style="flex:1" class="btn btn-primary">Save Case</button><button onclick="closeModal()" style="flex:1" class="btn">Cancel</button></div>
+</div></div>
 <script>
-const caseTypeMap={"Supreme Court":["Writ Petition (..476 / 2012)","SLP (Criminal) 8357 / 2017","SLP(C)","Diary No."],"Delhi High Court":["W.P.(C)","CRL.A.","CS(OS)","FAO"],"default":["Civil Suit","Criminal Case","Writ Petition","Bail Application"]};
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec";
+const caseTypeMap={"Supreme Court":["Writ Petition (..476 / 2012)","SLP (Criminal) 8357 / 2017","SLP(C)","Diary No."],"Delhi High Court":["W.P.(C)","CRL.A.","CS(OS)","FAO","BAIL APPLN."],"default":["Civil Suit","Criminal Case","Writ Petition","Bail Application"]};
 function updateCaseTypes(){let c=document.getElementById('cCourtSelect').value;let t=caseTypeMap[c]||caseTypeMap["default"];let s=document.getElementById('cCaseType');s.innerHTML="";t.forEach(v=>{let o=document.createElement('option');o.value=v;o.text=v;s.appendChild(o);});}
-let cases=[
-{title:"Sh.Dayananda Saraswati Swamiji (Dea... vs The State Of Tamil Nadu",court:"Supreme Court",sub:"Writ Petition (..476 / 2012 | Diary Number 33646 / 2012",jurS:"Delhi",jurD:"Delhi",filing:"9th Oct, 2012",status:"PENDING",prev:"Sep 18, 2026",next:"Oct 5, 2026",tags:["SS","sepi"]},
-{title:"Union Of India vs Sonu Sardar (Presently Lodged In De...",court:"Supreme Court",sub:"SLP (Criminal) 8357 / 2017 | Diary Number 31350 / 2017",jurS:"Delhi",jurD:"Delhi",filing:"3rd Oct, 2017",status:"LODGED",prev:"Jan 19, 2026",next:"Oct 5, 2026",tags:["sepi"]}
-];
-function render(){let list=document.getElementById('caseList');list.innerHTML="";cases.forEach(c=>{list.innerHTML+=`<div class="case-card"><div style="display:flex;justify-content:space-between"><div class="case-title"><input type="checkbox" style="margin-right:6px"> ${c.title}</div><div style="display:flex;gap:8px"><span style="font-size:11px;color:#64748b">Filing Date: ${c.filing}</span><span class="badge ${c.status.toLowerCase()}">${c.status}</span></div></div><div class="case-meta">${c.court}<br>${c.sub}</div><div style="display:flex;justify-content:space-between;margin-top:10px"><div><div class="juris"><div><span>Court Jurisdiction<br>(State):</span> <b>${c.jurS}</b></div><div><span>Court Jurisdiction<br>(District):</span> <b>${c.jurD}</b></div></div><div style="margin-top:6px;display:flex;gap:4px">${c.tags.map(t=>`<span class="tag ${t.toLowerCase()}">${t}</span>`).join('')}</div></div><div style="display:flex;gap:8px"><div class="date-box"><span style="font-size:10px;color:#64748b">Previous</span><br><b style="font-size:12px">${c.prev}</b></div><div class="date-box"><span style="font-size:10px;color:#64748b">Oct 5, 2026</span><br><b style="font-size:12px">Upcoming</b></div></div></div></div>`;});document.getElementById('total').innerText=cases.length+315;}
+let cases=[{title:"Sh.Dayananda Saraswati Swamiji vs The State Of Tamil Nadu",court:"Supreme Court",sub:"Writ Petition..476 / 2012 | Diary Number 33646 / 2012",jurS:"Delhi",jurD:"Delhi",filing:"9th Oct, 2012",status:"PENDING",prev:"Sep 18, 2026",next:"Oct 5, 2026",tags:["SS","sepi"]},{title:"Union Of India vs Sonu Sardar",court:"Supreme Court",sub:"SLP (Criminal) 8357 / 2017",jurS:"Delhi",jurD:"Delhi",filing:"3rd Oct, 2017",status:"LODGED",prev:"Jan 19, 2026",next:"Oct 5, 2026",tags:["sepi"]}];
+function render(){let list=document.getElementById('caseList');list.innerHTML="";cases.forEach(c=>{list.innerHTML+=`<div class="case-card"><div style="display:flex;justify-content:space-between"><div style="font-weight:600;color:#1e40af;max-width:65%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><input type="checkbox" style="margin-right:6px"> ${c.title}</div><div style="display:flex;gap:8px;align-items:center"><span style="font-size:11px;color:#64748b">Filing: ${c.filing}</span><span class="badge ${c.status.toLowerCase()}">${c.status}</span></div></div><div style="font-size:11px;color:#64748b;margin-top:6px">${c.court}<br>${c.sub}</div></div>`;});document.getElementById('total').innerText=cases.length+315;}
 render();
 function openModal(){document.getElementById('modal').style.display='flex'}
 function closeModal(){document.getElementById('modal').style.display='none'}
-function saveCase(){let cnr=document.getElementById('cNo').value;let court=document.getElementById('cCourtSelect').value||"Supreme Court";let type=document.getElementById('cCaseType').value;let num=document.getElementById('cNumberOnly').value;let year=document.getElementById('cYear').value;let title=document.getElementById('cClient').value|| (cnr?cnr+" vs State":type+" "+num+"/"+year);let diary=document.getElementById('cDiary').value;let fullSub=type+(num?" "+num+" / "+year:"")+(diary?" | Diary Number "+diary:"");cases.unshift({title:title,court:court,sub:fullSub,jurS:"Delhi",jurD:"Delhi",filing:new Date().toLocaleDateString(),status:"PENDING",prev:"-",next:document.getElementById('cDate').value||"Oct 5, 2026",tags:["SS"]});render();closeModal();}
-let currentCaptcha="";
-function generateCaptcha(){let cnr=document.getElementById('cNo').value.trim();if(!cnr){alert('Pehle CNR daalo bhai');return}document.getElementById('captchaBox').style.display='block';let canvas=document.getElementById('captchaCanvas');let ctx=canvas.getContext('2d');ctx.clearRect(0,0,160,44);ctx.fillStyle='#f1f5f9';ctx.fillRect(0,0,160,44);currentCaptcha=Math.floor(1000+Math.random()*9000).toString();ctx.font='bold 26px Inter';ctx.fillStyle='#0f172a';ctx.fillText(currentCaptcha,30,30);for(let i=0;i<3;i++){ctx.strokeStyle='#94a3b8';ctx.beginPath();ctx.moveTo(Math.random()*160,Math.random()*44);ctx.lineTo(Math.random()*160,Math.random()*44);ctx.stroke();}document.getElementById('fetchStatus').innerText='Code bharo';}
-function verifyCaptcha(){let e=document.getElementById('captchaInput').value.trim();if(e===currentCaptcha){document.getElementById('fetchStatus').innerText='✅ Verified';document.getElementById('cClient').value=document.getElementById('cNo').value+" vs The State";document.getElementById('cCourtSelect').value="Supreme Court";updateCaseTypes();document.getElementById('cDiary').value=Math.floor(10000+Math.random()*90000)+" / "+document.getElementById('cYear').value;document.getElementById('captchaBox').style.display='none';document.getElementById('captchaInput').value='';}else{alert('Galat Captcha');generateCaptcha();}}
+function saveCase(){let cnr=document.getElementById('cNo').value;let court=document.getElementById('cCourtSelect').value||"Supreme Court";let type=document.getElementById('cCaseType').value;let num=document.getElementById('cNumberOnly').value;let year=document.getElementById('cYear').value;let title=document.getElementById('cClient').value|| (cnr?cnr+" vs State":type+" "+num+"/"+year);let diary=document.getElementById('cDiary').value;let fullSub=type+(num?" "+num+" / "+year:"")+(diary?" | Diary Number "+diary:"");if(cnr){fetch(GOOGLE_SHEET_URL, {method:'POST', mode:'no-cors', body: JSON.stringify({cnr:cnr, court:court, caseType:type, caseNumber:num, year:year, title:title, diary:diary, date:document.getElementById('cDate').value})});}cases.unshift({title:title,court:court,sub:fullSub,jurS:"Delhi",jurD:"Delhi",filing:new Date().toLocaleDateString(),status:"PENDING",prev:"-",next:document.getElementById('cDate').value||"Oct 5, 2026",tags:["SS"]});render();closeModal();}
+let currentCaptcha="";function generateCaptcha(){let cnr=document.getElementById('cNo').value.trim();if(!cnr){alert('Pehle CNR daalo bhai');return}document.getElementById('captchaBox').style.display='block';let canvas=document.getElementById('captchaCanvas');let ctx=canvas.getContext('2d');ctx.clearRect(0,0,160,44);ctx.fillStyle='#f1f5f9';ctx.fillRect(0,0,160,44);currentCaptcha=Math.floor(1000+Math.random()*9000).toString();ctx.font='bold 26px Inter';ctx.fillStyle='#0f172a';ctx.fillText(currentCaptcha,30,30);for(let i=0;i<3;i++){ctx.strokeStyle='#94a3b8';ctx.beginPath();ctx.moveTo(Math.random()*160,Math.random()*44);ctx.lineTo(Math.random()*160,Math.random()*44);ctx.stroke();}document.getElementById('fetchStatus').innerText='Code bharo';}
+function verifyCaptcha(){let e=document.getElementById('captchaInput').value.trim();if(e===currentCaptcha){document.getElementById('fetchStatus').innerText='✅ Verified - Sheet se data la raha hu...';fetch(GOOGLE_SHEET_URL + "?cnr=" + encodeURIComponent(document.getElementById('cNo').value)).then(r => r.json()).then(data => {if(data && data.title) document.getElementById('cClient').value = data.title;if(data && data.diary) document.getElementById('cDiary').value = data.diary;if(data && data.court) document.getElementById('cCourtSelect').value = data.court;if(data && data.caseType){updateCaseTypes(); document.getElementById('cCaseType').value = data.caseType;}document.getElementById('fetchStatus').innerText='✅ Sheet se data aa gaya!';}).catch(err => {document.getElementById('cClient').value=document.getElementById('cNo').value+" vs The State";document.getElementById('cCourtSelect').value="Supreme Court";updateCaseTypes();document.getElementById('cDiary').value=Math.floor(10000+Math.random()*90000)+" / "+document.getElementById('cYear').value;document.getElementById('fetchStatus').innerText='✅ Verified (Manual)';});document.getElementById('captchaBox').style.display='none';document.getElementById('captchaInput').value='';}else{alert('Galat Captcha');generateCaptcha();}}
 </script>
 </body>
 </html>
