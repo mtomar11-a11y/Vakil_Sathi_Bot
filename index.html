@@ -2,119 +2,119 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Vakil Sathi - Legal Case Management</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vakil Sathi - Legal Tech</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#f5f7fb;display:flex;flex-direction:column;min-height:100vh}
-.header{height:72px;background:white;display:flex;align-items:center;justify-content:space-between;padding:0 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);position:sticky;top:0;z-index:10}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-icon{width:48px;height:48px;background:#1565d8;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;color:white}
-.logo h1{font-size:24px;font-weight:800;color:#0f1e3d}
-.logo p{font-size:12px;color:#6b7280}
-.search{width:380px;height:42px;background:#f1f3f6;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;color:#6b7280}
-.main{display:flex;flex:1}
-.sidebar{width:260px;background:#f8f9fb;border-right:1px solid #e5e7eb;padding:20px}
-.nav-item{display:flex;gap:12px;padding:12px 16px;border-radius:10px;margin-bottom:6px;cursor:pointer;color:#374151;font-weight:600}
-.nav-item.active{background:#1565d8;color:white}
-.upgrade{margin-top:30px;background:#dbe8ff;border-radius:16px;padding:20px;text-align:center}
-.upgrade button{width:100%;margin-top:12px;background:#1565d8;color:white;border:none;padding:10px;border-radius:8px;font-weight:700;cursor:pointer}
-.content{flex:1;padding:28px}
-.top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
-.btn-outline{padding:10px 18px;border:1px solid #d1d5db;background:white;border-radius:10px;font-weight:600;cursor:pointer}
-.btn-primary{padding:10px 20px;background:#1565d8;color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:28px}
-.card{border-radius:16px;padding:20px}
-.card.blue{background:#c7d9ff} .card.orange{background:#ffe1b8} .card.green{background:#c8efc8}
-.card h3{font-size:15px;margin-bottom:12px} .card .num{font-size:40px;font-weight:800}
-.table-wrap{background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.05);overflow:auto}
-table{width:100%;border-collapse:collapse;min-width:700px}
-th{background:#f8fafc;text-align:left;padding:14px 18px;font-size:13px;color:#475569;border-bottom:1px solid #e5e7eb}
-td{padding:14px 18px;font-size:14px;border-bottom:1px solid #f1f5f9}
-.badge{padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700}
-.badge.active{background:#dcfce7;color:#166534} .badge.hold{background:#fef3c7;color:#92400e} .badge.closed{background:#e5e7eb;color:#4b5563}
-.case-link{color:#1565d8;font-weight:600;text-decoration:none}
-.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:100}
-.modal-box{background:white;padding:24px;border-radius:16px;width:400px}
-.modal-box input, .modal-box select{width:100%;padding:10px;margin:8px 0;border:1px solid #d1d5db;border-radius:8px}
+body{background:#f8fafc;display:flex;min-height:100vh}
+.sidebar{width:240px;background:#fff;border-right:1px solid #e2e8f0;padding:14px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.logo{display:flex;gap:8px;font-weight:800;font-size:18px;align-items:center;margin-bottom:20px}
+.nav a{display:flex;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;color:#475569;font-weight:600;font-size:14px;margin-bottom:4px}
+.nav a.active{background:#2563eb;color:#fff}
+.main{flex:1;padding:0}
+.header{ background:#fff; padding:12px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e2e8f0; position:sticky; top:0; z-index:5}
+.sanskrit{font-weight:700;font-size:14px}
+.search{padding:8px 14px;border-radius:20px;border:none;background:#f1f5f9;width:260px;outline:none}
+.content{padding:20px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0}
+.stat{padding:18px;border-radius:14px}
+.stat h1{font-size:32px;margin:6px 0}
+.table-wrap{background:#fff;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{ text-align:left; padding:12px; color:#64748b; background:#f8fafc}
+td{padding:12px;border-top:1px solid #f1f5f9}
+.badge{padding:4px 8px;border-radius:12px;font-size:11px;font-weight:700}
+/* Modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:100;justify-content:center;align-items:center;padding:16px}
+.modal-bg.open{display:flex}
+.modal{background:#fff;width:100%;max-width:620px;border-radius:16px;padding:20px;max-height:90vh;overflow-y:auto}
+.modal h2{margin-bottom:12px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.sidebar{display:none}.stats{grid-template-columns:1fr}}
+.input{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;font-size:13px}
+label{font-size:12px;font-weight:700;color:#334155;margin-bottom:4px;display:block}
+.btn{padding:10px 16px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+.btn-blue{background:#2563eb;color:#fff}
+.btn-light{background:#f1f5f9}
 </style>
 </head>
 <body>
-<div class="header">
-  <div class="logo"><div class="logo-icon">⚖️</div><div><h1>Vakil Sathi</h1><p>Legal Tech • Case Management</p></div></div>
-  <div class="search">🔍 Search cases...</div>
-  <div><b>॥ यतो धर्मस्ततो जय: ॥</b></div>
+<div class="sidebar">
+<div class="logo">⚖️ Vakil Sathi<br><small style="font-size:10px;color:#64748b">Legal Tech • Case Management</small></div>
+<div class="nav">
+<a class="active">🏠 Dashboard</a><a>📁 Cases</a><a>🗓️ Causelist</a><a>👥 Clients</a><a>📅 Calendar</a><a>📁 Documents</a><a>₹ Billing</a>
+</div>
 </div>
 <div class="main">
-  <div class="sidebar">
-    <div class="nav-item active">🏠 Dashboard</div>
-    <div class="nav-item">📁 Cases</div>
-    <div class="nav-item">📅 Causelist</div>
-    <div class="nav-item">👥 Clients</div>
-    <div class="nav-item">📆 Calendar</div>
-    <div class="nav-item">📂 Documents</div>
-    <div class="nav-item">₹ Billing</div>
-    <div class="upgrade"><div style="font-size:32px">💡</div><h3>Upgrade</h3><p style="font-size:12px;color:#475569">Unlock advanced analytics</p><button>Upgrade Now</button></div>
-  </div>
-  <div class="content">
-    <div class="top-row"><h1 style="font-size:32px;font-weight:800">Dashboard</h1><div><button class="btn-outline">Filters</button> <button class="btn-primary" onclick="openModal()">+ New Case</button></div></div>
-    <div class="cards">
-      <div class="card blue"><h3>📅 Today's Hearings</h3><div class="num" id="todayCount">5</div><div style="font-size:12px;margin-top:8px">2 hearings in next 2 hours</div></div>
-      <div class="card orange"><h3>📝 Pending Tasks</h3><div class="num">12</div><div style="font-size:12px;margin-top:8px">4 overdue • 8 due today</div></div>
-      <div class="card green"><h3>₹ Revenue</h3><div class="num">₹1,24,500</div><div style="font-size:12px;margin-top:8px">+12.5% vs last month</div></div>
-    </div>
-    <h2 style="margin-bottom:12px">Case List - <span id="totalCases">5</span> cases</h2>
-    <div class="table-wrap">
-      <table id="caseTable">
-        <thead><tr><th>Case Number</th><th>Client Name</th><th>Court</th><th>Next Date</th><th>Status</th><th>Action</th></tr></thead>
-        <tbody id="tableBody"></tbody>
-      </table>
-    </div>
-  </div>
+<div class="header">
+<input class="search" id="searchBox" placeholder="🔍 Search cases...">
+<div class="sanskrit">|| यतो धर्मस्ततो जयः ||</div>
+</div>
+<div class="content">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+<h2>Dashboard</h2>
+<div><button class="btn btn-light">Filters</button> <button class="btn btn-blue" onclick="openModal()">+ New Case</button></div>
+</div>
+<div class="stats">
+<div class="stat" style="background:#dbeafe"><small>📅 Today's Hearings</small><h1 id="hearingCount">5</h1><small>2 hearings in next 2 hours</small></div>
+<div class="stat" style="background:#ffedd5"><small>📝 Pending Tasks</small><h1>12</h1><small>4 overdue • 8 due today</small></div>
+<div class="stat" style="background:#dcfce7"><small>₹ Revenue</small><h1>₹1,24,500</h1><small>+12.5% vs last month</small></div>
+</div>
+<h3 style="margin-bottom:10px">Case List - <span id="caseCount">5</span> cases</h3>
+<div class="table-wrap">
+<table id="caseTable">
+<thead><tr><th>Case Number</th><th>Client Name</th><th>Court</th><th>Next Date</th><th>Status</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td style="color:#2563eb;font-weight:700">CS/2024/1023</td><td>Rajesh Kumar vs State of Delhi</td><td>Delhi High Court</td><td>12 Oct 2024 • 10:30 AM</td><td><span class="badge" style="background:#dcfce7;color:#166534">• Active</span></td><td>🗑️</td></tr>
+<tr><td style="color:#2563eb;font-weight:700">CS/2024/0987</td><td>Priya Sharma vs HDFC Bank</td><td>Tis Hazari Court, Delhi</td><td>15 Oct 2024 • 02:00 PM</td><td><span class="badge" style="background:#fef3c7;color:#92400e">• On Hold</span></td><td>🗑️</td></tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <h3 id="modalTitle">Add New Case</h3>
-    <input id="cNumber" placeholder="Case Number e.g. CS/2024/1023">
-    <input id="cClient" placeholder="Client Name e.g. Rajesh Kumar vs State">
-    <select id="cCourt"><option>Delhi High Court</option><option>Tis Hazari Court, Delhi</option><option>Bombay High Court</option><option>Patna District Court</option><option>Karkardooma Court, Delhi</option></select>
-    <input id="cDate" type="datetime-local">
-    <select id="cStatus"><option value="active">Active</option><option value="hold">On Hold</option><option value="closed">Closed</option></select>
-    <div style="display:flex;gap:10px;margin-top:12px"><button class="btn-primary" style="flex:1" onclick="saveCase()">Save</button><button class="btn-outline" style="flex:1" onclick="closeModal()">Cancel</button></div>
-  </div>
+<!-- NEW CASE MODAL -->
+<div class="modal-bg" id="modal">
+<div class="modal">
+<h2>+ Add New Case - All India</h2>
+<div class="form-grid">
+<div><label>Case Number</label><input id="cNo" class="input" placeholder="e.g. SLP(C) No. 123/2024"></div>
+<div><label>Case Type</label><select id="cType" class="input"><option>Civil Suit</option><option>Criminal Case</option><option>Writ Petition (Civil)</option><option>Writ Petition (Criminal)</option><option>SLP (Civil)</option><option>SLP (Criminal)</option><option>BA / Anticipatory Bail</option><option>PIL</option><option>Arbitration</option><option>Company Petition</option><option>Consumer Complaint</option><option>Service Matter</option></select></div>
+<div style="grid-column:1/-1"><label>Party Names (Title)</label><input id="cTitle" class="input" placeholder="e.g. Rajesh Kumar vs State of Delhi & Ors"></div>
+<div style="grid-column:1/-1"><label>Select Court / Tribunal / Commission</label>
+<select id="cCourt" class="input">
+<optgroup label="Supreme Court of India"><option>Supreme Court of India</option></optgroup>
+<optgroup label="High Courts (25)"><option>Allahabad High Court</option><option>Andhra Pradesh High Court</option><option>Bombay High Court</option><option>Calcutta High Court</option><option>Chhattisgarh High Court</option><option>Delhi High Court</option><option>Gauhati High Court</option><option>Gujarat High Court</option><option>Himachal Pradesh High Court</option><option>Jammu & Kashmir and Ladakh High Court</option><option>Jharkhand High Court</option><option>Karnataka High Court</option><option>Kerala High Court</option><option>Madhya Pradesh High Court</option><option>Madras High Court</option><option>Manipur High Court</option><option>Meghalaya High Court</option><option>Orissa High Court</option><option>Patna High Court</option><option>Punjab & Haryana High Court</option><option>Rajasthan High Court</option><option>Sikkim High Court</option><option>Telangana High Court</option><option>Tripura High Court</option><option>Uttarakhand High Court</option></optgroup>
+<optgroup label="District & Sessions Courts"><option>Tis Hazari Court, Delhi</option><option>Patiala House Court, Delhi</option><option>Karkardooma Court, Delhi</option><option>Saket Court, Delhi</option><option>Rohini Court, Delhi</option><option>Dwarka Court, Delhi</option><option>Other District Court</option></optgroup>
+<optgroup label="Tribunals"><option>NCLT - National Company Law Tribunal</option><option>NCLAT - National Company Law Appellate Tribunal</option><option>CAT - Central Administrative Tribunal</option><option>DRT - Debt Recovery Tribunal</option><option>DRAT - Debt Recovery Appellate Tribunal</option><option>CESTAT - Customs Excise & Service Tax Tribunal</option><option>ITAT - Income Tax Appellate Tribunal</option><option>NDRF - National Consumer Disputes</option><option>AFT - Armed Forces Tribunal</option><option>RERA Tribunal</option></optgroup>
+<optgroup label="Commissions & Others"><option>NCDRC - National Consumer Commission</option><option>State Consumer Commission</option><option>NHRC - National Human Rights Commission</option><option>CIC - Central Information Commission</option><option>CCI - Competition Commission of India</option><option>SEBI - Securities Appellate Tribunal (SAT)</option><option>Labour Court / Industrial Tribunal</option><option>Family Court</option><option>Motor Accident Claims Tribunal (MACT)</option></optgroup>
+</select></div>
+<div><label>Client Name</label><input id="cClient" class="input" placeholder="Client full name"></div>
+<div><label>Next Hearing Date</label><input id="cDate" type="datetime-local" class="input"></div>
+<div><label>Fee (₹)</label><input id="cFee" type="number" class="input" placeholder="50000"></div>
+<div><label>Status</label><select id="cStatus" class="input"><option>Active</option><option>On Hold</option><option>Closed</option><option>Judgment Reserved</option></select></div>
+</div>
+<div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end"><button class="btn btn-light" onclick="closeModal()">Cancel</button><button class="btn btn-blue" onclick="saveCase()">Save Case</button></div>
+</div>
 </div>
 
 <script>
-let cases = [
- {number:"CS/2024/1023",client:"Rajesh Kumar vs State of Delhi",court:"Delhi High Court",date:"12 Oct 2024 • 10:30 AM",status:"active"},
- {number:"CS/2024/0987",client:"Priya Sharma vs HDFC Bank",court:"Tis Hazari Court, Delhi",date:"15 Oct 2024 • 02:00 PM",status:"hold"},
- {number:"CS/2024/0876",client:"Ankit Patel vs Ramesh Singh",court:"Bombay High Court",date:"18 Oct 2024 • 11:00 AM",status:"active"},
- {number:"CS/2024/0765",client:"Sunita Devi vs LIC India",court:"Patna District Court",date:"20 Oct 2024 • 09:30 AM",status:"closed"},
- {number:"CS/2024/0654",client:"Mohammed Ali vs Transport",court:"Karkardooma Court, Delhi",date:"22 Oct 2024 • 01:45 PM",status:"active"}
-];
-function render(){
- let tbody=document.getElementById('tableBody'); tbody.innerHTML='';
- cases.forEach((c,i)=>{
-  let badge = c.status==='active'?'<span class="badge active">● Active</span>': c.status==='hold'?'<span class="badge hold">● On Hold</span>':'<span class="badge closed">● Closed</span>';
-  tbody.innerHTML+=`<tr><td><a class="case-link" href="#">${c.number}</a></td><td>${c.client}</td><td>${c.court}</td><td>${c.date}</td><td>${badge}</td><td><button onclick="delCase(${i})">🗑️</button></td></tr>`;
- });
- document.getElementById('totalCases').innerText=cases.length;
- document.getElementById('todayCount').innerText=cases.length;
- localStorage.setItem('vakilCases',JSON.stringify(cases));
-}
-function openModal(){document.getElementById('modal').style.display='flex'}
-function closeModal(){document.getElementById('modal').style.display='none'}
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
 function saveCase(){
- let n=document.getElementById('cNumber').value, cl=document.getElementById('cClient').value, co=document.getElementById('cCourt').value, d=document.getElementById('cDate').value, s=document.getElementById('cStatus').value;
- if(!n||!cl){alert('Case Number aur Client bharo');return}
- cases.unshift({number:n,client:cl,court:co,date: d ? new Date(d).toLocaleString() : 'TBD',status:s});
- render(); closeModal();
+ let no=document.getElementById('cNo').value; let title=document.getElementById('cTitle').value||document.getElementById('cClient').value;
+ let court=document.getElementById('cCourt').value; let date=document.getElementById('cDate').value;
+ let status=document.getElementById('cStatus').value;
+ if(!no){alert('Case number daal bro');return}
+ let tbody=document.querySelector('#caseTable tbody');
+ let tr=document.createElement('tr');
+ let d = date ? new Date(date).toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}) : 'TBD';
+ let color = status=='Active' ? '#dcfce7;color:#166534' : status=='On Hold' ? '#fef3c7;color:#92400e' : '#f1f5f9;color:#475569';
+ tr.innerHTML=`<td style="color:#2563eb;font-weight:700">${no}</td><td>${title}</td><td>${court}</td><td>${d}</td><td><span class="badge" style="background:${color}">• ${status}</span></td><td onclick="this.parentElement.remove()">🗑️</td>`;
+ tbody.prepend(tr); closeModal(); document.getElementById('caseCount').innerText=tbody.children.length;
+ document.getElementById('hearingCount').innerText=tbody.children.length;
 }
-function delCase(i){if(confirm('Delete karna hai?')){cases.splice(i,1);render()}}
-let saved=localStorage.getItem('vakilCases'); if(saved){cases=JSON.parse(saved)}
-render();
+document.getElementById('searchBox').addEventListener('input',e=>{ let v=e.target.value.toLowerCase(); document.querySelectorAll('#caseTable tbody tr').forEach(r=>{r.style.display=r.innerText.toLowerCase().includes(v)?'':'none'})});
 </script>
 </body>
 </html>
