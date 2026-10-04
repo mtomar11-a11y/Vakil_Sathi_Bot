@@ -2,64 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vakil Sathi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Vakil Sathi - Advocate Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a}
-  .header{background:#0f172a;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-  .logo{font-weight:700;display:flex;align-items:center;gap:8px;font-size:16px}
-  .sanskrit{font-family:'Noto Serif Devanagari',serif;color:#fbbf24;font-size:15px;letter-spacing:0.5px;position:absolute;left:50%;transform:translateX(-50%)}
-  @media(max-width:768px){.sanskrit{display:none} .sanskrit-mobile{display:block!important}}
-  .sanskrit-mobile{display:none;font-family:'Noto Serif Devanagari',serif;background:#1e293b;color:#fbbf24;text-align:center;padding:8px;font-size:14px}
-  .container{max-width:1200px;margin:auto;padding:12px}
-  .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  @media(min-width:900px){.stats{grid-template-columns:repeat(4,1fr)}}
-  .card{background:#fff;padding:14px;border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid #e2e8f0}
-  .search{width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:12px;margin:14px 0;font-size:14px}
-  .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
-  @media(min-width:600px){.actions{grid-template-columns:2fr 1fr}}
-  .btn{padding:12px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
-  .btn-primary{background:#0f172a;color:#fff}
-  .btn-light{background:#fff;border:1px solid #e2e8f0}
-  .case-list{display:grid;gap:10px}
-  .case{background:#fff;padding:14px;border-radius:14px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-  .badge{background:#fef3c7;color:#92400e;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a;overflow-x:hidden}
+.header{background:#0f172a;color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+.logo{font-weight:800;font-size:18px;display:flex;gap:8px;align-items:center}
+.sanskrit{font-family:'Noto Serif Devanagari',serif;color:#fbbf24;font-size:16px;letter-spacing:1px;font-weight:600}
+.sanskrit-mobile{display:none;width:100%;text-align:center;background:#1e293b;color:#fbbf24;padding:8px 0;font-family:'Noto Serif Devanagari',serif;margin-top:10px;border-radius:6px}
+.container{max-width:1280px;margin:0 auto;padding:16px;width:100%}
+.top-bar{display:flex;gap:12px;flex-direction:column}
+@media(min-width:768px){.top-bar{flex-direction:row;justify-content:space-between;align-items:center}}
+.search{flex:1;padding:12px 16px;border-radius:12px;border:1px solid #cbd5e1;font-size:14px;width:100%;outline:none}
+.search:focus{border-color:#0f172a}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0}
+@media(min-width:1024px){.stats{grid-template-columns:repeat(4,1fr)}}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);border:1px solid #e2e8f0;transition:0.2s}
+.card:hover{transform:translateY(-2px)}
+.card small{color:#64748b;font-weight:700;font-size:11px;letter-spacing:0.5px}
+.card h2{font-size:26px;margin-top:6px}
+.actions{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0}
+@media(min-width:600px){.actions{grid-template-columns:2fr 1fr 1fr}}
+.btn{padding:13px 16px;border-radius:12px;border:none;font-weight:700;cursor:pointer;font-size:14px;white-space:nowrap}
+.btn-primary{background:#0f172a;color:#fff}
+.btn-secondary{background:#fff;border:1px solid #e2e8f0;color:#0f172a}
+.table-wrap{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;overflow-x:auto}
+.case-row{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid #f1f5f9;gap:10px;min-width:500px}
+@media(max-width:600px){.case-row{min-width:100%;flex-direction:column;align-items:flex-start}}
+.badge{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:0.3px}
+.badge-hearing{background:#fef3c7;color:#92400e}
+.badge-arg{background:#dbeafe;color:#1e40af}
+.footer{text-align:center;padding:20px;color:#94a3b8;font-size:12px}
+@media(max-width:768px){.sanskrit{display:none}.sanskrit-mobile{display:block}.header{justify-content:center}.logo{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
 <div class="header">
   <div class="logo">⚖️ Vakil Sathi</div>
   <div class="sanskrit">|| यतो धर्मस्ततो जयः ||</div>
-  <button class="btn btn-primary" onclick="addCase()" style="padding:8px 14px;font-size:13px">+ New Case</button>
+  <button class="btn btn-primary" onclick="addNewCase()" style="background:#1e293b">+ New Case</button>
+  <div class="sanskrit-mobile">|| यतो धर्मस्ततो जयः ||</div>
 </div>
-<div class="sanskrit-mobile">|| यतो धर्मस्ततो जयः ||</div>
-
 <div class="container">
+  <div class="top-bar">
+    <input id="searchInput" class="search" placeholder="🔍 Search case number, client, court, advocate...">
+  </div>
   <div class="stats">
-    <div class="card"><small style="color:#64748b;font-weight:700">TOTAL CASES</small><h2>12</h2></div>
-    <div class="card" style="border-left:4px solid #f59e0b"><small style="color:#64748b;font-weight:700">TODAY'S HEARING</small><h2>3</h2></div>
-    <div class="card" style="border-left:4px solid #10b981"><small style="color:#64748b;font-weight:700">CLIENTS</small><h2>8</h2></div>
-    <div class="card" style="border-left:4px solid #ef4444"><small style="color:#64748b;font-weight:700">PENDING FEE</small><h2>₹45k</h2></div>
+    <div class="card" style="border-left:4px solid #0f172a"><small>TOTAL CASES</small><h2 id="totalCases">12</h2><small style="color:#10b981">+2 this week</small></div>
+    <div class="card" style="border-left:4px solid #f59e0b"><small>TODAY'S HEARING</small><h2>3</h2><small style="color:#ef4444">Court No. 12</small></div>
+    <div class="card" style="border-left:4px solid #10b981"><small>CLIENTS</small><h2>8</h2><small>Active</small></div>
+    <div class="card" style="border-left:4px solid #ef4444"><small>PENDING FEE</small><h2>₹45k</h2><small>2 invoices</small></div>
   </div>
-
-  <input class="search" id="search" placeholder="Search case number, client, court...">
-
   <div class="actions">
-    <button class="btn btn-primary">📅 Aaj ki Causelist Dekho</button>
-    <button class="btn btn-light">🔍 eCourts se Fetch karo</button>
+    <button class="btn btn-primary">📅 Aaj ki Causelist Dekho (3 Cases)</button>
+    <button class="btn btn-secondary">🔍 eCourts se Fetch karo</button>
+    <button class="btn btn-secondary">📥 Export Excel</button>
   </div>
-
-  <div class="case-list" id="caseList">
-    <div class="case"><div><b>CS/123/2024 - Ramesh vs Suresh</b><br><small>District Court, Delhi | Next: 05 Oct</small></div><span class="badge">HEARING</span></div>
-    <div class="case"><div><b>BA/456/2024 - State vs Amit</b><br><small>Sessions Court | Next: 06 Oct</small></div><span class="badge">ARGUMENT</span></div>
+  <div class="table-wrap" id="caseList">
+    <div class="case-row"><div><b>CS/123/2024 - Ramesh vs Suresh</b><br><small style="color:#64748b">District Court, Delhi | Next: 05 Oct 2024 | Client: Ramesh Kumar</small></div><div style="display:flex;gap:8px;align-items:center"><span class="badge badge-hearing">HEARING</span><button class="btn btn-secondary" style="padding:6px 10px">View</button></div></div>
+    <div class="case-row"><div><b>BA/456/2024 - State vs Amit Verma</b><br><small style="color:#64748b">Sessions Court, Delhi | Next: 06 Oct 2024 | Client: Amit Verma</small></div><div style="display:flex;gap:8px;align-items:center"><span class="badge badge-arg">ARGUMENT</span><button class="btn btn-secondary" style="padding:6px 10px">View</button></div></div>
+    <div class="case-row"><div><b>CR/789/2024 - Sunita vs State</b><br><small style="color:#64748b">High Court, Delhi | Next: 08 Oct 2024 | Client: Sunita Devi</small></div><div style="display:flex;gap:8px;align-items:center"><span class="badge badge-hearing">HEARING</span><button class="btn btn-secondary" style="padding:6px 10px">View</button></div></div>
   </div>
+  <div class="footer">Vakil Sathi v2.0 | Made for Indian Advocates | Secure & Offline First</div>
 </div>
-
 <script>
-function addCase(){ let c=prompt("Case No. likho: CS/XXX/2024"); if(c){ let d=document.createElement('div'); d.className='case'; d.innerHTML=`<div><b>${c}</b><br><small>New Case Added</small></div><span class="badge">NEW</span>`; document.getElementById('caseList').prepend(d);} }
-document.getElementById('search').addEventListener('input',function(e){ let v=e.target.value.toLowerCase(); document.querySelectorAll('.case').forEach(x=>{ x.style.display=x.innerText.toLowerCase().includes(v)?'flex':'none'; }); });
+let cases = 12;
+function addNewCase(){
+  let cn = prompt("Naya Case Number daalo (e.g. CS/999/2024):");
+  if(!cn) return;
+  let client = prompt("Client ka naam:");
+  let wrap = document.getElementById('caseList');
+  let div = document.createElement('div');
+  div.className = 'case-row';
+  div.innerHTML = `<div><b>${cn} - ${client || 'New Client'}</b><br><small style="color:#64748b">Added Just Now | Next: TBD</small></div><div style="display:flex;gap:8px;align-items:center"><span class="badge badge-hearing">NEW</span><button class="btn btn-secondary" style="padding:6px 10px">View</button></div>`;
+  wrap.prepend(div);
+  cases++; document.getElementById('totalCases').innerText = cases;
+}
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  let val = e.target.value.toLowerCase();
+  document.querySelectorAll('.case-row').forEach(row=>{ row.style.display = row.innerText.toLowerCase().includes(val) ? 'flex' : 'none'; });
+});
 </script>
 </body>
 </html>
