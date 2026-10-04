@@ -191,8 +191,8 @@ async function fetchFromECourts(){
   let status=document.getElementById('fetchStatus');
   status.innerText='Captcha la raha hu...';
   try{
-    if(WEB_APP_URL.includes("https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec")){
-      status.innerText='Demo - https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec';
+    if(WEB_APP_URL.includes("DEMO DAL")){
+      status.innerText='Demo - DEMO';
       document.getElementById('captchaBox').style.display='block';
       document.getElementById('captchaImg').src='https://via.placeholder.com/120x40?text=CAPTCHA';
       return;
