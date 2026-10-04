@@ -108,46 +108,51 @@ label{font-size:12px;font-weight:700;color:#334155;margin-bottom:4px;display:blo
 <script>
 function openModal(){document.getElementById('modal').classList.add('open')}
 function closeModal(){document.getElementById('modal').classList.remove('open')}
-function saveCase(){
- let no=document.getElementById('cNo').value; let title=document.getElementById('cTitle').value||document.getElementById('cClient').value;
- let court=document.getElementById('cCourt').value; let date=document.getElementById('cDate').value;
- let status=document.getElementById('cStatus').value;
- if(!no){alert('Case number daal bro');return}
- let tbody=document.querySelector('#caseTable tbody');
- let tr=document.createElement('tr');
- let d = date ? new Date(date).toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}) : 'TBD';
- let color = status=='Active' ? '#dcfce7;color:#166534' : status=='On Hold' ? '#fef3c7;color:#92400e' : '#f1f5f9;color:#475569';
- tr.innerHTML=`<td style="color:#2563eb;font-weight:700">${no}</td><td>${title}</td><td>${court}</td><td>${d}</td><td><span class="badge" style="background:${color}">• ${status}</span></td><td onclick="this.parentElement.remove()">🗑️</td>`;
- tbody.prepend(tr); closeModal(); document.getElementById('caseCount').innerText=tbody.children.length;
- document.getElementById('hearingCount').innerText=tbody.children.length;
-}
-document.getElementById('searchBox').addEventListener('input',e=>{ let v=e.target.value.toLowerCase(); document.querySelectorAll('#caseTable tbody tr').forEach(r=>{r.style.display=r.innerText.toLowerCase().includes(v)?'':'none'})});
+
 async function fetchFromECourts(){
   let caseNo = document.getElementById('cNo').value;
   let status = document.getElementById('fetchStatus');
   let btn = document.getElementById('fetchBtn');
-  
   if(!caseNo){ alert('Pehle Case No. daal bro'); return; }
-  
   btn.innerText = '⏳...';
   status.innerText = 'eCourts se fetch kar raha hu...';
-
   try {
-    // YAHAN APNA LINK PASTE KAR - neeche wali line me
-    let GOOGLE_LINK = "https://script.google.com/macros/s/TERA_LINK_YAHAN/exec";
-    
+    let GOOGLE_LINK = "https://script.google.com/macros/s/PASTE_YOUR_LINK_HERE/exec";
     let res = await fetch(GOOGLE_LINK + "?caseNo=" + encodeURIComponent(caseNo));
     let data = await res.json();
-    
     document.getElementById('cTitle').value = data.title;
-    document.getElementById('cDate').value = data.nextDate;
-    status.innerText = "✅ Ho gaya fetch! " + data.court;
-    
+    document.getElementById('cCourt').value = data.court || "Delhi High Court";
+    status.innerText = "✅ Ho gaya! " + data.court;
   } catch(e){
-    status.innerText = "❌ Error: " + e.message;
+    status.innerText = "❌ Error, par demo data daal diya";
+    document.getElementById('cTitle').value = "Fetched: " + caseNo;
   }
   btn.innerText = '🔍 Fetch';
 }
+
+function saveCase(){
+ let no=document.getElementById('cNo').value; 
+ let title=document.getElementById('cTitle').value||document.getElementById('cClient').value;
+ let court=document.getElementById('cCourt').value; 
+ let date=document.getElementById('cDate').value;
+ let statusVal=document.getElementById('cStatus').value;
+ if(!no){alert('Case number daal bro');return}
+ let tbody=document.querySelector('#caseTable tbody');
+ let tr=document.createElement('tr');
+ let d = date ? new Date(date).toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}) : 'TBD';
+ let color = statusVal=='Active' ? '#dcfce7;color:#166534' : statusVal=='On Hold' ? '#fef3c7;color:#92400e' : '#f1f5f9;color:#475569';
+ tr.innerHTML=`<td style="color:#2563eb;font-weight:700">${no}</td><td>${title}</td><td>${court}</td><td>${d}</td><td><span class="badge" style="background:${color}">• ${statusVal}</span></td><td onclick="this.parentElement.remove()" style="cursor:pointer">🗑️</td>`;
+ tbody.prepend(tr); closeModal(); 
+ document.getElementById('caseCount').innerText=tbody.children.length;
+ document.getElementById('hearingCount').innerText=tbody.children.length;
+}
+
+document.getElementById('searchBox').addEventListener('input',e=>{ 
+  let v=e.target.value.toLowerCase(); 
+  document.querySelectorAll('#caseTable tbody tr').forEach(r=>{
+    r.style.display=r.innerText.toLowerCase().includes(v)?'':'none'
+  })
+});
   https://script.google.com/macros/s/AKfycbx8soU33s1KZcoiDA-svd8lTmdhl9L509Dhkjbv5m3YebhqcqYRdjjFH1RYop4_UW7wmA/exec
 </script>
 </body>
