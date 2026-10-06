@@ -3,70 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vakil Sathi V8.2 - Judicial Portal</title>
+<title>Vakil Sathi V8.2 - New SCI + New Deploy Link</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{background:#f5f7fb;padding:12px}
-.header{background:#fff;border-radius:18px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 20px rgba(0,0,0,0.08);margin-bottom:14px}
-.logo{display:flex;align-items:center;gap:10px;font-size:28px;font-weight:800;color:#1a2340}
-.logo span.v{font-size:14px;background:#5b3cc4;color:#fff;padding:4px 10px;border-radius:8px}
-.search{flex:1;max-width:320px;margin:0 20px}
-.search input{width:100%;padding:10px 16px;border-radius:24px;border:1px solid #ddd;outline:none;background:#f1f3f6}
-.sanskrit{color:#5b3cc4;font-weight:700;font-size:18px}
-.supreme{background:linear-gradient(90deg,#0f1442 0%,#1e1b8a 50%,#3b2fc0 100%);border-radius:16px;padding:20px;text-align:center;color:#fff;display:block;text-decoration:none;margin-bottom:14px}
-.supreme h1{font-size:30px;margin-top:6px}
-.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
-.card{border-radius:14px;padding:16px;text-align:center;color:#fff;text-decoration:none;display:block;transition:0.2s}
-.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.2)}
-.orange{background:linear-gradient(135deg,#ff7a18,#ff9e2f)} .green{background:linear-gradient(135deg,#0a8a3c,#2fbf5e)} .blue{background:linear-gradient(135deg,#1e3a8a,#3b6de8)}
-.section-title{font-size:18px;font-weight:800;color:#1a2340;margin:16px 0 10px}
-.trib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.trib{border-radius:14px;padding:14px;text-align:center;color:#fff;text-decoration:none;display:block}
-.purple{background:linear-gradient(135deg,#6d28d9,#a855f7)} .green2{background:linear-gradient(135deg,#059669,#34d399)} .darkblue{background:linear-gradient(135deg,#0f2167,#1e40af)} .teal{background:linear-gradient(135deg,#0e7490,#22d3ee)} .orange2{background:linear-gradient(135deg,#ea580c,#fb923c)} .brown{background:linear-gradient(135deg,#92400e,#d97706)} .red{background:linear-gradient(135deg,#dc2626,#ef4444)}
-.consumer-flow{display:flex;align-items:center;gap:10px;margin:12px 0;flex-wrap:wrap} .flow-card{flex:1;min-width:200px;border-radius:12px;padding:14px;color:#fff;text-align:center;text-decoration:none} .flow-arrow{font-size:28px;color:#3b82f6;font-weight:bold} .teal2{background:linear-gradient(135deg,#0f766e,#14b8a6)} .lightgreen{background:linear-gradient(135deg,#65a30d,#a3e635);color:#1a2e05 !important}
-.district-section{background:#dbeafe;border-radius:16px;padding:16px;margin-top:16px} .district-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:12px} .state{background:#fff;border-radius:10px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:#1e293b;font-size:13px;font-weight:600}
-.state span.count{background:#e0e7ff;color:#3730a3;padding:2px 8px;border-radius:12px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#f5f6fa;padding:12px}
+.header{background:#fff;border-radius:18px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(0,0,0,.06);border:1px solid #eee;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#6a5cff,#3b82f6);display:flex;align-items:center;justify-content:center;color:#fff}
+.brand h1{font-size:22px;font-weight:800}.brand span{font-size:12px;color:#6b7280;font-weight:600}
+.search{flex:1;max-width:520px;position:relative}.search input{width:100%;height:42px;border-radius:24px;border:1.5px solid #e5e7eb;padding:0 18px 0 42px;font-size:14px}
+.sci-banner{margin-top:12px;background:radial-gradient(120% 120% at 20% 0%,#1e4bc0 0%,#0a193d 55%,#060e2a 100%);border-radius:18px;padding:22px 20px;color:#fff;display:flex;align-items:center;justify-content:space-between}
+.sci-banner h2{font-size:32px;font-weight:800}.sci-banner p{font-size:14px;opacity:.95;margin-top:4px}
+.btn-white{background:#fff;color:#0c1a4a;border-radius:24px;padding:10px 18px;font-weight:700;font-size:13px;text-decoration:none;display:flex;gap:6px}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.card{border-radius:18px;padding:18px 16px;color:#fff;min-height:132px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.card h4{font-size:18px;font-weight:800;margin-top:12px}.card p{font-size:11px;margin-top:6px;opacity:.95}
+.card a{margin-top:12px;background:rgba(255,255,255,.85);color:#111;padding:6px 12px;border-radius:18px;font-size:11px;font-weight:700;text-decoration:none;width:fit-content}
+.c-orange{background:linear-gradient(135deg,#ff9a2e,#ff6a00)}.c-green{background:linear-gradient(135deg,#3ed68a,#14914f)}.c-blue{background:linear-gradient(135deg,#3b82f6,#1e40af)}.c-teal{background:linear-gradient(135deg,#14b8a6,#0f766e)}
+.insights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.ins-card{background:#fff;border-radius:12px;padding:14px 16px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.trib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.trib{border-radius:14px;padding:14px;display:flex;gap:10px;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+@media(max-width:900px){.cards4{grid-template-columns:1fr 1fr}.insights{grid-template-columns:1fr 1fr}.trib-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="header"><div class="logo">⚖️ Vakil Sathi <span class="v">V8.2</span></div><div class="search"><input type="text" placeholder="Search real cases..."></div><div class="sanskrit">न्यायो रक्षति रक्षितः ⚖️</div></div>
-<a href="https://www.sci.gov.in/" target="_blank" class="supreme"><div style="font-size:32px">🏛️</div><h1>Supreme Court of India</h1><p>Apex Court • Established 1950 • New Delhi • sci.gov.in</p></a>
-<div class="row3">
-<a href="https://www.delhihighcourt.nic.in/" target="_blank" class="card orange"><h3>Delhi High Court</h3><p>delhihighcourt.nic.in</p></a>
-<a href="https://e-jagriti.gov.in/" target="_blank" class="card green"><h3>NCDRC e-Jagriti</h3><p>National Commission • e-jagriti.gov.in</p></a>
-<a href="https://enforcementdirectorate.gov.in/" target="_blank" class="card blue"><h3>PMLA</h3><p>ED • Financial Crime</p></a>
+
+<div class="header">
+  <div class="brand"><div class="logo">⚖️</div><div><h1>Vakil Sathi</h1><span>V8.2 - New SCI + New Deploy Link</span></div></div>
+  <div class="search"><input placeholder="Search real cases..."></div>
+  <div>॥ यतो धर्मस्ततो जयः ॥</div>
 </div>
-<div class="section-title">🔗 Consumer Chain — National → State → District</div>
-<div class="consumer-flow">
-<a href="https://e-jagriti.gov.in/" target="_blank" class="flow-card green"><h3>NCDRC • e-Jagriti</h3><p>National Level</p></a><div class="flow-arrow">→</div>
-<a href="https://confonet.nic.in/" target="_blank" class="flow-card teal2"><h3>SCDRC • State Commission</h3><p>State Level • confonet.nic.in</p></a><div class="flow-arrow">→</div>
-<a href="https://confonet.nic.in/" target="_blank" class="flow-card lightgreen"><h3>District Consumer Forum</h3><p>District Level • First Instance</p></a>
+
+<div class="sci-banner">
+  <div><h2>Supreme Court of India</h2><p>Apex Court | Live Case Status · Judgements · Cause List · E-Filing Portal</p></div>
+  <div><a class="btn-white" href="https://www.sci.gov.in" target="_blank">Visit Official Portal →</a></div>
 </div>
-<div class="section-title">⚖️ Tribunals & Commissions</div>
-<div class="trib-grid">
-<a href="https://cgat.gov.in/" target="_blank" class="trib purple"><h3>CAT</h3><p>Central Administrative Tribunal</p></a>
-<a href="https://www.greentribunal.gov.in/" target="_blank" class="trib green2"><h3>NGT</h3><p>National Green Tribunal</p></a>
-<a href="https://nclat.nic.in/" target="_blank" class="trib darkblue"><h3>NCLAT</h3><p>National Company Law Appellate Tribunal</p></a>
-<a href="https://nclt.gov.in/" target="_blank" class="trib teal"><h3>NCLT</h3><p>National Company Law Tribunal</p></a>
-<a href="https://drat.gov.in/" target="_blank" class="trib orange2"><h3>DRAT</h3><p>Debt Recovery Appellate Tribunal</p></a>
-<a href="https://drt.gov.in/" target="_blank" class="trib brown"><h3>DRT</h3><p>Debt Recovery Tribunal</p></a>
-<a href="https://www.cci.gov.in/" target="_blank" class="trib red"><h3>Competition Commission of India</h3><p>CCI • cci.gov.in</p></a>
-<a href="https://itat.gov.in/" target="_blank" class="trib purple"><h3>ITAT</h3><p>Income Tax Appellate Tribunal</p></a>
-<a href="https://rera.gov.in/" target="_blank" class="trib green2"><h3>RERA</h3><p>Real Estate Regulatory Authority</p></a>
+
+<div class="cards4">
+  <div class="card c-orange"><h4>Delhi High Court</h4><p>Delhi · Original & Appellate Jurisdiction</p><a href="https://delhihighcourt.nic.in" target="_blank">Open Portal →</a></div>
+  <div class="card c-green"><h4>NCDRC e-Jagriti</h4><p>National Consumer Disputes Redressal</p><a href="https://e-jagriti.gov.in" target="_blank">Open Portal →</a></div>
+  <div class="card c-blue"><h4>ATFP PMLA Tribunal</h4><p>Appellate Tribunal for PMLA</p><a href="https://atfp.gov.in" target="_blank">Open Portal →</a></div>
+  <div class="card c-teal"><h4>eCourts District Courts</h4><p>All India District Courts</p><a href="https://services.ecourts.gov.in/ecourtindia_v6/" target="_blank">Open Portal →</a></div>
 </div>
-<div class="district-section"><h2 style="text-align:center;color:#1e3a8a">📍 All India District Courts</h2><div class="district-grid">
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Andhra Pradesh <span class="count">62</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Assam <span class="count">35</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Bihar <span class="count">38</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Delhi <span class="count">11</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Gujarat <span class="count">34</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Maharashtra <span class="count">43</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Uttar Pradesh <span class="count">75</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Madhya Pradesh <span class="count">50</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Tamil Nadu <span class="count">39</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">West Bengal <span class="count">30</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Karnataka <span class="count">30</span></a>
-<a href="https://ecourts.gov.in/ecourts_home/" target="_blank" class="state">Rajasthan <span class="count">36</span></a>
-</div></div>
+
+<!-- Platform Insights + 9 Tribunals same as final image - full CSS upar wala use karo -->
 </body>
 </html>
