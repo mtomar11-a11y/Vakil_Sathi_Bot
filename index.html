@@ -5,78 +5,96 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
-body{background:#eef2ff;padding:12px}
-.nav{backdrop-filter:blur(20px);background:rgba(255,255,255,0.9);border-radius:18px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 8px 32px rgba(0,0,0,0.08);border:1px solid rgba(255,255,255,0.6)}
-.hero{background:linear-gradient(135deg,#0b5bff 0%,#7c3aed 100%);border-radius:18px;padding:24px;color:#fff;margin:14px 0;box-shadow:0 16px 40px rgba(11,91,255,0.35);position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,0.2),transparent 70%);border-radius:50%}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
-@media(max-width:768px){.stats{grid-template-columns:1fr 1fr}}
-.stat{background:#fff;border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,0.06);border:1px solid #f1f5f9;transition:0.3s}
-.stat:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,0.1)}
-.stat h2{font-size:28px;color:#0b5bff;font-weight:800}
-.stat p{font-size:12px;color:#64748b;font-weight:600;margin-top:2px}
-.main{display:grid;grid-template-columns:360px 1fr;gap:14px}
-@media(max-width:1024px){.main{grid-template-columns:1fr}}
-.card{background:#fff;border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,0.06);border:1px solid #f1f5f9}
-.input{width:100%;padding:12px 14px;border:2px solid #f1f5f9;border-radius:12px;outline:none;margin-bottom:10px;transition:0.2s;background:#fbfdff}
-.input:focus{border-color:#0b5bff;background:#fff;box-shadow:0 0 0 3px rgba(11,91,255,0.1)}
-.btn{width:100%;padding:12px;background:linear-gradient(#1a6bff,#0b5bff);color:#fff;border:none;border-radius:12px;font-weight:700;cursor:pointer;box-shadow:0 8px 16px rgba(11,91,255,0.25)}
-.table-wrap{border:1px solid #f1f5f9;border-radius:14px;overflow:hidden;margin-top:12px}
+body{background:#eef4ff;padding:16px;color:#0f172a}
+.topbar{background:linear-gradient(90deg,#0a1931 0%,#1e3a8a 50%,#3730a3 100%);border-radius:20px;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;color:#fff;box-shadow:0 12px 32px rgba(10,25,49,0.3)}
+.logo{font-weight:800;font-size:20px;display:flex;gap:10px;align-items:center}
+.logo i{background:#fff;color:#1e3a8a;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.dashboard-head{display:flex;justify-content:space-between;align-items:center;margin:20px 4px;flex-wrap:wrap;gap:12px}
+.dashboard-head h1{font-size:32px;font-weight:800;letter-spacing:-1px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.stats{grid-template-columns:1fr 1fr}}
+.scard{background:#fff;border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid #eef2ff;text-align:center}
+.scard.icon{width:64px;height:64px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:28px}
+.scard h2{font-size:36px;font-weight:800;color:#0f172a}
+.scard p{font-size:13px;color:#64748b;font-weight:600}
+.scard small{font-size:12px;color:#10b981;font-weight:600}
+.main{margin-top:16px;display:grid;grid-template-columns:340px 1fr;gap:16px}
+@media(max-width:1100px){.main{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid #eef2ff}
+.input{width:100%;padding:11px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc;outline:none;margin-top:6px;margin-bottom:12px;font-size:13px}
+.input:focus{border-color:#1e3a8a;background:#fff}
+.btn{width:100%;padding:12px;background:#1e3a8a;color:#fff;border:none;border-radius:12px;font-weight:700;cursor:pointer}
+.table-wrap{margin-top:12px;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden}
 table{width:100%;border-collapse:collapse;font-size:13px}
-th{background:#f8fafc;padding:10px 12px;text-align:left;color:#64748b;font-size:11px;text-transform:uppercase}
-td{padding:12px;border-top:1px solid #f1f5f9}
-.badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
-.b-blue{background:#e0e7ff;color:#4338ca}.b-green{background:#dcfce7;color:#166534}
+th{background:#f8fafc;padding:12px;text-align:left;color:#64748b;font-size:11px}
+td{padding:14px;border-top:1px solid #f1f5f9}
+.badge{padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700}
 </style>
 </head><body>
-<div class="nav"><b style="color:#0b5bff"><i class="fa-solid fa-scale-balanced"></i> VAKIL SATHI</b><button onclick="window.open('https://docs.google.com/spreadsheets/d/1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU/edit')" style="background:#f1f5f9;border:1px solid #e2e8f0;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer">Open Sheet</button></div>
+<div class="topbar">
+<div class="logo"><i class="fa-solid fa-scale-balanced"></i> VAKIL SATHI</div>
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU/edit')" style="background:#fff;color:#1e3a8a;border:none;padding:8px 16px;border-radius:10px;font-weight:700;cursor:pointer">Open Sheet</button>
+</div>
 
-<div class="hero"><h2 style="font-weight:800">Case Management OS v4.0 • Ultra Premium</h2><p style="font-size:12px;opacity:0.9;margin-top:6px;word-break:break-all">Sheet: 1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU | Auto Sync ON</p></div>
+<div class="dashboard-head">
+<div><h1>Dashboard</h1><p style="color:#64748b;font-size:14px">Welcome back — here's your case overview for today</p></div>
+<button onclick="document.getElementById('cnrInput').focus()" style="background:#1e3a8a;color:#fff;border:none;padding:10px 18px;border-radius:12px;font-weight:700;cursor:pointer"><i class="fa-solid fa-plus"></i> Add New Case</button>
+</div>
 
 <div class="stats">
-<div class="stat"><h2 id="totalCases">4</h2><p>Total Cases</p></div>
-<div class="stat"><h2 id="todayHearing">3</h2><p>Today Hearings</p></div>
-<div class="stat"><h2>98%</h2><p>Success Rate</p></div>
-<div class="stat"><h2>42</h2><p>Active Clients</p></div>
+<div class="scard"><div class="icon" style="background:#dbeafe;color:#2563eb"><i class="fa-solid fa-file-lines"></i></div><p>Total Cases</p><h2 id="totalCases">4</h2><small><i class="fa-solid fa-arrow-trend-up"></i> +12 this month</small></div>
+<div class="scard"><div class="icon" style="background:#e0e7ff;color:#4f46e5"><i class="fa-solid fa-folder"></i></div><p>Open Cases</p><h2 id="openCases">3</h2><small style="color:#4f46e5">+3 this week</small></div>
+<div class="scard"><div class="icon" style="background:#ffedd5;color:#ea580c"><i class="fa-solid fa-calendar-check"></i></div><p>Today Hearings</p><h2>3</h2><small style="color:#ea580c">Due in 7 days</small></div>
+<div class="scard"><div class="icon" style="background:#ccfbf1;color:#0d9488"><i class="fa-solid fa-clock"></i></div><p>Active Clients</p><h2>42</h2><small>+8.2h this week</small></div>
 </div>
 
 <div class="main">
 <div>
-<div class="card"><h3 style="font-size:15px;margin-bottom:10px"><i class="fa-solid fa-plus" style="color:#0b5bff"></i> Add New Case</h3>
-<input class="input" id="cnrInput" placeholder="CNR - SCIN010735182025">
-<input class="input" id="titleInput" placeholder="Case Title">
-<input class="input" id="courtInput" placeholder="Court">
+<div class="card"><h3><i class="fa-solid fa-plus"></i> Add New Case</h3>
+<label style="font-size:12px;font-weight:600;margin-top:10px;display:block">CNR Number</label>
+<input class="input" id="cnrInput" placeholder="SCIN010735182025">
+<label style="font-size:12px;font-weight:600;display:block">Case Title</label>
+<input class="input" id="titleInput" placeholder="e.g. Ramesh vs State">
+<label style="font-size:12px;font-weight:600;display:block">Court</label>
+<input class="input" id="courtInput" placeholder="Delhi High Court">
+<label style="font-size:12px;font-weight:600;display:block">Client Name</label>
 <input class="input" id="clientInput" placeholder="Client Name">
-<button class="btn" onclick="addCase()">Add to Google Sheet</button>
-<p id="status" style="text-align:center;margin-top:8px;font-size:13px;font-weight:700"></p>
+<button class="btn" onclick="addCase()"><i class="fa-solid fa-cloud-arrow-up"></i> Create Case</button>
+<p id="status" style="text-align:center;margin-top:10px;font-weight:700;font-size:13px"></p>
 </div>
 </div>
+
 <div>
-<div class="card"><h3 style="font-size:15px">All Cases - Live from Sheet</h3><input class="input" id="searchInput" placeholder="Search..." onkeyup="filterTable()" style="margin-top:10px;padding:10px"><div class="table-wrap"><table><thead><tr><th>CNR</th><th>Title</th><th>Date</th><th>Status</th></tr></thead><tbody id="tableBody"></tbody></table></div></div>
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h3>All Cases</h3><input id="searchInput" onkeyup="filterTable()" placeholder="Search..." style="padding:8px 12px;border:1px solid #e2e8f0;border-radius:10px;font-size:12px"></div>
+<div class="table-wrap"><table><thead><tr><th>CNR</th><th>CLIENT / TITLE</th><th>DATE</th><th>STATUS</th></tr></thead><tbody id="tableBody"></tbody></table></div>
 </div>
 </div>
+</div>
+
 <script>
 const SHEET_ID="1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU";
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbzlYM3b3rAPqPZ_9Z310pqDWUIf36iMZ9w0Lx739ljL/exec";
 const CSV_URL="https://docs.google.com/spreadsheets/d/"+SHEET_ID+"/gviz/tq?tqx=out:csv";
 function addCase(){
- let cnr=document.getElementById('cnrInput').value.trim(); if(!cnr){alert("CNR dalo");return;}
+ let cnr=document.getElementById('cnrInput').value.trim();
+ if(!cnr){alert("CNR dalo");return;}
  document.getElementById('status').innerText="Adding...";
- google.script.run.withSuccessHandler(()=>{document.getElementById('status').innerText="✅ Ho gaya!";document.getElementById('cnrInput').value='';loadCases();}).saveToYourSheet("CNR",cnr,document.getElementById('titleInput').value,document.getElementById('courtInput').value,document.getElementById('clientInput').value);
+ google.script.run.withSuccessHandler(()=>{document.getElementById('status').innerText="✅ Added!";loadCases();}).saveToYourSheet("CNR",cnr,document.getElementById('titleInput').value,document.getElementById('courtInput').value,document.getElementById('clientInput').value);
 }
 function loadCases(){
  fetch(CSV_URL).then(r=>r.text()).then(t=>{
   let rows=t.split("\n").slice(1).filter(x=>x.trim()!='').reverse();
   document.getElementById('totalCases').innerText=rows.length;
+  document.getElementById('openCases').innerText=Math.min(rows.length,28);
   let tb=document.getElementById('tableBody'); tb.innerHTML='';
-  rows.slice(0,50).forEach(r=>{
-   let p=r.split(','); let q=p[2]?p[2].replace(/"/g,''):''; let title=p[3]?p[3].replace(/"/g,''):'';
-   let d=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short'});
-   tb.innerHTML+=`<tr><td><span class="badge b-blue">${q.substring(0,12)}</span></td><td>${title.substring(0,24)}</td><td>${d}</td><td><span class="badge b-green">Active</span></td></tr>`;
+  rows.slice(0,20).forEach(r=>{
+   let p=r.split(','); let q=p[2]?p[2].replace(/"/g,''):''; let title=p[3]?p[3].replace(/"/g,''):'Case';
+   let d=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+   tb.innerHTML+=`<tr><td><span class="badge" style="background:#e0e7ff;color:#4338ca">${q.substring(0,12)}</span></td><td><b>${title.substring(0,22)}</b></td><td>${d}</td><td><span class="badge" style="background:#dcfce7;color:#166534">Active</span></td></tr>`;
   });
  });
 }
-function filterTable(){let f=document.getElementById('searchInput').value.toUpperCase();let trs=document.getElementById('tableBody').getElementsByTagName('tr');for(let tr of trs){tr.style.display=tr.innerText.toUpperCase().includes(f)?'':'none';}}
+function filterTable(){let f=document.getElementById('searchInput').value.toUpperCase();[...document.getElementById('tableBody').rows].forEach(tr=>tr.style.display=tr.innerText.toUpperCase().includes(f)?'':'none')}
 loadCases();
 </script>
 </body></html>
