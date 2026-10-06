@@ -2,7 +2,7 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vakil Sathi V8.1 - All Courts + Real Save</title>
+<title>Vakil Sathi V8.2 - Updated Links</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
@@ -15,9 +15,7 @@ body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparen
 .layout{display:flex;gap:14px;margin-top:14px}.sidebar{width:290px;background:var(--card);backdrop-filter:blur(20px);border-radius:20px;border:1px solid rgba(255,255,255,0.7);padding:20px;box-shadow:var(--shadow);height:fit-content;position:sticky;top:104px}
 .menu{padding:13px 16px;border-radius:12px;margin:5px 0;display:flex;gap:12px;align-items:center;font-weight:600;color:#334155;cursor:pointer;transition:0.25s}.menu:hover{background:#f1f5f9;transform:translateX(4px)}.menu.active{background:linear-gradient(135deg,var(--primary),#4f46e5);color:#fff;box-shadow:0 10px 24px rgba(21,101,216,0.3)}
 .main{flex:1;background:var(--card);backdrop-filter:blur(20px);border-radius:20px;border:1px solid rgba(255,255,255,0.7);padding:24px;box-shadow:var(--shadow);min-height:700px}
-.view{display:none}.view.active{display:block;animation:fade 0.3s}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.card{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}.stat{border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(255,255,255,0.8)}.stat.blue{background:linear-gradient(135deg,#c6d8ff,#a5b4fc)}.stat.orange{background:linear-gradient(135deg,#ffdfb3,#fed7aa)}.stat.green{background:linear-gradient(135deg,#c8eac8,#a7f3d0)}
+.view{display:none}.view.active{display:block}.card{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}.stat{border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(255,255,255,0.8)}.stat.blue{background:linear-gradient(135deg,#c6d8ff,#a5b4fc)}.stat.orange{background:linear-gradient(135deg,#ffdfb3,#fed7aa)}.stat.green{background:linear-gradient(135deg,#c8eac8,#a7f3d0)}
 .modal{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
 .modal-box{background:#fff;width:700px;max-height:92vh;overflow:auto;border-radius:24px;padding:28px;box-shadow:0 30px 90px rgba(0,0,0,.3)}
 .tabs{display:flex;gap:8px;background:#f1f5f9;padding:7px;border-radius:16px;margin:16px 0;overflow-x:auto}
@@ -25,7 +23,6 @@ body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparen
 .field-group{display:none}.field-group.active{display:block}
 .modal-box input,.modal-box select{width:100%;padding:12px 14px;margin:7px 0;border:1px solid #cbd5e1;border-radius:12px;outline:none}
 .btn{padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer}.btn-primary{background:var(--primary);color:#fff;width:100%;margin-top:10px}
-.label{font-size:10px;font-weight:800;margin-top:14px;display:block;text-transform:uppercase}
 .table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}.table th{background:#f8fafc;padding:10px;text-align:left;font-size:11px;color:#64748b}.table td{padding:12px;border-top:1px solid #f1f5f9}
 .court-link{display:block;padding:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;margin:6px 0;font-size:12px;text-decoration:none;color:#1565d8;font-weight:600}
 </style>
@@ -33,13 +30,12 @@ body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparen
 <body>
 
 <div class="header">
-<div class="logo"><div class="logo-icon">⚖️</div><div><h1 style="font-size:22px;font-weight:800">Vakil Sathi</h1><p style="font-size:11px;color:#64748b">V8.1 - All Courts Active • Real Feed</p></div></div>
+<div class="logo"><div class="logo-icon">⚖️</div><div><h1 style="font-size:22px;font-weight:800">Vakil Sathi</h1><p style="font-size:11px;color:#64748b">V8.2 - New SCI + New Deploy Link</p></div></div>
 <div style="width:420px;height:44px;background:#fff;border:1px solid #e2e8f0;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px"><i class="fa-solid fa-magnifying-glass" style="color:#64748b"></i><input id="globalSearch" placeholder="Search real cases..." style="border:0;outline:none;width:100%;font-size:13px;background:transparent" onkeyup="globalSearch()"></div>
 <div style="display:flex;gap:12px;align-items:center"><div style="text-align:right"><div class="sanskrit">॥ यतो धर्मस्ततो जय: ॥</div></div><div style="width:42px;height:42px;background:#e2e8f0;border-radius:50%;display:flex;align-items:center;justify-content:center">⚖️</div></div>
 </div>
 
 <div class="layout">
-<!-- SIDEBAR - LINE 52 START -->
 <div class="sidebar">
 <div class="menu active" onclick="showView('dashboard',this)"><i class="fa-solid fa-house"></i> Dashboard</div>
 <div class="menu" onclick="showView('cases',this)"><i class="fa-solid fa-folder"></i> Cases <span id="caseCountSide" style="margin-left:auto;background:#dbeafe;padding:2px 8px;border-radius:10px;font-size:11px">--</span></div>
@@ -47,41 +43,37 @@ body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparen
 <div class="menu" onclick="showView('causelist',this)"><i class="fa-solid fa-gavel"></i> Causelist</div>
 <div class="menu" onclick="showView('clients',this)"><i class="fa-solid fa-users"></i> Clients</div>
 <div class="menu" onclick="showView('calendar',this)"><i class="fa-solid fa-calendar-days"></i> Calendar</div>
-<div class="menu" onclick="showView('documents',this)"><i class="fa-solid fa-file"></i> Documents</div>
-<div class="menu" onclick="showView('billing',this)"><i class="fa-solid fa-indian-rupee-sign"></i> Billing</div>
 
-<!-- COURT LINKS DIRECTORY - LINE 65 TO 95 -->
 <div style="margin-top:16px;padding:14px;background:#fff;border-radius:14px;border:1px solid #e2e8f0">
-<b style="font-size:12px"><i class="fa-solid fa-link"></i> Quick Court Links - Order Wise</b>
-<a class="court-link" href="https://www.sci.gov.in/case-status-diary-no/" target="_blank">1. Supreme Court - SCI</a>
+<b style="font-size:12px"><i class="fa-solid fa-link"></i> Quick Court Links - UPDATED</b>
+<a class="court-link" href="https://www.sci.gov.in/case-status-diary-no/" target="_blank" style="background:#dbeafe;border-color:#a5b4fc">1. Supreme Court - NEW LINK ✅</a>
 <a class="court-link" href="https://delhihighcourt.nic.in" target="_blank">2. Delhi High Court</a>
-<a class="court-link" href="https://hcservices.ecourts.gov.in/hcservices/" target="_blank">3. All High Courts - HC Services</a>
+<a class="court-link" href="https://hcservices.ecourts.gov.in/hcservices/" target="_blank">3. All High Courts</a>
 <a class="court-link" href="https://districts.ecourts.gov.in/" target="_blank">4. All District Courts</a>
-<a class="court-link" href="https://eservices.ecourts.gov.in" target="_blank">5. eCourts Main - CNR Search</a>
+<a class="court-link" href="https://eservices.ecourts.gov.in" target="_blank">5. eCourts CNR Search</a>
 </div>
 
 <div style="margin-top:12px;padding:14px;background:linear-gradient(135deg,#1e3a8a,#3730a3);border-radius:14px;color:#fff;font-size:12px">
-<b>Live Sheet</b><br>ID: 1AytArb10KlQ...<br>
+<b>New Deploy Link Active</b><br>
+<span style="font-size:10px;word-break:break-all">AKfycbw1a3OKSa2ix1dJe50M39_p4xSR9...</span><br><br>
 <a href="https://docs.google.com/spreadsheets/d/1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU/edit" target="_blank" style="color:#fff">📊 Open Sheet</a><br>
 <span id="syncStatus" style="background:rgba(255,255,255,0.2);padding:4px 8px;border-radius:20px;margin-top:6px;display:inline-block">🔄 Syncing...</span>
 </div>
 </div>
-<!-- SIDEBAR END -->
 
 <div class="main">
 <div id="view-dashboard" class="view active">
-<div style="display:flex;justify-content:space-between"><h1 style="font-size:28px;font-weight:800">Dashboard - Real Data</h1><button class="btn btn-primary" style="width:auto;padding:10px 20px" onclick="openModal()">+ New Case</button></div>
+<div style="display:flex;justify-content:space-between"><h1 style="font-size:28px;font-weight:800">Dashboard - Updated Links</h1><button class="btn btn-primary" style="width:auto;padding:10px 20px" onclick="openModal()">+ New Case</button></div>
 <div class="card"><div class="stat blue"><b>Today's Hearings</b><div style="font-size:38px;font-weight:800" id="statHearing">--</div></div><div class="stat orange"><b>Total Cases (Real)</b><div style="font-size:38px;font-weight:800" id="statTotal">--</div></div><div class="stat green"><b>Revenue</b><div style="font-size:28px;font-weight:800">₹1,24,500</div></div></div>
 
-<!-- QUICK SAVE BOX - LINE 95 TO 115 - NEW FEATURE -->
 <div style="margin-top:14px;padding:16px;background:linear-gradient(135deg,#dbeafe,#e0e7ff);border-radius:16px;border:1px solid #a5b4fc">
-<b style="font-size:13px"><i class="fa-solid fa-wand-magic-sparkles"></i> Court Link → Save to Portal (Order Wise Flow)</b>
-<p style="font-size:11px;margin-top:6px;color:#334155">Step 1: Upar se Court open karo → Step 2: CNR copy karo → Step 3: Yahan paste → Step 4: Save dabao</p>
+<b style="font-size:13px"><i class="fa-solid fa-wand-magic-sparkles"></i> NEW SCI Link + Save to Portal</b>
+<p style="font-size:11px;margin-top:6px">Supreme Court ka naya link: https://www.sci.gov.in/case-status-diary-no/</p>
 <div style="display:flex;gap:8px;margin-top:12px">
 <select id="courtOrderSelect" style="padding:12px;border:1px solid #a5b4fc;border-radius:10px;font-size:12px">
-<option>Supreme Court</option><option>Delhi High Court</option><option>Bombay High Court</option><option>Allahabad High Court</option><option>Patna High Court</option><option>District Court - Delhi</option><option>District Court - UP</option><option>NCLT / CAT / DRT</option>
+<option value="Supreme Court - SCI New">Supreme Court - SCI New</option><option>Delhi High Court</option><option>Bombay High Court</option><option>Allahabad High Court</option><option>Patna High Court</option><option>District Court - Delhi</option><option>NCLT / CAT / DRT</option>
 </select>
-<input id="quickCNR" placeholder="CNR paste - e.g. DLHC010012342024" style="flex:1;padding:12px;border:1px solid #a5b4fc;border-radius:10px;font-size:13px">
+<input id="quickCNR" placeholder="CNR paste..." style="flex:1;padding:12px;border:1px solid #a5b4fc;border-radius:10px;font-size:13px">
 <button onclick="quickSave()" style="padding:12px 18px;background:#1565d8;color:#fff;border:0;border-radius:10px;font-weight:700;cursor:pointer"><i class="fa-solid fa-floppy-disk"></i> Save to Portal</button>
 </div>
 <p id="quickStatus" style="font-size:11px;margin-top:8px;color:#15803d;font-weight:700"></p>
@@ -90,32 +82,28 @@ body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparen
 <div id="caseList" style="margin-top:12px"></div>
 </div>
 
-<!-- ALL COURTS VIEW - LINE 120 TO 180 - NEW VIEW -->
 <div id="view-courts" class="view">
-<h2 style="font-size:24px;font-weight:800">All Courts Directory - Order Wise - Click to Open & Save</h2>
+<h2 style="font-size:24px;font-weight:800">All Courts Directory - UPDATED ORDER WISE</h2>
 <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
-<div style="padding:16px;background:#fff;border-radius:14px;border:1px solid #e2e8f0"><h4>1. Supreme Court of India</h4><a class="court-link" href="https://main.sci.gov.in/case-status" target="_blank">Case Status - SCI</a><a class="court-link" href="https://main.sci.gov.in/daily-order" target="_blank">Daily Orders</a></div>
-<div style="padding:16px;background:#fff;border-radius:14px;border:1px solid #e2e8f0"><h4>2. High Courts - State Wise</h4><div style="max-height:160px;overflow:auto;margin-top:8px"><a class="court-link" href="https://delhihighcourt.nic.in" target="_blank">Delhi HC</a><a class="court-link" href="https://bombayhighcourt.nic.in" target="_blank">Bombay HC</a><a class="court-link" href="https://allahabadhighcourt.in" target="_blank">Allahabad HC</a><a class="court-link" href="https://patnahighcourt.gov.in" target="_blank">Patna HC</a><a class="court-link" href="https://hcservices.ecourts.gov.in" target="_blank">All HC - eCourts</a></div></div>
-<div style="padding:16px;background:#fff;border-radius:14px;border:1px solid #e2e8f0"><h4>3. District Courts</h4><a class="court-link" href="https://districts.ecourts.gov.in/" target="_blank">Delhi - Tis Hazari / Saket / Patiala</a><a class="court-link" href="https://districts.ecourts.gov.in/" target="_blank">UP / Bihar / Maharashtra</a><a class="court-link" href="https://districts.ecourts.gov.in/" target="_blank">All District Courts</a></div>
-<div style="padding:16px;background:#fff;border-radius:14px;border:1px solid #e2e8f0"><h4>4. Tribunals</h4><a class="court-link" href="https://nclt.gov.in" target="_blank">NCLT</a><a class="court-link" href="https://cat.gov.in" target="_blank">CAT</a><a class="court-link" href="https://drt.gov.in" target="_blank">DRT / DRAT</a></div>
+<div style="padding:16px;background:#fff;border-radius:14px;border:1px solid #a5b4fc"><h4>1. Supreme Court - NEW ✅</h4><a class="court-link" href="https://www.sci.gov.in/case-status-diary-no/" target="_blank" style="background:#dbeafe">Case Status - Diary No - NEW LINK</a><a class="court-link" href="https://www.sci.gov.in/" target="_blank">SCI Official - sci.gov.in</a><p style="font-size:10px;color:#15803d;margin-top:6px">✅ Updated: Old main.sci.gov.in → New sci.gov.in</p></div>
+<div style="padding:16px;background:#fff;border-radius:14px;border:1px solid #e2e8f0"><h4>2. High Courts</h4><a class="court-link" href="https://delhihighcourt.nic.in" target="_blank">Delhi HC</a><a class="court-link" href="https://hcservices.ecourts.gov.in/hcservices/" target="_blank">All HC - eCourts</a></div>
+<div style="padding:16px;background:#fff;border-radius:14px;border:1px solid #e2e8f0"><h4>3. District Courts</h4><a class="court-link" href="https://districts.ecourts.gov.in/" target="_blank">All District Courts</a></div>
+<div style="padding:16px;background:#fff;border-radius:14px;border:1px solid #e2e8f0"><h4>4. Tribunals</h4><a class="court-link" href="https://nclt.gov.in" target="_blank">NCLT / NCLAT / CAT</a></div>
 </div>
-<div style="margin-top:14px;padding:14px;background:#fef3c7;border-radius:12px;border:1px solid #fde68a;font-size:12px"><b>How it works:</b> Court link open karo → Case data copy karo → Dashboard pe Quick Save me paste karo → Save to Portal → Auto teri Sheet 1AytArb10KlQ... me save + Dashboard pe live.</div>
 </div>
 
-<div id="view-cases" class="view"><h2>All Cases - Real Sheet</h2><div style="display:flex;gap:10px;margin:14px 0"><input id="caseSearch" placeholder="Search..." style="flex:1;padding:12px;border:1px solid #cbd5e1;border-radius:12px" onkeyup="filterCases()"><button class="btn btn-primary" style="width:auto" onclick="loadCasesReal()">🔄 Refresh</button></div><table class="table"><thead><tr><th>Time</th><th>CNR</th><th>Title</th><th>Court</th><th>Client</th></tr></thead><tbody id="casesTable"></tbody></table></div>
+<div id="view-cases" class="view"><h2>All Cases - Real Sheet</h2><div style="display:flex;gap:10px;margin:14px 0"><input id="caseSearch" placeholder="Search..." style="flex:1;padding:12px;border:1px solid #cbd5e1;border-radius:12px" onkeyup="filterCases()"><button class="btn btn-primary" style="width:auto" onclick="loadCasesReal()">🔄 Refresh</button></div><table class="table"><thead><tr><th>Time</th><th>CNR</th><th>Title</th><th>Court</th></tr></thead><tbody id="casesTable"></tbody></table></div>
 <div id="view-causelist" class="view"><h2>Causelist</h2><div id="causelistBox"></div></div>
 <div id="view-clients" class="view"><h2>Clients</h2><div id="clientsList"></div></div>
-<div id="view-calendar" class="view"><h2>Calendar</h2><div id="calendarBox"></div></div>
-<div id="view-documents" class="view"><h2>Documents</h2></div>
-<div id="view-billing" class="view"><h2>Billing</h2></div>
+<div id="view-calendar" class="view"><h2>Calendar</h2></div>
 </div>
 </div>
 
 <div class="modal" id="modal"><div class="modal-box">
-<div style="display:flex;justify-content:space-between"><h2 style="font-weight:800">Add New Case - Real Save</h2><button onclick="closeModal()" style="width:36px;height:36px;border-radius:10px;border:0;background:#f1f5f9;cursor:pointer">✕</button></div>
+<div style="display:flex;justify-content:space-between"><h2 style="font-weight:800">Add New Case</h2><button onclick="closeModal()" style="width:36px;height:36px;border-radius:10px;border:0;background:#f1f5f9;cursor:pointer">✕</button></div>
 <div class="tabs"><button class="tab active" onclick="switchTab('cnr',this)">CNR</button><button class="tab" onclick="switchTab('casenumber',this)">Case No</button><button class="tab" onclick="switchTab('party',this)">Party</button><button class="tab" onclick="switchTab('advocate',this)">Advocate</button><button class="tab" onclick="switchTab('fir',this)">FIR</button></div>
 <div id="tab-cnr" class="field-group active"><input id="cNo" placeholder="CNR"><canvas id="captchaCanvas" width="180" height="48" style="border:1px solid #e2e8f0;border-radius:10px;margin:8px 0"></canvas><div style="display:flex;gap:6px"><input id="captchaInput" placeholder="Captcha"><button onclick="generateCaptcha()" style="padding:10px;border-radius:10px;border:1px solid #cbd5e1;background:#fff">↻</button></div><button class="btn btn-primary" onclick="verifyCaptcha()">Fetch</button></div>
-<div id="tab-casenumber" class="field-group"><select id="cCourtSelect"><option>Delhi High Court</option><option>Supreme Court</option></select><input id="cNumberOnly" placeholder="Case Number"><button class="btn btn-primary" onclick="searchByCaseNumber()">Search</button></div>
+<div id="tab-casenumber" class="field-group"><select id="cCourtSelect"><option>Delhi High Court</option><option>Supreme Court - SCI New</option></select><input id="cNumberOnly" placeholder="Case Number"><button class="btn btn-primary" onclick="searchByCaseNumber()">Search</button></div>
 <div id="tab-party" class="field-group"><input id="petitioner" placeholder="Petitioner"><input id="respondent" placeholder="Respondent"><button class="btn btn-primary" onclick="searchByParty()">Search</button></div>
 <div id="tab-advocate" class="field-group"><input id="advName" placeholder="Advocate"><button class="btn btn-primary" onclick="searchByAdvocate()">Search</button></div>
 <div id="tab-fir" class="field-group"><input id="firNo" placeholder="FIR No"><button class="btn btn-primary" onclick="searchByFIR()">Search</button></div>
@@ -125,9 +113,12 @@ body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparen
 </div></div>
 
 <script>
-const SHEET_ID="AKfycbw1a3OKSa2ix1dJe50M39_p4xSR914QDKmTvnSRvLeih3rrThWgpdPioo4EhKT1wwygiQ";
-const SCRIPT_URL="https://script.google.com/macros/s/AKfycbw1a3OKSa2ix1dJe50M39_p4xSR914QDKmTvnSRvLeih3rrThWgpdPioo4EhKT1wwygiQ/exec/dev";
+// UPDATED LINKS - LINE 48-50
+const SHEET_ID="1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU";
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbw1a3OKSa2ix1dJe50M39_p4xSR914QDKmTvnSRvLeih3rrThWgpdPioo4EhKT1wwygiQ/exec";
 const CSV_URL="https://docs.google.com/spreadsheets/d/"+SHEET_ID+"/gviz/tq?tqx=out:csv";
+const SCI_NEW_LINK="https://www.sci.gov.in/case-status-diary-no/";
+
 let cases=[];
 function showView(id,el){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+id).classList.add('active');document.querySelectorAll('.menu').forEach(m=>m.classList.remove('active'));el.classList.add('active');}
 function switchTab(id,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');document.querySelectorAll('.field-group').forEach(g=>g.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');}
@@ -146,30 +137,35 @@ function loadCasesReal(){
     });
     cases.reverse();
     renderReal();
-    document.getElementById('syncStatus').innerText='✅ Synced - '+cases.length+' cases';
+    document.getElementById('syncStatus').innerText='✅ Synced - '+cases.length+' cases | NEW DEPLOY';
   });
 }
 function renderReal(){
   document.getElementById('statTotal').innerText=cases.length;
   document.getElementById('statHearing').innerText=Math.min(cases.length,5);
   document.getElementById('caseCountSide').innerText=cases.length;
-  let h="";cases.slice(0,10).forEach(c=>{h+=`<div style="display:flex;justify-content:space-between;padding:14px;border:1px solid #f1f5f9;background:#fff;border-radius:12px;margin:6px 0;font-size:13px"><b style="color:#1565d8">${c.num.substring(0,20)}</b><span>${c.client.substring(0,30)}</span><span>${c.court}</span><span>${c.date.substring(0,12)}</span></div>`;});
-  document.getElementById('caseList').innerHTML=h||'<p style="text-align:center;color:#999">No cases - Add via Court Links</p>';
-  let ct="";cases.forEach(c=>{ct+=`<tr><td style="font-size:11px">${c.timestamp.substring(0,10)}</td><td><span style="background:#dbeafe;padding:4px 8px;border-radius:20px;font-size:11px">${c.num.substring(0,18)}</span></td><td>${c.client.substring(0,30)}</td><td>${c.court.substring(0,18)}</td><td>${c.clientName.substring(0,15)}</td></tr>`;});
+  let h="";cases.slice(0,10).forEach(c=>{h+=`<div style="display:flex;justify-content:space-between;padding:14px;border:1px solid #f1f5f9;background:#fff;border-radius:12px;margin:6px 0;font-size:13px"><b style="color:#1565d8">${c.num.substring(0,20)}</b><span>${c.client.substring(0,30)}</span><span>${c.court}</span></div>`;});
+  document.getElementById('caseList').innerHTML=h||'<p style="text-align:center;color:#999">No cases</p>';
+  let ct="";cases.forEach(c=>{ct+=`<tr><td style="font-size:11px">${c.timestamp.substring(0,10)}</td><td><span style="background:#dbeafe;padding:4px 8px;border-radius:20px;font-size:11px">${c.num.substring(0,18)}</span></td><td>${c.client.substring(0,30)}</td><td>${c.court.substring(0,18)}</td></tr>`;});
   document.getElementById('casesTable').innerHTML=ct;
 }
 function quickSave(){
   let cnr=document.getElementById('quickCNR').value.trim();
   let court=document.getElementById('courtOrderSelect').value;
   if(!cnr){alert("CNR dalo");return;}
-  document.getElementById('quickStatus').innerText="⏳ Saving "+cnr+" ("+court+") to portal...";
-  if(typeof google!=='undefined' && google.script && google.script.run){
-    google.script.run.withSuccessHandler((r)=>{document.getElementById('quickStatus').innerText="✅ Saved to portal & Sheet: "+cnr+" | Court: "+court;loadCasesReal();}).saveToYourSheet("COURT_LINK_"+court, cnr, cnr+" vs State ("+court+")", court, "Portal User");
-  }else{
-    fetch(SCRIPT_URL+"?cnr="+encodeURIComponent(cnr)+"&court="+encodeURIComponent(court)+"&title="+encodeURIComponent(cnr+" vs State ("+court+")"),{mode:'no-cors'}).then(()=>{document.getElementById('quickStatus').innerText="✅ Saved: "+cnr+" - Refresh in 3 sec";setTimeout(loadCasesReal,3000);});
-  }
+  document.getElementById('quickStatus').innerText="⏳ Saving "+cnr+" ("+court+") to NEW DEPLOYMENT...";
+  // USING NEW DEPLOYMENT LINK
+  fetch(SCRIPT_URL+"?cnr="+encodeURIComponent(cnr)+"&court="+encodeURIComponent(court)+"&title="+encodeURIComponent(cnr+" vs State ("+court+")"),{mode:'no-cors'}).then(()=>{
+    document.getElementById('quickStatus').innerText="✅ Saved via NEW LINK: "+cnr+" | Court: "+court+" | SCI: "+SCI_NEW_LINK;
+    setTimeout(loadCasesReal,2500);
+  });
 }
-function saveRealCase(){let cnr=document.getElementById('cNo').value||document.getElementById('cNumberOnly').value||"NEW";let title=document.getElementById('cClient').value||cnr+" vs State";let court=document.getElementById('cCourt').value||"Delhi High Court";let client=document.getElementById('cClientName').value||"Client";if(typeof google!=='undefined'&&google.script&&google.script.run){google.script.run.withSuccessHandler(()=>{closeModal();loadCasesReal();}).saveToYourSheet("CNR",cnr,title,court,client);}else{fetch(SCRIPT_URL+"?cnr="+cnr+"&title="+title+"&court="+court,{mode:'no-cors'}).then(()=>{closeModal();setTimeout(loadCasesReal,3000);});}}
+function saveRealCase(){
+  let cnr=document.getElementById('cNo').value||document.getElementById('cNumberOnly').value||"NEW";
+  let title=document.getElementById('cClient').value||cnr+" vs State";
+  let court=document.getElementById('cCourt').value||"Delhi High Court";
+  fetch(SCRIPT_URL+"?cnr="+encodeURIComponent(cnr)+"&title="+encodeURIComponent(title)+"&court="+encodeURIComponent(court),{mode:'no-cors'}).then(()=>{closeModal();setTimeout(loadCasesReal,2500);});
+}
 function filterCases(){let q=document.getElementById('caseSearch').value.toUpperCase();[...document.getElementById('casesTable').rows].forEach(tr=>{tr.style.display=tr.innerText.toUpperCase().includes(q)?'':'none';});}
 function globalSearch(){let q=document.getElementById('globalSearch').value.toLowerCase();showView('cases',document.querySelectorAll('.menu')[1]);document.getElementById('caseSearch').value=q;filterCases();}
 function searchByCaseNumber(){let n=document.getElementById('cNumberOnly').value;document.getElementById('cClient').value="Case No "+n+" vs State";}
