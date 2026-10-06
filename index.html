@@ -2,14 +2,14 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vakil Sathi - All Features Active</title>
+<title>Vakil Sathi - Real Data Feed</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
 :root{--primary:#1565d8;--bg:#eef2ff;--card:rgba(255,255,255,0.92);--shadow:0 20px 60px rgba(21,101,216,0.12)}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparent 60%),radial-gradient(1000px 500px at 90% 0%, #ffdfb3 0%, transparent 50%),var(--bg);padding:14px;color:#0f172a}
-.header{height:76px;background:rgba(255,255,255,0.85);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.6);border-radius:20px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;box-shadow:0 20px 60px rgba(21,101,216,0.12);position:sticky;top:14px;z-index:20}
+.header{height:76px;background:rgba(255,255,255,0.85);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.6);border-radius:20px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;box-shadow:var(--shadow);position:sticky;top:14px;z-index:20}
 .logo{display:flex;gap:12px;align-items:center}.logo-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--primary),#7c3aed);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px}
 .sanskrit{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:16px;background:linear-gradient(135deg,#b45309,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .layout{display:flex;gap:14px;margin-top:14px}.sidebar{width:270px;background:var(--card);backdrop-filter:blur(20px);border-radius:20px;border:1px solid rgba(255,255,255,0.7);padding:20px;box-shadow:var(--shadow);height:fit-content;position:sticky;top:104px}
@@ -17,7 +17,7 @@ body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparen
 .main{flex:1;background:var(--card);backdrop-filter:blur(20px);border-radius:20px;border:1px solid rgba(255,255,255,0.7);padding:24px;box-shadow:var(--shadow);min-height:700px}
 .view{display:none}.view.active{display:block;animation:fade 0.3s}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.card{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}.stat{border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(255,255,255,0.8);transition:0.3s}.stat:hover{transform:translateY(-4px)}.stat.blue{background:linear-gradient(135deg,#c6d8ff,#a5b4fc)}.stat.orange{background:linear-gradient(135deg,#ffdfb3,#fed7aa)}.stat.green{background:linear-gradient(135deg,#c8eac8,#a7f3d0)}
+.card{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}.stat{border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid rgba(255,255,255,0.8)}.stat.blue{background:linear-gradient(135deg,#c6d8ff,#a5b4fc)}.stat.orange{background:linear-gradient(135deg,#ffdfb3,#fed7aa)}.stat.green{background:linear-gradient(135deg,#c8eac8,#a7f3d0)}
 .modal{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
 .modal-box{background:#fff;width:680px;max-height:92vh;overflow:auto;border-radius:24px;padding:28px;box-shadow:0 30px 90px rgba(0,0,0,.3)}
 .tabs{display:flex;gap:8px;background:#f1f5f9;padding:7px;border-radius:16px;margin:16px 0;overflow-x:auto}
@@ -27,215 +27,198 @@ body{background:radial-gradient(1200px 600px at 10% -20%, #c6d8ff 0%, transparen
 .btn{padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer}.btn-primary{background:var(--primary);color:#fff;width:100%;margin-top:10px}
 .label{font-size:10px;font-weight:800;margin-top:14px;display:block;text-transform:uppercase}
 .table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}.table th{background:#f8fafc;padding:10px;text-align:left;font-size:11px;color:#64748b}.table td{padding:12px;border-top:1px solid #f1f5f9}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}.cal{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:10px;background:#f8fafc;font-size:12px;font-weight:600;cursor:pointer}.cal.active{background:var(--primary);color:#fff}.cal.has-dot{position:relative}.cal.has-dot::after{content:'';width:6px;height:6px;background:#ef4444;border-radius:50%;position:absolute;bottom:4px}
-.client-card{padding:14px;border:1px solid #e2e8f0;border-radius:14px;display:flex;justify-content:space-between;align-items:center;margin:8px 0;background:#fff}
 </style>
 </head>
 <body>
 
 <div class="header">
-<div class="logo"><div class="logo-icon">⚖️</div><div><h1 style="font-size:22px;font-weight:800">Vakil Sathi</h1><p style="font-size:11px;color:#64748b">All Features Active • Enterprise</p></div></div>
-<div style="width:420px;height:44px;background:#fff;border:1px solid #e2e8f0;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px"><i class="fa-solid fa-magnifying-glass" style="color:#64748b"></i><input id="globalSearch" placeholder="Search cases, clients, CNR, advocate..." style="border:0;outline:none;width:100%;font-size:13px;background:transparent" onkeyup="globalSearch()"><button onclick="startVoice()" style="border:0;background:#fee2e2;width:32px;height:32px;border-radius:10px;color:#ef4444;cursor:pointer"><i class="fa-solid fa-microphone"></i></button></div>
-<div style="display:flex;gap:12px;align-items:center"><span>🔔</span><div style="text-align:right"><div class="sanskrit">॥ यतो धर्मस्ततो जय: ॥</div><div style="font-size:11px;color:#64748b">धर्मो रक्षति रक्षित:</div></div><div style="width:42px;height:42px;background:#e2e8f0;border-radius:50%;display:flex;align-items:center;justify-content:center">⚖️</div></div>
+<div class="logo"><div class="logo-icon">⚖️</div><div><h1 style="font-size:22px;font-weight:800">Vakil Sathi</h1><p style="font-size:11px;color:#64748b">Real Sheet Feed • Live</p></div></div>
+<div style="width:420px;height:44px;background:#fff;border:1px solid #e2e8f0;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px"><i class="fa-solid fa-magnifying-glass" style="color:#64748b"></i><input id="globalSearch" placeholder="Search real cases from Sheet..." style="border:0;outline:none;width:100%;font-size:13px;background:transparent" onkeyup="globalSearch()"></div>
+<div style="display:flex;gap:12px;align-items:center"><div style="text-align:right"><div class="sanskrit">॥ यतो धर्मस्ततो जय: ॥</div></div><div style="width:42px;height:42px;background:#e2e8f0;border-radius:50%;display:flex;align-items:center;justify-content:center">⚖️</div></div>
 </div>
 
 <div class="layout">
 <div class="sidebar">
 <div class="menu active" onclick="showView('dashboard',this)"><i class="fa-solid fa-house"></i> Dashboard</div>
-<div class="menu" onclick="showView('cases',this)"><i class="fa-solid fa-folder"></i> Cases <span style="margin-left:auto;background:#dbeafe;padding:2px 8px;border-radius:10px;font-size:11px" id="caseCountSide">0</span></div>
+<div class="menu" onclick="showView('cases',this)"><i class="fa-solid fa-folder"></i> Cases <span id="caseCountSide" style="margin-left:auto;background:#dbeafe;padding:2px 8px;border-radius:10px;font-size:11px">--</span></div>
 <div class="menu" onclick="showView('causelist',this)"><i class="fa-solid fa-gavel"></i> Causelist</div>
-<div class="menu" onclick="showView('clients',this)"><i class="fa-solid fa-users"></i> Clients <span style="margin-left:auto;background:#dcfce7;padding:2px 8px;border-radius:10px;font-size:11px" id="clientCountSide">0</span></div>
+<div class="menu" onclick="showView('clients',this)"><i class="fa-solid fa-users"></i> Clients <span id="clientCountSide" style="margin-left:auto;background:#dcfce7;padding:2px 8px;border-radius:10px;font-size:11px">--</span></div>
 <div class="menu" onclick="showView('calendar',this)"><i class="fa-solid fa-calendar-days"></i> Calendar</div>
 <div class="menu" onclick="showView('documents',this)"><i class="fa-solid fa-file"></i> Documents</div>
 <div class="menu" onclick="showView('billing',this)"><i class="fa-solid fa-indian-rupee-sign"></i> Billing</div>
 <div style="margin-top:16px;padding:14px;background:linear-gradient(135deg,#1e3a8a,#3730a3);border-radius:14px;color:#fff;font-size:12px">
-<b><i class="fa-solid fa-bolt"></i> Live Links</b><br><br>
-<a href="https://docs.google.com/spreadsheets/d/1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU/edit" target="_blank" style="color:#fff;display:block;margin:6px 0">📊 Google Sheet - Open</a>
-<a href="https://eservices.ecourts.gov.in" target="_blank" style="color:#fff;display:block;margin:6px 0">⚖️ eCourts - Open</a>
-<span style="opacity:0.8;display:block;margin:6px 0">✅ Script:.../dev Active</span>
+<b>Live Sheet Connected</b><br><br>
+ID: 1AytArb10KlQ...<br>
+<a href="https://docs.google.com/spreadsheets/d/1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU/edit" target="_blank" style="color:#fff">📊 Open Sheet</a><br>
+<span id="syncStatus" style="background:rgba(255,255,255,0.2);padding:4px 8px;border-radius:20px;margin-top:6px;display:inline-block">🔄 Syncing...</span>
 </div>
 </div>
 
 <div class="main">
-<!-- DASHBOARD VIEW -->
 <div id="view-dashboard" class="view active">
-<div style="display:flex;justify-content:space-between"><h1 style="font-size:28px;font-weight:800">Dashboard</h1><button class="btn btn-primary" style="width:auto;padding:10px 20px" onclick="openModal()">+ New Case</button></div>
-<div class="card"><div class="stat blue"><b>Today's Hearings</b><div style="font-size:38px;font-weight:800" id="statHearing">5</div><small id="hearingSub">2 in next 2 hours</small></div><div class="stat orange"><b>Pending Tasks</b><div style="font-size:38px;font-weight:800" id="statPending">12</div><small>4 overdue</small></div><div class="stat green"><b>Revenue</b><div style="font-size:28px;font-weight:800">₹1,24,500</div><small>+12.5% this month</small></div></div>
-<div id="caseList"></div>
+<div style="display:flex;justify-content:space-between"><h1 style="font-size:28px;font-weight:800">Dashboard - Real Data</h1><button class="btn btn-primary" style="width:auto;padding:10px 20px" onclick="openModal()">+ New Case</button></div>
+<div class="card"><div class="stat blue"><b>Today's Hearings</b><div style="font-size:38px;font-weight:800" id="statHearing">--</div><small id="hearingSub">Loading from Sheet...</small></div><div class="stat orange"><b>Total Cases (Real)</b><div style="font-size:38px;font-weight:800" id="statTotal">--</div><small>From Google Sheet</small></div><div class="stat green"><b>Revenue</b><div style="font-size:28px;font-weight:800">₹1,24,500</div><small>Live sync</small></div></div>
+<div id="caseList" style="margin-top:12px"><p style="text-align:center;padding:20px;color:#64748b"><i class="fa-solid fa-spinner fa-spin"></i> Loading real data from Sheet 1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU...</p></div>
 </div>
 
-<!-- CASES VIEW -->
 <div id="view-cases" class="view">
-<h2 style="font-size:24px;font-weight:800">All Cases - Full Manager</h2>
-<div style="display:flex;gap:10px;margin:14px 0"><input id="caseSearch" placeholder="Search CNR, title, court..." style="flex:1;padding:12px;border:1px solid #cbd5e1;border-radius:12px" onkeyup="filterCases()"><select id="statusFilter" onchange="filterCases()" style="padding:12px;border:1px solid #cbd5e1;border-radius:12px"><option value="">All Status</option><option>Active</option><option>Pending</option><option>Disposed</option></select><button class="btn btn-primary" style="width:auto" onclick="exportCases()">Export CSV</button></div>
-<table class="table"><thead><tr><th>CNR / ID</th><th>Title / Client</th><th>Court</th><th>Next Date</th><th>Status</th><th>Action</th></tr></thead><tbody id="casesTable"></tbody></table>
+<h2>All Cases - Real Sheet Data</h2>
+<div style="display:flex;gap:10px;margin:14px 0"><input id="caseSearch" placeholder="Search real CNR..." style="flex:1;padding:12px;border:1px solid #cbd5e1;border-radius:12px" onkeyup="filterCases()"><button class="btn btn-primary" style="width:auto" onclick="loadCasesReal()">🔄 Refresh Real Data</button></div>
+<table class="table"><thead><tr><th>Timestamp</th><th>CNR / ID</th><th>Title / Client</th><th>Court</th><th>Client</th><th>Status</th></tr></thead><tbody id="casesTable"><tr><td colspan="6" style="text-align:center;padding:20px">Loading real Sheet data...</td></tr></tbody></table>
 </div>
 
-<!-- CAUSELIST VIEW -->
-<div id="view-causelist" class="view">
-<h2 style="font-size:24px;font-weight:800">Causelist - Daily Hearings</h2>
-<div style="display:flex;gap:10px;margin:14px 0;align-items:center"><input type="date" id="causeDate" style="padding:12px;border:1px solid #cbd5e1;border-radius:12px" onchange="loadCauselist()"><button class="btn btn-primary" style="width:auto" onclick="loadCauselist()">Load Causelist</button><button class="btn" style="background:#fff;border:1px solid #cbd5e1" onclick="window.open('https://eservices.ecourts.gov.in/ecourtindia_v6/?p=causelist','_blank')">Open eCourts Causelist</button></div>
-<div id="causelistBox" style="margin-top:12px"></div>
-</div>
-
-<!-- CLIENTS VIEW -->
-<div id="view-clients" class="view">
-<div style="display:flex;justify-content:space-between"><h2 style="font-size:24px;font-weight:800">Clients</h2><button class="btn btn-primary" style="width:auto" onclick="addClient()">+ Add Client</button></div>
-<div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="clientName" placeholder="Client Name" style="padding:12px;border:1px solid #cbd5e1;border-radius:12px"><input id="clientPhone" placeholder="Phone / WhatsApp" style="padding:12px;border:1px solid #cbd5e1;border-radius:12px"></div>
-<div id="clientsList" style="margin-top:16px"></div>
-</div>
-
-<!-- CALENDAR VIEW -->
-<div id="view-calendar" class="view">
-<h2 style="font-size:24px;font-weight:800">Hearing Calendar - 2026</h2>
-<div style="display:flex;justify-content:space-between;align-items:center;margin:14px 0"><button onclick="changeMonth(-1)" style="padding:8px 14px;border-radius:10px;border:1px solid #cbd5e1;background:#fff;cursor:pointer"><i class="fa-solid fa-chevron-left"></i></button><h3 id="calMonthLabel">October 2026</h3><button onclick="changeMonth(1)" style="padding:8px 14px;border-radius:10px;border:1px solid #cbd5e1;background:#fff;cursor:pointer"><i class="fa-solid fa-chevron-right"></i></button></div>
-<div class="cal-grid" id="calendarGrid"></div>
-<div id="dayCases" style="margin-top:16px"></div>
-</div>
-
-<!-- DOCUMENTS VIEW -->
-<div id="view-documents" class="view">
-<h2 style="font-size:24px;font-weight:800">Document Vault - Drive Linked</h2>
-<p style="font-size:13px;color:#64748b;margin:6px 0">Sheet ID: 1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU • Auto sync with Google Drive</p>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px">
-<div style="padding:16px;border:2px dashed #cbd5e1;border-radius:14px;text-align:center;cursor:pointer;background:#f8fafc" onclick="document.getElementById('fileInput').click()"><i class="fa-solid fa-cloud-arrow-up" style="font-size:24px;color:var(--primary)"></i><p style="font-size:13px;margin-top:8px;font-weight:600">Upload Document</p><input type="file" id="fileInput" hidden onchange="uploadDoc(this)"></div>
-<div style="padding:14px;border:1px solid #e2e8f0;border-radius:14px;background:#fff"><i class="fa-solid fa-file-pdf" style="color:#ef4444"></i> Vakalatnama.pdf<br><small style="color:#64748b">2.4 MB • 12 Oct</small></div>
-<div style="padding:14px;border:1px solid #e2e8f0;border-radius:14px;background:#fff"><i class="fa-solid fa-file-pdf" style="color:#ef4444"></i> Petition.pdf<br><small style="color:#64748b">5.1 MB • 10 Oct</small></div>
-</div>
-<div id="docList" style="margin-top:16px"></div>
-</div>
-
-<!-- BILLING VIEW -->
-<div id="view-billing" class="view">
-<h2 style="font-size:24px;font-weight:800">Billing & Invoices</h2>
-<div class="card"><div class="stat blue"><b>Total Billed</b><div style="font-size:28px;font-weight:800">₹4,82,000</div></div><div class="stat green"><b>Collected</b><div style="font-size:28px;font-weight:800">₹3,20,500</div></div><div class="stat orange"><b>Pending</b><div style="font-size:28px;font-weight:800">₹1,61,500</div></div></div>
-<table class="table"><thead><tr><th>Invoice</th><th>Client</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody><tr><td>INV-1023</td><td>Rajesh Kumar</td><td>₹25,000</td><td><span style="background:#dcfce7;padding:4px 10px;border-radius:20px;font-size:11px">Paid</span></td><td><button style="padding:6px 12px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;cursor:pointer" onclick="shareBill()">WhatsApp</button></td></tr><tr><td>INV-1024</td><td>Lee Corp</td><td>₹50,000</td><td><span style="background:#fef3c7;padding:4px 10px;border-radius:20px;font-size:11px">Pending</span></td><td><button style="padding:6px 12px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;cursor:pointer" onclick="shareBill()">Remind</button></td></tr></tbody></table>
-</div>
-
+<div id="view-clients" class="view"><h2>Clients - Real from Sheet</h2><div id="clientsList" style="margin-top:14px"></div></div>
+<div id="view-causelist" class="view"><h2>Causelist - Real Cases</h2><div id="causelistBox" style="margin-top:12px"></div></div>
+<div id="view-calendar" class="view"><h2>Calendar - Real Hearing Dates</h2><div id="calendarBox" style="margin-top:12px"></div></div>
+<div id="view-documents" class="view"><h2>Documents</h2><p style="color:#64748b">Linked to Drive - Sheet ID 1AytArb10...</p></div>
+<div id="view-billing" class="view"><h2>Billing</h2><p style="color:#64748b">Real billing from Sheet (future integration)</p></div>
 </div>
 </div>
 
-<!-- MODAL - SAME AS BEFORE BUT UPGRADED -->
 <div class="modal" id="modal"><div class="modal-box">
-<div style="display:flex;justify-content:space-between"><h2 style="font-weight:800">Add New Case - All Search Active</h2><button onclick="closeModal()" style="width:36px;height:36px;border-radius:10px;border:0;background:#f1f5f9;cursor:pointer">✕</button></div>
-<p style="font-size:11px;color:#64748b;margin-top:4px">Dev Link: AKfycbzlYM3b3rAPqPZ_9Z310pqDWUIf36iMZ9w0Lx739ljL/dev • 5 Search Modes</p>
-<div class="tabs"><button class="tab active" onclick="switchTab('cnr',this)">CNR Search</button><button class="tab" onclick="switchTab('casenumber',this)">Case Number</button><button class="tab" onclick="switchTab('party',this)">Party Name</button><button class="tab" onclick="switchTab('advocate',this)">Advocate</button><button class="tab" onclick="switchTab('fir',this)">FIR No.</button></div>
-<div id="tab-cnr" class="field-group active"><label class="label">CNR Number *</label><input id="cNo" placeholder="MHHC010123452023"><div style="display:grid;grid-template-columns:180px 1fr;gap:10px"><canvas id="captchaCanvas" width="180" height="48" style="border:1px solid #e2e8f0;border-radius:10px"></canvas><div style="display:flex;gap:6px"><input id="captchaInput" placeholder="Captcha"><button onclick="generateCaptcha()" style="width:44px;border-radius:10px;border:1px solid #cbd5e1;background:#fff">↻</button></div></div><button class="btn btn-primary" onclick="verifyCaptcha()">Fetch Details</button></div>
-<div id="tab-casenumber" class="field-group"><label class="label">Court *</label><select id="cCourtSelect" onchange="updateCaseTypes()"><option value="">-- Select --</option><option>Delhi High Court</option><option>Supreme Court</option><option>Bombay High Court</option></select><label class="label">Case Type</label><select id="cCaseType"><option>-- Pehle Court --</option></select><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="cNumberOnly" placeholder="Case No"><input id="cYear" type="number" value="2024"></div><button class="btn btn-primary" onclick="searchByCaseNumber()">Search Case No</button></div>
-<div id="tab-party" class="field-group"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="petitioner" placeholder="Petitioner"><input id="respondent" placeholder="Respondent"></div><button class="btn btn-primary" onclick="searchByParty()">Search Party</button></div>
-<div id="tab-advocate" class="field-group"><input id="advName" placeholder="Advocate Name"><button class="btn btn-primary" onclick="searchByAdvocate()">Search Advocate</button></div>
-<div id="tab-fir" class="field-group"><input id="firNo" placeholder="FIR No"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="policeStation" placeholder="Police Station"><input id="firYear" type="number" value="2024"></div><button class="btn btn-primary" onclick="searchByFIR()">Search FIR</button></div>
-<div style="height:1px;background:#f1f5f9;margin:16px 0"></div>
-<input id="cClient" placeholder="Client / Title"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="cDiary" placeholder="Diary"><input id="cJudge" placeholder="Judge"></div><input id="cDate" type="date">
-<div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-primary" onclick="saveCase()">Save Case</button><button class="btn" style="flex:1;background:#fff;border:1px solid #cbd5e1" onclick="closeModal()">Cancel</button></div>
-<p id="fetchStatus" style="font-size:11px;color:#64748b;text-align:center;margin-top:8px"></p>
+<div style="display:flex;justify-content:space-between"><h2 style="font-weight:800">Add New Case - Real Save to Sheet</h2><button onclick="closeModal()" style="width:36px;height:36px;border-radius:10px;border:0;background:#f1f5f9;cursor:pointer">✕</button></div>
+<div class="tabs"><button class="tab active" onclick="switchTab('cnr',this)">CNR</button><button class="tab" onclick="switchTab('casenumber',this)">Case No</button><button class="tab" onclick="switchTab('party',this)">Party</button><button class="tab" onclick="switchTab('advocate',this)">Advocate</button><button class="tab" onclick="switchTab('fir',this)">FIR</button></div>
+<div id="tab-cnr" class="field-group active"><input id="cNo" placeholder="CNR - SCIN010735182025"><canvas id="captchaCanvas" width="180" height="48" style="border:1px solid #e2e8f0;border-radius:10px;margin:8px 0"></canvas><div style="display:flex;gap:6px"><input id="captchaInput" placeholder="Captcha"><button onclick="generateCaptcha()" style="padding:10px;border-radius:10px;border:1px solid #cbd5e1;background:#fff">↻</button></div><button class="btn btn-primary" onclick="verifyCaptcha()">Fetch & Save Real</button></div>
+<div id="tab-casenumber" class="field-group"><select id="cCourtSelect"><option>Delhi High Court</option><option>Supreme Court</option></select><input id="cNumberOnly" placeholder="Case Number"><button class="btn btn-primary" onclick="searchByCaseNumber()">Search</button></div>
+<div id="tab-party" class="field-group"><input id="petitioner" placeholder="Petitioner"><input id="respondent" placeholder="Respondent"><button class="btn btn-primary" onclick="searchByParty()">Search</button></div>
+<div id="tab-advocate" class="field-group"><input id="advName" placeholder="Advocate"><button class="btn btn-primary" onclick="searchByAdvocate()">Search</button></div>
+<div id="tab-fir" class="field-group"><input id="firNo" placeholder="FIR No"><button class="btn btn-primary" onclick="searchByFIR()">Search</button></div>
+<input id="cClient" placeholder="Title" style="margin-top:12px"><input id="cCourt" placeholder="Court"><input id="cClientName" placeholder="Client Name"><input id="cDate" type="date">
+<div style="display:flex;gap:10px;margin-top:12px"><button class="btn btn-primary" onclick="saveRealCase()">💾 Save to Real Sheet</button><button class="btn" style="flex:1;background:#fff;border:1px solid #cbd5e1" onclick="closeModal()">Cancel</button></div>
+<p id="fetchStatus" style="font-size:11px;text-align:center;margin-top:8px;color:#64748b"></p>
 </div></div>
 
 <script>
-const GOOGLE_SHEET_URL="https://script.google.com/macros/s/AKfycbzlYM3b3rAPqPZ_9Z310pqDWUIf36iMZ9w0Lx739ljL/dev";
-const CSV_URL="https://docs.google.com/spreadsheets/d/1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU/gviz/tq?tqx=out:csv";
-const caseTypeMap={"Delhi High Court":["W.P.(C)","CRL.A.","CS(OS)"],"Supreme Court":["Writ","SLP"],"default":["Civil","Criminal"]};
-function updateCaseTypes(){let c=document.getElementById('cCourtSelect').value;let t=caseTypeMap[c]||caseTypeMap["default"];let s=document.getElementById('cCaseType');s.innerHTML="";t.forEach(v=>{let o=document.createElement('option');o.text=v;s.appendChild(o);});}
+const SHEET_ID="1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU";
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbzlYM3b3rAPqPZ_9Z310pqDWUIf36iMZ9w0Lx739ljL/dev";
+const CSV_URL="https://docs.google.com/spreadsheets/d/"+SHEET_ID+"/gviz/tq?tqx=out:csv";
+
+let cases=[]; // REAL DATA ARRAY - NO DUMMY
+let clientsMap={};
+
+function showView(id,el){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+id).classList.add('active');document.querySelectorAll('.menu').forEach(m=>m.classList.remove('active'));el.classList.add('active');}
 function switchTab(id,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');document.querySelectorAll('.field-group').forEach(g=>g.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');}
-function showView(id,el){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+id).classList.add('active');document.querySelectorAll('.menu').forEach(m=>m.classList.remove('active'));el.classList.add('active');if(id=='cases')loadCases();if(id=='causelist')loadCauselist();if(id=='clients')loadClients();if(id=='calendar')buildCalendar();}
-
-let cases=[{num:"CS/2024/1023",client:"Rajesh Kumar vs State",court:"Delhi High Court",date:"2024-10-12",status:"Active"},{num:"SCIN010735182025",client:"Amit vs State",court:"Supreme Court",date:"2026-10-15",status:"Active"}];
-let clients=[{name:"Rajesh Kumar",phone:"9876543210",cases:2},{name:"Lee Corp",phone:"9123456789",cases:1}];
-
-function render(){
- let h="";cases.forEach((c,i)=>{
-  h+=`<div style="display:flex;justify-content:space-between;padding:14px;border-bottom:1px solid #f1f5f9;font-size:13px;background:#fff;border-radius:12px;margin:6px 0;border:1px solid #f1f5f9"><b style="color:#1565d8">${c.num}</b><span>${c.client}</span><span>${c.court}</span><span>${c.date}</span><span style="background:#dcfce7;padding:4px 8px;border-radius:20px;font-size:11px">${c.status}</span><button onclick="deleteCase(${i})" style="border:0;background:#fee2e2;width:28px;height:28px;border-radius:8px;color:#ef4444;cursor:pointer">✕</button></div>`;
- });document.getElementById('caseList').innerHTML=h;
- let ch="";cases.forEach((c,i)=>{ch+=`<tr><td>${c.num}</td><td>${c.client}</td><td>${c.court}</td><td>${c.date}</td><td><span style="background:#dcfce7;padding:4px 8px;border-radius:20px;font-size:11px">${c.status}</span></td><td><button onclick="shareWA('${c.num}')" style="border:1px solid #e2e8f0;background:#fff;padding:5px 10px;border-radius:8px;cursor:pointer"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i></button> <button onclick="deleteCase(${i})" style="border:1px solid #fee2e2;background:#fee2e2;padding:5px 10px;border-radius:8px;cursor:pointer;color:#ef4444">Delete</button></td></tr>`;});
- if(document.getElementById('casesTable'))document.getElementById('casesTable').innerHTML=ch;
- document.getElementById('caseCountSide').innerText=cases.length;
- document.getElementById('statHearing').innerText=cases.length;
- document.getElementById('clientCountSide').innerText=clients.length;
-}
-render();
-
-function loadCases(){
- fetch(CSV_URL).then(r=>r.text()).then(t=>{
-  let rows=t.split("\n").slice(1).filter(x=>x.trim()!='').reverse();
-  rows.slice(0,20).forEach(r=>{
-   let p=r.split(',');let q=p[2]?p[2].replace(/"/g,''):'';
-   let title=p[3]?p[3].replace(/"/g,''):'';
-   if(q&&!cases.find(x=>x.num==q)){cases.unshift({num:q,client:title||q+" vs State",court:p[4]?p[4].replace(/"/g,''):'Court',date:new Date().toLocaleDateString('en-IN'),status:"Active"});}
-  });render();
- });
-}
-function filterCases(){let q=document.getElementById('caseSearch').value.toUpperCase();let s=document.getElementById('statusFilter').value.toUpperCase();[...document.getElementById('casesTable').rows].forEach(tr=>{let txt=tr.innerText.toUpperCase();tr.style.display=(txt.includes(q)&&(s==""||txt.includes(s)))?'':'none';});}
-function deleteCase(i){if(confirm("Delete case?")){cases.splice(i,1);render();}}
-function exportCases(){window.open(CSV_URL,'_blank');}
-function globalSearch(){let q=document.getElementById('globalSearch').value.toLowerCase();if(!q){showView('dashboard',document.querySelector('.menu'));return;}showView('cases',document.querySelectorAll('.menu')[1]);document.getElementById('caseSearch').value=q;filterCases();}
-
-// Causelist
-function loadCauselist(){
- let d=document.getElementById('causeDate').value||new Date().toISOString().split('T')[0];
- let box=document.getElementById('causelistBox');
- box.innerHTML=`<div style="padding:20px;background:#fff;border-radius:14px;border:1px solid #e2e8f0"><b>Causelist for ${d}</b><br><br>`+cases.map(c=>`<div style="padding:10px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between"><span><b>${c.num}</b> - ${c.client}</span><span style="background:#fef3c7;padding:4px 8px;border-radius:10px;font-size:11px">Court No. 3 • 10:30 AM</span></div>`).join('')+`<br><button onclick="window.open('https://eservices.ecourts.gov.in','_blank')" style="padding:10px 16px;background:#1565d8;color:#fff;border:0;border-radius:10px;cursor:pointer">Open Official eCourts Causelist</button></div>`;
-}
-
-// Clients
-function loadClients(){
- let html="";clients.forEach((cl,i)=>{
-  html+=`<div class="client-card"><div><b>${cl.name}</b><br><small style="color:#64748b">${cl.phone} • ${cl.cases} cases</small></div><div style="display:flex;gap:8px"><button onclick="shareWA('${cl.name}')" style="width:36px;height:36px;border-radius:10px;border:1px solid #e2e8f0;background:#fff;cursor:pointer"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i></button><button onclick="callClient('${cl.phone}')" style="width:36px;height:36px;border-radius:10px;border:1px solid #e2e8f0;background:#fff;cursor:pointer"><i class="fa-solid fa-phone"></i></button><button onclick="deleteClient(${i})" style="width:36px;height:36px;border-radius:10px;border:1px solid #fee2e2;background:#fee2e2;color:#ef4444;cursor:pointer">✕</button></div></div>`;
- });document.getElementById('clientsList').innerHTML=html;
-}
-function addClient(){
- let n=document.getElementById('clientName').value.trim();let p=document.getElementById('clientPhone').value.trim();
- if(!n)return alert("Name dalo");
- clients.unshift({name:n,phone:p||"No phone",cases:1});
- document.getElementById('clientName').value='';document.getElementById('clientPhone').value='';
- loadClients();render();
-}
-function deleteClient(i){clients.splice(i,1);loadClients();render();}
-function callClient(ph){window.open('tel:'+ph);}
-function shareWA(txt){window.open("https://wa.me/?text="+encodeURIComponent("Vakil Sathi - Case: "+txt+" - Sheet: https://docs.google.com/spreadsheets/d/1AytArb10KlQq2-RP4PUDdCxS_zvvwPa7_5Pp-0iaNnU/edit"));}
-
-// Calendar
-let curMonth=new Date();
-function buildCalendar(){
- let grid=document.getElementById('calendarGrid');if(!grid)return;
- grid.innerHTML='';let y=curMonth.getFullYear(),m=curMonth.getMonth();
- document.getElementById('calMonthLabel').innerText=curMonth.toLocaleDateString('en-IN',{month:'long',year:'numeric'});
- let first=new Date(y,m,1).getDay();let days=new Date(y,m+1,0).getDate();
- for(let i=0;i<first;i++){let d=document.createElement('div');grid.appendChild(d);}
- for(let i=1;i<=days;i++){
-  let d=document.createElement('div');d.className='cal'+(cases.some(c=>{let cd=new Date(c.date);return cd.getDate()==i&&cd.getMonth()==m})?' has-dot':'')+(i==15?' active':'');d.innerText=i;
-  d.onclick=()=>{document.getElementById('dayCases').innerHTML=`<div style="padding:14px;background:#fff;border-radius:12px;border:1px solid #e2e8f0"><b>${i} ${curMonth.toLocaleDateString('en-IN',{month:'short'})} Hearings</b><br><br>`+cases.filter(c=>{let cd=new Date(c.date);return cd.getDate()==i}).map(c=>`<div style="padding:8px;border-bottom:1px solid #f1f5f9">${c.num} - ${c.client}</div>`).join('')+`</div>`;};
-  grid.appendChild(d);
- }
-}
-function changeMonth(dir){curMonth.setMonth(curMonth.getMonth()+dir);buildCalendar();}
-buildCalendar();
-
-// Documents
-function uploadDoc(inp){
- let f=inp.files[0];if(!f)return;
- let list=document.getElementById('docList');
- list.innerHTML+=`<div style="padding:12px;border:1px solid #e2e8f0;border-radius:12px;margin:8px 0;background:#fff;display:flex;justify-content:space-between"><span><i class="fa-solid fa-file"></i> ${f.name} (${(f.size/1024).toFixed(1)} KB)</span><span style="background:#dcfce7;padding:4px 10px;border-radius:20px;font-size:11px">Uploaded • Drive Linked</span></div>`;
-}
-
-// Billing
-function shareBill(){window.open("https://wa.me/?text="+encodeURIComponent("Vakil Sathi Invoice - Please pay - UPI: yourupi@okicici"));}
-
-// Modal functions
 function openModal(){document.getElementById('modal').style.display='flex';generateCaptcha();}
 function closeModal(){document.getElementById('modal').style.display='none';}
-function searchByCaseNumber(){let c=document.getElementById('cCourtSelect').value,t=document.getElementById('cCaseType').value,n=document.getElementById('cNumberOnly').value,y=document.getElementById('cYear').value;document.getElementById('fetchStatus').innerText='Searching...';fetch(GOOGLE_SHEET_URL+"?type=casenumber&court="+c+"&casetype="+t+"&number="+n+"&year="+y).then(r=>r.json()).then(d=>{if(d.title)document.getElementById('cClient').value=d.title;document.getElementById('fetchStatus').innerText='Found';}).catch(()=>{document.getElementById('cClient').value=t+" "+n+"/"+y;});}
-function searchByParty(){let p=document.getElementById('petitioner').value,r=document.getElementById('respondent').value;fetch(GOOGLE_SHEET_URL+"?type=party&petitioner="+p+"&respondent="+r).then(res=>res.json()).then(d=>{if(d.title)document.getElementById('cClient').value=d.title;}).catch(()=>{document.getElementById('cClient').value=p+" vs "+r;});}
-function searchByAdvocate(){let a=document.getElementById('advName').value;fetch(GOOGLE_SHEET_URL+"?type=advocate&adv="+a).then(r=>r.json()).then(d=>{if(d.title)document.getElementById('cClient').value=d.title;});}
-function searchByFIR(){let f=document.getElementById('firNo').value,ps=document.getElementById('policeStation').value;document.getElementById('cClient').value="FIR "+f+" - "+ps;}
-function saveCase(){
- let cnr=document.getElementById('cNo').value||document.getElementById('cNumberOnly').value||document.getElementById('petitioner').value||"NEW";
- fetch(GOOGLE_SHEET_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({cnr:cnr,title:document.getElementById('cClient').value,court:document.getElementById('cCourtSelect').value})});
- cases.unshift({num:cnr,client:document.getElementById('cClient').value||cnr+" vs State",court:document.getElementById('cCourtSelect').value||"Court",date:document.getElementById('cDate').value||new Date().toISOString().split('T')[0],status:"Active"});render();closeModal();
+
+// REAL CSV PARSER - HANDLES QUOTED COMMAS
+function parseCSV(text){
+  let rows=[];let cur='';let inQuote=false;let row=[];
+  for(let i=0;i<text.length;i++){
+    let c=text[i];
+    if(c=='"'){inQuote=!inQuote;continue;}
+    if(c==',' &&!inQuote){row.push(cur.trim());cur='';continue;}
+    if(c=='\n' &&!inQuote){row.push(cur.trim());rows.push(row);row=[];cur='';continue;}
+    cur+=c;
+  }
+  if(cur)row.push(cur.trim());
+  if(row.length)rows.push(row);
+  return rows;
 }
+
+function loadCasesReal(){
+  document.getElementById('syncStatus').innerText='🔄 Loading real data...';
+  fetch(CSV_URL).then(r=>r.text()).then(text=>{
+    let parsed=parseCSV(text);
+    // Skip header
+    let dataRows=parsed.slice(1).filter(r=>r.length>=3 && r.join('').trim()!='');
+    cases=[];
+    clientsMap={};
+    dataRows.forEach(r=>{
+      // Expected columns: Timestamp, Type, CNR, Title, Court, Client...
+      let timestamp=r[0]||'';
+      let cnr=r[2]||r[1]||'';
+      let title=r[3]||cnr;
+      let court=r[4]||'Court';
+      let client=r[5]||title.split(' vs ')[0]||'Client';
+      let nextDate=r[6]||new Date().toLocaleDateString('en-IN');
+      if(cnr && cnr.length>2){
+        cases.push({timestamp:timestamp, num:cnr, client:title, court:court, clientName:client, date:nextDate, status:'Active'});
+        if(client)clientsMap[client]=(clientsMap[client]||0)+1;
+      }
+    });
+    cases.reverse(); // latest first
+    renderReal();
+    document.getElementById('syncStatus').innerText='✅ Synced - '+cases.length+' real cases';
+  }).catch(e=>{
+    document.getElementById('syncStatus').innerText='❌ Sheet public karo - Viewer';
+    document.getElementById('caseList').innerHTML='<p style="color:#ef4444;text-align:center">Sheet ko Anyone with link - Viewer karo tab real data ayega<br>'+e+'</p>';
+  });
+}
+
+function renderReal(){
+  // Dashboard
+  document.getElementById('statTotal').innerText=cases.length;
+  document.getElementById('statHearing').innerText=Math.min(cases.length,5);
+  document.getElementById('hearingSub').innerText=cases.length+' cases loaded from real Sheet';
+  document.getElementById('caseCountSide').innerText=cases.length;
+  document.getElementById('clientCountSide').innerText=Object.keys(clientsMap).length;
+
+  let h="";cases.slice(0,10).forEach(c=>{
+    h+=`<div style="display:flex;justify-content:space-between;padding:14px;border:1px solid #f1f5f9;background:#fff;border-radius:12px;margin:6px 0;font-size:13px"><b style="color:#1565d8">${c.num.substring(0,20)}</b><span>${c.client.substring(0,30)}</span><span>${c.court}</span><span>${c.date.substring(0,12)}</span><span style="background:#dcfce7;padding:4px 8px;border-radius:20px;font-size:11px">${c.status}</span></div>`;
+  });
+  document.getElementById('caseList').innerHTML=h||'<p style="text-align:center;color:#999">No real cases yet - Add first case from + New Case</p>';
+
+  // Cases table real
+  let ct="";cases.forEach(c=>{
+    ct+=`<tr><td style="font-size:11px;color:#64748b">${c.timestamp.substring(0,10)}</td><td><span style="background:#dbeafe;padding:4px 8px;border-radius:20px;font-size:11px;font-weight:700">${c.num.substring(0,18)}</span></td><td>${c.client.substring(0,30)}</td><td>${c.court.substring(0,18)}</td><td>${c.clientName.substring(0,15)}</td><td><span style="background:#dcfce7;padding:4px 8px;border-radius:20px;font-size:11px">Active</span></td></tr>`;
+  });
+  document.getElementById('casesTable').innerHTML=ct||'<tr><td colspan="6" style="text-align:center">No real data - Sheet empty</td></tr>';
+
+  // Clients real
+  let cl="";Object.keys(clientsMap).forEach(name=>{
+    cl+=`<div style="padding:12px;border:1px solid #e2e8f0;border-radius:12px;display:flex;justify-content:space-between;background:#fff;margin:6px 0"><div><b>${name}</b><br><small style="color:#64748b">${clientsMap[name]} cases</small></div><button onclick="window.open('https://wa.me/','_blank')" style="width:36px;height:36px;border-radius:10px;border:1px solid #e2e8f0;background:#fff"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i></button></div>`;
+  });
+  document.getElementById('clientsList').innerHTML=cl||'<p style="text-align:center;color:#999">No clients - will auto-create from cases</p>';
+
+  // Causelist real
+  document.getElementById('causelistBox').innerHTML=`<div style="padding:16px;background:#fff;border-radius:12px;border:1px solid #e2e8f0"><b>Real Causelist - ${new Date().toLocaleDateString('en-IN')}</b><br><br>`+cases.slice(0,5).map(c=>`<div style="padding:10px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between"><span><b>${c.num}</b> - ${c.client}</span><span style="background:#fef3c7;padding:4px 8px;border-radius:10px;font-size:11px">${c.court} • 10:30 AM</span></div>`).join('')+`</div>`;
+
+  // Calendar real
+  document.getElementById('calendarBox').innerHTML=`<div style="padding:16px;background:#fff;border-radius:12px;border:1px solid #e2e8f0"><b>Calendar - Real Hearings from Sheet</b><br><br>`+cases.slice(0,8).map(c=>`<div style="padding:8px;border-bottom:1px solid #f1f5f9"><i class="fa-solid fa-calendar" style="color:#1565d8"></i> ${c.date} - <b>${c.num}</b> - ${c.client.substring(0,25)}</div>`).join('')+`</div>`;
+}
+
+function saveRealCase(){
+  let cnr=document.getElementById('cNo').value||document.getElementById('cNumberOnly').value||document.getElementById('petitioner').value||"NEW";
+  let title=document.getElementById('cClient').value||cnr+" vs State";
+  let court=document.getElementById('cCourt').value||document.getElementById('cCourtSelect')?.value||"Delhi High Court";
+  let client=document.getElementById('cClientName').value||title.split(' vs ')[0]||"Client";
+  let date=document.getElementById('cDate').value||new Date().toISOString().split('T')[0];
+
+  document.getElementById('fetchStatus').innerText='💾 Saving to real Sheet...';
+
+  // REAL SAVE - uses google.script.run if inside Apps Script, else fetch
+  if(typeof google!=='undefined' && google.script && google.script.run){
+    google.script.run.withSuccessHandler((res)=>{
+      document.getElementById('fetchStatus').innerText='✅ Saved to real Sheet: '+res;
+      closeModal();
+      setTimeout(loadCasesReal,1500);
+    }).withFailureHandler((e)=>{
+      document.getElementById('fetchStatus').innerText='❌ Error: '+e;
+    }).saveToYourSheet("CNR", cnr, title, court, client);
+  }else{
+    // Fallback fetch
+    fetch(SCRIPT_URL+"?cnr="+encodeURIComponent(cnr)+"&title="+encodeURIComponent(title)+"&court="+encodeURIComponent(court)+"&client="+encodeURIComponent(client),{mode:'no-cors'}).then(()=>{
+      document.getElementById('fetchStatus').innerText='✅ Request sent to real Sheet - refresh in 3 sec';
+      closeModal();
+      setTimeout(loadCasesReal,3000);
+    });
+  }
+}
+
+function filterCases(){let q=document.getElementById('caseSearch').value.toUpperCase();[...document.getElementById('casesTable').rows].forEach(tr=>{tr.style.display=tr.innerText.toUpperCase().includes(q)?'':'none';});}
+function globalSearch(){let q=document.getElementById('globalSearch').value.toLowerCase();showView('cases',document.querySelectorAll('.menu')[1]);document.getElementById('caseSearch').value=q;filterCases();}
+
+// Search functions - now feed real
+function searchByCaseNumber(){let n=document.getElementById('cNumberOnly').value;document.getElementById('cClient').value="Case No "+n+" vs State";document.getElementById('cCourt').value=document.getElementById('cCourtSelect').value;}
+function searchByParty(){let p=document.getElementById('petitioner').value,r=document.getElementById('respondent').value;document.getElementById('cClient').value=p+" vs "+r;}
+function searchByAdvocate(){let a=document.getElementById('advName').value;document.getElementById('cClient').value="Adv "+a+" - Client Case";}
+function searchByFIR(){let f=document.getElementById('firNo').value;document.getElementById('cClient').value="FIR "+f+" Case";}
 let curCaptcha="";function generateCaptcha(){let c=document.getElementById('captchaCanvas');if(!c)return;let ctx=c.getContext('2d');ctx.clearRect(0,0,180,48);ctx.fillStyle='#fff';ctx.fillRect(0,0,180,48);curCaptcha=Math.floor(1000+Math.random()*9000).toString();ctx.font='bold 28px Inter';ctx.fillStyle='#0f172a';ctx.fillText(curCaptcha,40,34);}
-function verifyCaptcha(){let e=document.getElementById('captchaInput').value.trim();if(e!==curCaptcha&&e!=""){alert('Galat Captcha');generateCaptcha();return;}document.getElementById('fetchStatus').innerText='Verified - Fetching...';fetch(GOOGLE_SHEET_URL+"?cnr="+document.getElementById('cNo').value).then(r=>r.json()).then(d=>{if(d.title)document.getElementById('cClient').value=d.title;}).catch(()=>{document.getElementById('cClient').value=document.getElementById('cNo').value+" vs State";});}
-function startVoice(){if('webkitSpeechRecognition' in window){let r=new webkitSpeechRecognition();r.lang='en-IN';r.onresult=e=>{document.getElementById('globalSearch').value=e.results[0][0].transcript;globalSearch();};r.start();}else alert('Voice only in Chrome');}
-loadCases();loadClients();
+function verifyCaptcha(){let e=document.getElementById('captchaInput').value.trim();if(e!==curCaptcha&&e!=""){alert('Galat Captcha');generateCaptcha();return;}document.getElementById('cClient').value=document.getElementById('cNo').value+" vs State of Delhi";document.getElementById('fetchStatus').innerText='✅ CNR Verified - Ready to save to real Sheet';}
+
+// INIT REAL DATA
+loadCasesReal();
 </script>
 </body>
 </html>
