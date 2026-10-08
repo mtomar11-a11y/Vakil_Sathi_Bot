@@ -1,64 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vakil Sathi V8.2 - New SCI + New Deploy Link</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vakil Sathi - V8.2</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#f1f3f9;padding:10px}
-.header{background:#fff;border-radius:16px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #e9ebf2;gap:12px}
-.h-left{display:flex;align-items:center;gap:10px}.h-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#4f46e5);display:grid;place-items:center;color:#fff}
-.h-left b{font-size:15px;font-weight:900;display:block;line-height:1}.h-left span{font-size:10px;color:#6b7280;font-weight:600}
-.search{flex:1;max-width:520px;height:36px;background:#fafafb;border:1.5px solid #e5e7eb;border-radius:20px;display:flex;align-items:center;padding:0 14px;gap:8px;color:#9ca3af;font-size:12px}.search input{border:0;outline:0;background:transparent;width:100%;font-size:12px}
-.sanskrit{display:flex;align-items:center;gap:8px;font-family:'Noto Sans Devanagari';color:#9a5a11;font-weight:700;font-size:11px}
-.sci{margin-top:10px;background:linear-gradient(90deg,#0d1652 0%,#11217a 40%,#0e3ea8 100%);border-radius:14px;padding:16px 18px;color:#fff;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden}
-.sci h2{font-size:22px;font-weight:900}.sci p{font-size:10.5px;margin-top:2px;opacity:.9;font-weight:600}
-.sci-right{display:flex;align-items:center;gap:14px}.visit{background:#fff;color:#111827;border-radius:18px;padding:7px 14px;font-size:11px;font-weight:800;text-decoration:none}
-.sec{margin:14px 4px 8px;display:flex;justify-content:space-between}.sec h3{font-size:14px;font-weight:900}.sec span{font-size:9.5px;color:#6b7280;font-weight:600}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.c4{border-radius:12px;padding:12px;color:#fff;min-height:88px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;box-shadow:0 6px 14px rgba(0,0,0,.12)}
-.c4 h4{font-size:13px;font-weight:900;margin-top:8px}.c4 p{font-size:8.5px;margin-top:4px;opacity:.92}.c4 .op{margin-top:8px;background:rgba(255,255,255,.9);color:#111827;padding:4px 10px;border-radius:12px;font-size:9px;font-weight:800;width:fit-content}
-.g1{background:linear-gradient(135deg,#ff9a2e,#ff7000)}.g2{background:linear-gradient(135deg,#22c55e,#15803d)}.g3{background:linear-gradient(135deg,#3b82f6,#1e40af)}.g4e{background:linear-gradient(135deg,#14b8a6,#0f766e)}
-.ins-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.ins{background:#fff;border-radius:10px;padding:10px 12px;display:flex;gap:8px;box-shadow:0 1px 6px rgba(0,0,0,.04);border:1px solid #eef0f4}
-.trib-head{display:flex;gap:8px;margin:16px 4px 8px}.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.tcard{border-radius:10px;padding:10px;display:flex;gap:8px;box-shadow:0 3px 10px rgba(0,0,0,.06);min-height:52px}
+ body{font-family:'Inter',sans-serif; background:#f6f7fb;}
+.card-shadow{box-shadow: 0 4px 12px rgba(0,0,0,0.08);}
 </style>
 </head>
-<body>
-<div class="header">
-  <div class="h-left"><div class="h-icon">⚖️</div><div><b>Vakil Sathi</b><span>V8.2 - New SCI + New Deploy Link</span></div></div>
-  <div class="search">🔍 <input placeholder="Search real cases..."></div>
-  <div class="sanskrit">॥ यतो धर्मस्ततो जयः ॥ ⚖️</div>
+<body class="p-2 md:p-4 bg-[#eef1f8]">
+<div class="max-w-[1280px] mx-auto bg-white rounded-[18px] p-2 md:p-3 border border-gray-200">
+
+<!-- Header -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-2 px-2 py-2">
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white text-xl">⚖️</div>
+    <div>
+      <div class="font-extrabold text-[18px] leading-none">Vakil Sathi</div>
+      <div class="text-[10px] text-gray-500 font-semibold">V8.2 - New SCI + New Deploy Link</div>
+    </div>
+  </div>
+  <div class="flex-1 max-w-[500px] w-full mx-4">
+    <div class="bg-[#f3f4f6] border rounded-full px-4 py-2 flex items-center gap-2 text-[13px] text-gray-500">
+      <span>🔍</span> Search real cases...
+    </div>
+  </div>
+  <div class="flex items-center gap-2 text-[12px] font-bold text-[#8B5A00]">
+    ॥ यतो धर्मस्ततो जयः ॥ <span class="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center border">⚖️</span>
+  </div>
 </div>
-<div class="sci">
-  <div><h2>Supreme Court of India</h2><p>Apex Court | Live Case Status · Judgements · Cause List · E-Filing Portal</p></div>
-  <div class="sci-right"><div>🦁</div><a class="visit" href="https://www.sci.gov.in" target="_blank">Visit Official Portal →</a></div>
+
+<!-- SCI Banner -->
+<div class="bg-gradient-to-r from-[#0a0f6b] via-[#1621a0] to-[#0a0f6b] rounded-[14px] text-white px-5 md:px-8 py-5 flex flex-col md:flex-row justify-between items-center relative overflow-hidden mt-2">
+  <div>
+    <h1 class="text-[24px] md:text-[28px] font-extrabold leading-none">Supreme Court of India</h1>
+    <p class="text-[11px] md:text-[12px] opacity-90 mt-1 font-medium tracking-wide">Apex Court | Live Case Status · Judgements · Cause List · E-Filing Portal</p>
+  </div>
+  <div class="flex items-center gap-4 mt-3 md:mt-0">
+    <div class="hidden md:block text-[32px] opacity-80">🏛️</div>
+    <button class="bg-white text-black text-[12px] font-bold px-5 py-2 rounded-full">Visit Official Portal →</button>
+  </div>
 </div>
-<div class="sec"><h3>Trusted Legal Institutions — Quick Access</h3><span>Updated Oct 2026 • Live & Verified</span></div>
-<div class="grid4">
-  <a class="c4 g1" href="https://delhihighcourt.nic.in" target="_blank"><h4>Delhi High Court</h4><p>Delhi · Original & Appellate Jurisdiction</p><div class="op">Open Portal →</div></a>
-  <a class="c4 g2" href="https://e-jagriti.gov.in" target="_blank"><h4>NCDRC e-Jagriti</h4><p>National Consumer Disputes Redressal</p><div class="op">Open Portal →</div></a>
-  <a class="c4 g3" href="https://atfp.gov.in" target="_blank"><h4>ATFP PMLA Tribunal</h4><p>Appellate Tribunal for PMLA</p><div class="op">Open Portal →</div></a>
-  <a class="c4 g4e" href="https://services.ecourts.gov.in/ecourtindia_v6/" target="_blank"><h4>eCourts District Courts</h4><p>All India District Courts</p><div class="op">Open Portal →</div></a>
+
+<!-- Trusted Section -->
+<div class="px-1 mt-4">
+  <div class="flex items-center justify-between">
+    <h2 class="font-extrabold text-[16px]">Trusted Legal Institutions – Quick Access</h2>
+    <span class="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Updated Oct 2026 • Live & Verified</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mt-3">
+    <!-- Delhi HC -->
+    <div class="bg-[#FF8C00] rounded-[12px] p-4 text-white card-shadow relative">
+      <div class="text-2xl">🏛️</div>
+      <div class="font-bold text-[15px] mt-1">Delhi High Court</div>
+      <div class="text-[11px] opacity-90 leading-tight">High Court<br>Delhi - Original & Appellate Jurisdiction</div>
+      <button class="mt-3 bg-white text-black text-[11px] font-bold px-3 py-1 rounded-full">Open Portal →</button>
+    </div>
+    <!-- NCDRC -->
+    <div class="bg-[#1DB954] rounded-[12px] p-4 text-white card-shadow">
+      <div class="text-xl">☰</div>
+      <div class="font-bold text-[14px] mt-1">NCDRC e-Jagriti</div>
+      <div class="text-[10px] opacity-90 leading-tight">National Consumer Disputes Redressal<br>Consumer-Protection - e-Filing Enabled</div>
+      <button class="mt-3 bg-white text-black text-[11px] font-bold px-3 py-1 rounded-full">Open Portal →</button>
+    </div>
+    <!-- ATFP -->
+    <div class="bg-[#2A5BD7] rounded-[12px] p-4 text-white card-shadow">
+      <div class="text-xl">⚖️</div>
+      <div class="font-bold text-[14px] mt-1">ATFP PMLA Tribunal</div>
+      <div class="text-[11px] opacity-90">Appellate Tribunal for PMLA</div>
+      <button class="mt-3 bg-white text-black text-[11px] font-bold px-3 py-1 rounded-full">Open Portal →</button>
+    </div>
+    <!-- eCourts -->
+    <div class="bg-[#14A0] rounded-[12px] p-4 text-white card-shadow">
+      <div class="text-xl">🏛️</div>
+      <div class="font-bold text-[14px] mt-1">eCourts District Courts</div>
+      <div class="text-[10px] opacity-90 leading-tight">All India District Courts<br>Cause List - Case Status - Orders</div>
+      <button class="mt-3 bg-white text-black text-[11px] font-bold px-3 py-1 rounded-full">Open Portal →</button>
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3">
+    <div class="bg-white border rounded-[10px] p-3 flex gap-2 items-center">
+      <span class="text-lg">📊</span><div><div class="font-bold text-[12px]">Platform Insights</div><div class="text-[10px] text-gray-500">Live Metrics<br>Real-time monitoring & updates</div></div>
+    </div>
+    <div class="bg-white border rounded-[10px] p-3 flex gap-2 items-center">
+      <span class="text-lg">📶</span><div><div class="font-bold text-[12px]">Live Courts</div><div class="font-extrabold text-[16px] text-blue-700 leading-none">482</div><div class="text-[10px] text-gray-500">Currently active hearings</div></div>
+    </div>
+    <div class="bg-white border rounded-[10px] p-3 flex gap-2 items-center">
+      <span class="text-lg">✅</span><div><div class="font-bold text-[12px]">Verified Links</div><div class="font-extrabold text-[16px] text-green-700 leading-none">1,236</div><div class="text-[10px] text-gray-500">Trusted government sources</div></div>
+    </div>
+    <div class="bg-white border rounded-[10px] p-3 flex gap-2 items-center">
+      <span class="text-lg">🌙</span><div><div class="font-bold text-[12px]">Daily Updates</div><div class="font-extrabold text-[16px] text-orange-600 leading-none">37</div><div class="text-[10px] text-gray-500">New orders & judgments today</div></div>
+    </div>
+  </div>
+
+  <!-- Tribunals -->
+  <div class="mt-4 flex items-center gap-2">
+    <h2 class="font-extrabold text-[16px]">Tribunals & Commissions</h2>
+    <span class="text-[10px] bg-purple-50 border border-purple-200 text-purple-700 px-2 py-0.5 rounded-full">9 Tribunals • All India</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
+    <div class="bg-gradient-to-r from-purple-400 to-[#9b8ef6] rounded-[10px] p-3 text-center text-black font-bold card-shadow"><div class="flex justify-center gap-2"><span>🔨</span> CAT</div><div class="text-[11px] font-semibold">Central Administrative Tribunal<br><span class="text-[10px] font-normal">Service Matters</span></div></div>
+    <div class="bg-gradient-to-r from-green-300 to-green-400 rounded-[10px] p-3 text-center font-bold card-shadow"><div class="flex justify-center gap-2"><span>🌿</span> NGT</div><div class="text-[11px] font-semibold">National Green Tribunal<br><span class="text-[10px] font-normal">Environmental Cases</span></div></div>
+    <div class="bg-gradient-to-r from-[#2d2f6b] to-[#4a4e9c] rounded-[10px] p-3 text-center text-white font-bold card-shadow"><div class="flex justify-center gap-2"><span>🏛️</span> NCLAT</div><div class="text-[11px]">National Company Law Appellate Tribunal<br><span class="text-[10px] font-normal">Corporate Appeals</span></div></div>
+
+    <div class="bg-gradient-to-r from-[#6ad4d4] to-[#3fb4d4] rounded-[10px] p-3 text-center font-bold card-shadow"><div class="flex justify-center gap-2"><span>⚖️</span> NCLT</div><div class="text-[11px]">National Company Law Tribunal<br><span class="text-[10px] font-normal">Insolvency & Company</span></div></div>
+    <div class="bg-gradient-to-r from-orange-300 to-orange-400 rounded-[10px] p-3 text-center font-bold card-shadow"><div class="flex justify-center gap-2"><span>📄</span> DRAT</div><div class="text-[11px]">Debt Recovery Appellate Tribunal<br><span class="text-[10px] font-normal">Debt Recovery Appeals</span></div></div>
+    <div class="bg-gradient-to-r from-[#c49a6c] to-[#a87b4f] rounded-[10px] p-3 text-center text-white font-bold card-shadow"><div class="flex justify-center gap-2"><span>🏦</span> DRT</div><div class="text-[11px]">Debt Recovery Tribunal<br><span class="text-[10px] font-normal">Banking & Debt Cases</span></div></div>
+
+    <div class="bg-gradient-to-r from-red-400 to-red-600 rounded-[10px] p-3 text-center text-white font-bold card-shadow"><div class="flex justify-center gap-2"><span>🏢</span> CCI</div><div class="text-[11px]">Competition Commission of India<br><span class="text-[10px] font-normal">Anti-Trust & Competition</span></div></div>
+    <div class="bg-gradient-to-r from-blue-100 to-blue-200 rounded-[10px] p-3 text-center font-bold card-shadow border"><div class="flex justify-center gap-2"><span>📑</span> ITAT</div><div class="text-[11px]">Income Tax Appellate Tribunal<br><span class="text-[10px] font-normal">Tax Appeals</span></div></div>
+    <div class="bg-gradient-to-r from-[#bfe8e8] to-[#88caca] rounded-[10px] p-3 text-center font-bold card-shadow"><div class="flex justify-center gap-2"><span>🏠</span> RERA</div><div class="text-[11px]">Real Estate Regulatory Authority<br><span class="text-[10px] font-normal">Real Estate Disputes</span></div></div>
+  </div>
+
+  <div class="text-center text-[10px] text-gray-500 mt-4">© 2024 Vakil Sathi • V8.2 • Data updated as of 06 Oct 2024 • Help • Privacy • Terms</div>
 </div>
-<div class="ins-row">
-  <div class="ins">Platform Insights<br>Live Metrics</div>
-  <div class="ins">Live Courts<br><b>482</b></div>
-  <div class="ins">Verified Links<br><b>1,236</b></div>
-  <div class="ins">Daily Updates<br><b>37</b></div>
-</div>
-<div class="trib-head"><h3>Tribunals & Commissions</h3></div>
-<div class="tgrid">
-  <div class="tcard" style="background:linear-gradient(135deg,#c4b5fd,#a78bfa)">CAT</div>
-  <div class="tcard" style="background:linear-gradient(135deg,#bbf7d0,#86efac)">NGT</div>
-  <div class="tcard" style="background:linear-gradient(135deg,#1e293b,#0f172a);color:#fff">NCLAT</div>
-  <div class="tcard" style="background:linear-gradient(135deg,#a5f3fc,#22d3ee)">NCLT</div>
-  <div class="tcard" style="background:linear-gradient(135deg,#fed7aa,#fb923c)">DRAT</div>
-  <div class="tcard" style="background:linear-gradient(135deg,#d6c7b8,#a68a64)">DRT</div>
-  <div class="tcard" style="background:linear-gradient(135deg,#fecaca,#f87171)">CCI</div>
-  <div class="tcard" style="background:linear-gradient(135deg,#e9d5ff,#a78bfa)">ITAT</div>
-  <div class="tcard" style="background:linear-gradient(135deg,#99f6e0,#2dd4bf)">RERA</div>
+
 </div>
 </body>
 </html>
