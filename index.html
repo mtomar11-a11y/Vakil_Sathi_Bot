@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vakil Sathi V9.2 Ultimate - All Features</title>
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiVmFraWwgU2F0aGkiLCJzaG9ydF9uYW1lIjoiVmFraWwgU2F0aGkiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZmZiIsInRoZW1lX2NvbG9yIjoiIzFlM2FmMCJ9">
+<title>Vakil Sathi V9.3 Hover Fixed</title>
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiVmFraWwgU2F0aGkiLCJzaG9ydF9uYW1lIjoiVmFraWwiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2VlZjJmZiIsInRoZW1lX2NvbG9yIjoiIzFlM2FmMCJ9">
 <meta name="theme-color" content="#1e3af0">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,17 +12,22 @@
 *{font-family:'Inter',sans-serif}
 body{background:#eef2ff;padding:12px;transition:all 0.3s}
 body.dark{background:#0f172a}
-body.dark.outer{background:#1e293b;border-color:#334155}
-body.dark.card-3d, body.dark.card-top{background:#1e293b;border-color:#334155;color:white}
-body.dark.btn-mini{background:#334155;color:white;border-color:#475569}
 .outer{background:white;border-radius:20px;max-width:1320px;margin:auto;border:1px solid #e5e7eb;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);transition:all 0.3s}
+body.dark.outer{background:#1e293b;border-color:#334155}
 .sci-banner{background: radial-gradient(120% 120% at 15% 20%, #1e3af0 0%, #111b8a 55%, #080d4a 100%)}
-.card-3d{background:white;border:1px solid #e9ecf3;border-radius:14px;box-shadow:0 4px 0 #e9ecf3, 0 10px 24px rgba(0,0,0,0.05);position:relative;overflow:hidden;transition:all 0.2s}
+
+/* BOTH CARDS SAME HOVER NOW - FIXED */
+.card-3d{background:white;border:1px solid #e9ecf3;border-radius:14px;box-shadow:0 4px 0 #e9ecf3, 0 10px 24px rgba(0,0,0,0.05);position:relative;overflow:hidden;transition:all 0.2s ease}
 .card-3d:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6366f1,#3b82f6,#06b6d4)}
-.card-3d:hover{transform:translateY(-3px)}
-.card-top{background:white;border:1px solid #dbeafe;border-radius:14px;box-shadow:0 4px 0 #dbeafe, 0 10px 24px rgba(0,0,0,0.06);position:relative;overflow:hidden}
+.card-3d:hover{transform:translateY(-4px);box-shadow:0 7px 0 #e9ecf3, 0 16px 32px rgba(0,0,0,0.09)}
+
+.card-top{background:white;border:1px solid #dbeafe;border-radius:14px;box-shadow:0 4px 0 #dbeafe, 0 10px 24px rgba(0,0,0,0.06);position:relative;overflow:hidden;transition:all 0.2s ease}
 .card-top:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0ea5e9,#3b82f6,#6366f1)}
+.card-top:hover{transform:translateY(-4px);box-shadow:0 7px 0 #dbeafe, 0 16px 32px rgba(59,130,246,0.15)}
+
+body.dark.card-3d, body.dark.card-top{background:#1e293b;border-color:#334155;color:white}
 .btn-mini{font-size:10px;font-weight:700;padding:6px 10px;border-radius:9999px;border:1px solid #e5e7eb;background:white;color:#111;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;cursor:pointer}
+body.dark.btn-mini{background:#334155;color:white;border-color:#475569}
 .live-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;box-shadow:0 0 0 3px rgba(34,197,94,0.2);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)}70%{box-shadow:0 0 0 6px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
 .fav-btn{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:#f1f5f9;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px}
@@ -39,26 +44,26 @@ body.dark.btn-mini{background:#334155;color:white;border-color:#475569}
     <div class="flex items-center gap-2">
       <button onclick="toggleLang()" class="text-[11px] font-bold px-3 py-1.5 rounded-full border bg-white dark:bg-slate-700 dark:text-white" id="langBtn">अ / A</button>
       <button onclick="toggleDark()" class="text-[11px] font-bold px-3 py-1.5 rounded-full border bg-white dark:bg-slate-700 dark:text-white" id="darkBtn">🌙 Dark</button>
-      <button onclick="installPWA()" class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-indigo-600 text-white" id="installBtn" style="display:none">📲 Install App</button>
+      <button onclick="installPWA()" class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-indigo-600 text-white" id="installBtn" style="display:none">📲 Install</button>
       <div class="text-[12px] font-bold text-[#8b5a00] dark:text-yellow-400">॥ यतो धर्मस्ततो जयः ॥</div>
     </div>
   </div>
 
   <div class="mx-3 sci-banner rounded-[14px] px-6 md:px-8 py-6 flex flex-col md:flex-row justify-between items-start md:items-center text-white">
-    <div><h1 class="text-[28px] font-extrabold" id="sciTitle">Supreme Court of India</h1><p class="text-[12px] opacity-80">Apex Court | PWA Ready | Search Enabled</p></div>
+    <div><h1 class="text-[28px] font-extrabold" id="sciTitle">Supreme Court of India</h1><p class="text-[12px] opacity-80">Hover Fixed for All Cards</p></div>
     <div class="flex gap-2 mt-4 md:mt-0"><a href="https://www.sci.gov.in" target="_blank" class="bg-white text-black text-[11px] font-bold px-4 py-2 rounded-full" onclick="trackClick('sci')">🏠 Home</a><a href="https://efiling.sci.gov.in" target="_blank" class="bg-yellow-400 text-black text-[11px] font-bold px-4 py-2 rounded-full" onclick="trackClick('sci')">📤 E-Filing</a><a href="https://vc.sci.gov.in" target="_blank" class="bg-[#dbeafe] text-[#1e3a8a] text-[11px] font-bold px-4 py-2 rounded-full" onclick="trackClick('sci')">📹 VC Hearing</a></div>
   </div>
 
   <div class="px-4 mt-4">
     <div class="relative max-w-xl">
       <span class="absolute left-3 top-3 text-gray-400">🔍</span>
-      <input type="text" id="searchInput" class="search-box dark:bg-slate-800 dark:text-white dark:border-slate-600" placeholder="Search High Court, Tribunal, State... (Delhi, Bombay, NGT)" onkeyup="filterCards()">
-      <div class="text-[10px] text-gray-500 mt-1" id="searchResult">40 courts loaded • Type to filter</div>
+      <input type="text" id="searchInput" class="search-box dark:bg-slate-800 dark:text-white dark:border-slate-600" placeholder="Search High Court... (Delhi, Bombay, Madras)" onkeyup="filterCards()">
+      <div class="text-[10px] text-gray-500 mt-1" id="searchResult">40 courts loaded</div>
     </div>
 
     <div id="favSection" style="display:none"><div class="region-title">⭐ Favourites & Recently Used</div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="favGrid"></div></div>
 
-    <h2 class="region-title">Core National Portals</h2>
+    <h2 class="region-title">Core National Portals - Hover Fixed</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="coreGrid">
       <div class="card-top p-4 court-card" data-name="ecourt district ecourts"><div class="fav-btn" onclick="toggleFav(this,'ecourt')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[13px] mt-1" data-en="E-Court Service - District Courts" data-hi="ई-कोर्ट सेवा - जिला न्यायालय">🏛️ E-Court Service - District Courts</div><div class="flex gap-2 mt-3"><a href="https://services.ecourts.gov.in/ecourtindia_v6/" target="_blank" class="btn-mini" onclick="trackClick('ecourt')">🏠 Home</a><a href="https://efiling.ecourts.gov.in" target="_blank" class="btn-mini" onclick="trackClick('ecourt')">📤 E-Filing</a></div></div>
       <div class="card-top p-4 court-card" data-name="ncdrc consumer ejagriti"><div class="fav-btn" onclick="toggleFav(this,'ncdrc')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[13px] mt-1">☰ NCDRC e-Jagriti</div><div class="flex gap-2 mt-3"><a href="https://ncdrc.nic.in" target="_blank" class="btn-mini" onclick="trackClick('ncdrc')">🏠 Home</a><a href="https://e-jagriti.gov.in" target="_blank" class="btn-mini" onclick="trackClick('ncdrc')">📤 E-Filing</a></div></div>
@@ -126,76 +131,65 @@ body.dark.btn-mini{background:#334155;color:white;border-color:#475569}
       <div class="card-3d p-4 text-center court-card" data-name="sat sebi"><div class="fav-btn" onclick="toggleFav(this,'sat')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">📈 SAT</div><div class="flex justify-center gap-2 mt-3"><a href="https://sat.gov.in" target="_blank" class="btn-mini" onclick="trackClick('sat')">🏠 Home</a><a href="https://sat.gov.in/efiling/" target="_blank" class="btn-mini" onclick="trackClick('sat')">📤 E-Filing</a></div></div>
     </div>
 
-    <div class="text-center text-[11px] text-gray-400 py-5 mt-6 border-t" id="footer">© 2024 Vakil Sathi • V9.2 Ultimate • Search + Region + Live + Fav + Dark + Lang + PWA • 40 Cards • Complete Code</div>
+    <div class="text-center text-[11px] text-gray-400 py-5 mt-6 border-t">© 2024 Vakil Sathi • V9.3 Hover Fixed • Core Cards Now Move • 40 Cards • Complete</div>
   </div>
 </div>
 
 <script>
-// SEARCH
 function filterCards(){
-  let q = document.getElementById('searchInput').value.toLowerCase();
-  let cards = document.querySelectorAll('.court-card');
+  let q=document.getElementById('searchInput').value.toLowerCase();
+  let cards=document.querySelectorAll('.court-card');
   let count=0;
   cards.forEach(c=>{
-    let name = c.getAttribute('data-name');
-    if(name.includes(q) || q===''){c.style.display='';count++;}else{c.style.display='none';}
+    let name=c.getAttribute('data-name');
+    if(name.includes(q)||q===''){c.style.display='';count++;}else{c.style.display='none';}
   });
-  document.getElementById('searchResult').innerText = count+' courts found for "'+q+'"';
+  document.getElementById('searchResult').innerText=count+' courts found';
 }
-
-// DARK MODE
 function toggleDark(){
   document.body.classList.toggle('dark');
-  let isDark = document.body.classList.contains('dark');
-  localStorage.setItem('vakilDark', isDark);
-  document.getElementById('darkBtn').innerText = isDark? '☀️ Light' : '🌙 Dark';
+  let isDark=document.body.classList.contains('dark');
+  localStorage.setItem('vakilDark',isDark);
+  document.getElementById('darkBtn').innerText=isDark?'☀️ Light':'🌙 Dark';
 }
 if(localStorage.getItem('vakilDark')==='true'){toggleDark();}
-
-// LANG TOGGLE
 let isHindi=false;
 function toggleLang(){
   isHindi=!isHindi;
   document.querySelectorAll('[data-en]').forEach(el=>{
-    el.innerText = isHindi? el.getAttribute('data-hi') : el.getAttribute('data-en');
-    el.innerText = (el.innerText.startsWith('🏛️')? '' : '🏛️ ') + el.innerText.replace('🏛️','').trim();
-    if(!el.innerText.includes('🏛️')) el.innerText = '🏛️ '+el.innerText;
+    let en=el.getAttribute('data-en'); let hi=el.getAttribute('data-hi');
+    el.innerText='🏛️ '+(isHindi?hi:en);
   });
-  document.getElementById('langBtn').innerText = isHindi? 'A / अ' : 'अ / A';
-  document.getElementById('logoText').innerText = isHindi? 'वकील साथी' : 'Vakil Sathi';
-  document.getElementById('sciTitle').innerText = isHindi? 'भारत का सर्वोच्च न्यायालय' : 'Supreme Court of India';
+  document.getElementById('langBtn').innerText=isHindi?'A / अ':'अ / A';
+  document.getElementById('logoText').innerText=isHindi?'वकील साथी':'Vakil Sathi';
+  document.getElementById('sciTitle').innerText=isHindi?'भारत का सर्वोच्च न्यायालय':'Supreme Court of India';
 }
-
-// FAV & RECENT
 function toggleFav(btn,id){
   btn.classList.toggle('active');
-  let favs = JSON.parse(localStorage.getItem('vakilFav')||'[]');
-  if(btn.classList.contains('active')){btn.innerText='★'; if(!favs.includes(id)) favs.push(id);}else{btn.innerText='☆'; favs = favs.filter(f=>f!==id);}
-  localStorage.setItem('vakilFav', JSON.stringify(favs));
-  renderFav();
+  let favs=JSON.parse(localStorage.getItem('vakilFav')||'[]');
+  if(btn.classList.contains('active')){btn.innerText='★'; if(!favs.includes(id)) favs.push(id);}else{btn.innerText='☆'; favs=favs.filter(f=>f!==id);}
+  localStorage.setItem('vakilFav',JSON.stringify(favs)); renderFav();
 }
 function trackClick(id){
-  let recent = JSON.parse(localStorage.getItem('vakilRecent')||'[]');
-  recent = recent.filter(r=>r!==id); recent.unshift(id); recent = recent.slice(0,8);
-  localStorage.setItem('vakilRecent', JSON.stringify(recent));
+  let recent=JSON.parse(localStorage.getItem('vakilRecent')||'[]');
+  recent=recent.filter(r=>r!==id); recent.unshift(id); recent=recent.slice(0,8);
+  localStorage.setItem('vakilRecent',JSON.stringify(recent));
 }
 function renderFav(){
-  let favs = JSON.parse(localStorage.getItem('vakilFav')||'[]');
-  let recent = JSON.parse(localStorage.getItem('vakilRecent')||'[]');
-  let combined = [...new Set([...favs,...recent])];
+  let favs=JSON.parse(localStorage.getItem('vakilFav')||'[]');
+  let recent=JSON.parse(localStorage.getItem('vakilRecent')||'[]');
+  let combined=[...new Set([...favs,...recent])];
   if(combined.length===0){document.getElementById('favSection').style.display='none';return;}
   document.getElementById('favSection').style.display='';
-  let favGrid = document.getElementById('favGrid'); favGrid.innerHTML='';
+  let favGrid=document.getElementById('favGrid'); favGrid.innerHTML='';
   combined.slice(0,4).forEach(id=>{
-    let orig = document.querySelector(`.court-card [onclick="toggleFav(this,'${id}')"]`)?.closest('.court-card');
-    if(orig){let clone = orig.cloneNode(true); favGrid.appendChild(clone);}
+    let orig=document.querySelector(`.court-card [onclick="toggleFav(this,'${id}')"]`)?.closest('.court-card');
+    if(orig){let clone=orig.cloneNode(true); favGrid.appendChild(clone);}
   });
 }
 renderFav();
-
-// PWA INSTALL
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e)=>{e.preventDefault(); deferredPrompt=e; document.getElementById('installBtn').style.display='';});
+window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault(); deferredPrompt=e; document.getElementById('installBtn').style.display='';});
 function installPWA(){if(deferredPrompt){deferredPrompt.prompt(); deferredPrompt.userChoice.then(()=>{deferredPrompt=null; document.getElementById('installBtn').style.display='none';});}}
 if('serviceWorker' in navigator){navigator.serviceWorker.register(URL.createObjectURL(new Blob([`self.addEventListener('fetch',e=>{e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)))})`],{type:'text/javascript'})));}
 </script>
