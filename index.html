@@ -1,80 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Vakil Sathi - All India Courts & Tribunals in one Platform</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vakil Sathi | All India Courts & Tribunals in one Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{ --navy:#0f2340; --gold:#c89c2e; --sky:#e6f3ff; }
+:root{ --navy:#0d2040; --navy2:#162f5a; --gold:#c89c2e; --gold2:#ffdf8a; --sky:#eaf4ff; --sky2:#d6eaff; --ink:#2e5a94; }
 *{margin:0;padding:0;box-sizing:border-box}
-body.vs-landing{
-  font-family:'Inter',system-ui; 
-  background: radial-gradient(1200px 600px at 20% -10%, #ffffff 0%, #eaf4ff 35%, #d6eaff 100%);
-  color:var(--navy); overflow-x:hidden; isolation:isolate;
-}
-.vs-bg-map{position:fixed; right:-2%; top:2%; width:58%; height:90%; opacity:0.07; z-index:0; pointer-events:none;}
-.vs-top{position:relative; z-index:5; display:flex; justify-content:space-between; align-items:center; padding:20px 4%; max-width:1440px; margin:0 auto;}
-.vs-logo{display:flex; align-items:center; gap:12px}
-.vs-logo-badge{width:48px; height:48px; border-radius:50%; background:var(--navy); display:grid; place-items:center; color:#ffdf8a; font-size:26px; border:1.5px solid #ffdf8a;}
-.vs-logo-text{font-weight:900; font-size:26px; line-height:1}
-.vs-logo-sub{font-size:11px; font-weight:600; color:#3a6fb0; letter-spacing:0.8px; text-transform:uppercase; margin-top:3px}
-.vs-nav{display:flex; gap:10px}
-.vs-nav-pill{background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.9); border-radius:999px; padding:9px 18px; font-size:13px; font-weight:600;}
-.vs-hero{position:relative; z-index:4; max-width:1440px; margin:0 auto; padding:30px 4% 10px;}
-.vs-hero h1{font-size:clamp(42px, 6vw, 76px); font-weight:900; line-height:0.9; letter-spacing:-2px; background:linear-gradient(180deg, #0f2340 10%, #1a3a68 40%, #c89c2e 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
-.vs-hero p{margin-top:14px; font-size:17px; color:#2e5a94; font-weight:500; max-width:700px}
-.vs-trail-section{position:relative; z-index:3; max-width:1440px; margin:0 auto; padding:20px 4% 10px}
-.vs-trail-svg{position:absolute; left:0; top:52%; width:100%; height:140px; z-index:1; pointer-events:none}
-.vs-grid{position:relative; z-index:2; display:grid; grid-template-columns: 220px 1fr 1fr 1fr; gap:20px;}
-.vs-gavel-card{background:rgba(255,255,255,0.75); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.95); border-radius:24px; padding:16px; box-shadow:0 16px 40px rgba(15,35,64,0.08); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative;}
-.vs-gavel-img{width:140px; height:140px; object-fit:contain; animation:vsFloat 3.5s ease-in-out infinite;}
-@keyframes vsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.vs-card{background:rgba(255,255,255,0.68); backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,0.95); border-radius:20px; padding:22px 20px; box-shadow:0 10px 30px rgba(15,35,64,0.06);}
-.vs-card-ic{width:44px; height:44px; border-radius:12px; background:rgba(15,35,64,0.06); display:grid; place-items:center; font-size:22px;}
-.vs-card h3{margin-top:14px; font-size:17px; font-weight:800}
-.vs-card p{margin-top:8px; font-size:13px; color:#5a789e; line-height:1.5; font-weight:500}
-.vs-enter-wrap{position:relative; z-index:4; display:flex; flex-direction:column; align-items:center; gap:14px; padding:28px 4% 50px; max-width:1440px; margin:0 auto}
-.vs-enter-btn{display:flex; align-items:center; gap:14px; background:#0f2340; color:white; border:none; padding:15px 44px; border-radius:9999px; font-size:18px; font-weight:800; cursor:pointer; box-shadow:0 12px 24px rgba(15,35,64,0.25);}
-@media(max-width:1100px){.vs-grid{grid-template-columns:1fr 1fr;} .vs-gavel-card{grid-column:span 2; flex-direction:row;} .vs-trail-svg{display:none}}
+body.vs-landing{font-family:'Inter',system-ui; background: radial-gradient(1000px 600px at 10% -10%, #fff 0%, var(--sky) 40%, var(--sky2) 100%); color:var(--navy); overflow-x:hidden; min-height:100vh; isolation:isolate;}
+.vs-bg-map{position:fixed; right:-3%; top:0%; width:62%; height:100%; opacity:0.055; z-index:0; pointer-events:none;}
+.vs-bg-dots{position:fixed; inset:0; z-index:0; pointer-events:none; background-image:radial-gradient(rgba(15,32,64,0.08) 1px, transparent 1px); background-size:22px 22px; opacity:0.6}
+.vs-blob{position:fixed; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(255,223,138,0.18), transparent 70%); filter:blur(30px); z-index:0; left:-150px; bottom:-200px}
+.vs-top{position:relative; z-index:10; max-width:1440px; margin:0 auto; padding:18px 4%; display:flex; justify-content:space-between; align-items:center}
+.vs-logo{display:flex; align-items:center; gap:14px}
+.vs-logo-badge{width:52px; height:52px; border-radius:50%; background:linear-gradient(145deg, var(--navy), var(--navy2)); display:grid; place-items:center; color:var(--gold2); font-size:28px; border:1.5px solid var(--gold2)}
+.vs-logo-text{font-family:'Manrope',sans-serif; font-weight:800; font-size:27px; letter-spacing:-0.8px; line-height:1}
+.vs-logo-sub{font-size:11px; font-weight:700; color:var(--ink); letter-spacing:1px; text-transform:uppercase; margin-top:3px;}
+.vs-nav{display:flex; gap:10px;}
+.vs-nav-pill{background:rgba(255,255,255,0.7); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.95); border-radius:999px; padding:10px 18px; font-size:13px; font-weight:600;}
+.vs-nav-pill.active{background:var(--navy); color:#fff}
+.vs-hero{position:relative; z-index:5; max-width:1440px; margin:0 auto; padding:42px 4% 18px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:20px;}
+.vs-hero-left h1{font-family:'Manrope',sans-serif; font-size:clamp(38px, 6vw, 78px); font-weight:800; line-height:0.88; letter-spacing:-2.5px; background:linear-gradient(180deg, var(--navy) 20%, var(--navy2) 45%, var(--gold) 105%); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.vs-hero-left p{margin-top:16px; font-size:17px; color:var(--ink); font-weight:500; line-height:1.6; max-width:620px}
+.vs-hero-badges{margin-top:18px; display:flex; flex-wrap:wrap; gap:10px}
+.vs-badge{display:inline-flex; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.75); border:1px solid rgba(255,255,255,0.95); font-size:12px; font-weight:700;}
+.vs-hero-stats{background:rgba(255,255,255,0.72); backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,0.95); border-radius:20px; padding:18px; box-shadow:0 12px 32px rgba(13,32,64,0.08); width:100%; max-width:360px}
+.vs-stat-row{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dashed rgba(13,32,64,0.08)}
+.vs-stat-k{font-size:12px; font-weight:700; color:#6a8ab5}
+.vs-stat-v{font-size:14px; font-weight:800;}
+.vs-trail-section{position:relative; z-index:4; max-width:1440px; margin:0 auto; padding:26px 4% 10px}
+.vs-trail-svg{position:absolute; left:0; top:42%; width:100%; height:160px; z-index:1; pointer-events:none}
+.vs-grid{position:relative; z-index:2; display:grid; grid-template-columns:240px 1fr 1fr 1fr; gap:18px;}
+.vs-gavel-card{position:relative; background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.68)); backdrop-filter:blur(22px); border:1px solid #fff; border-radius:24px; padding:18px; box-shadow:0 18px 44px rgba(13,32,64,0.1); display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:260px}
+.vs-gavel-img{width:150px; height:150px; object-fit:contain; animation:vsFloat 3.8s ease-in-out infinite;}
+@keyframes vsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.vs-card{background:rgba(255,255,255,0.72); backdrop-filter:blur(20px); border:1px solid #fff; border-radius:20px; padding:22px 20px; box-shadow:0 12px 32px rgba(13,32,64,0.07); min-height:260px; display:flex; flex-direction:column}
+.vs-card-ic{width:46px; height:46px; border-radius:13px; background:#fff; border:1px solid rgba(13,32,64,0.06); display:grid; place-items:center; font-size:22px;}
+.vs-card h3{margin-top:16px; font-size:17px; font-weight:800}
+.vs-card p{margin-top:8px; font-size:13px; color:#5e7da3; line-height:1.6; flex:1}
+.vs-enter-wrap{max-width:1440px; margin:0 auto; padding:32px 4% 60px; display:flex; flex-direction:column; align-items:center; gap:16px; position:relative; z-index:5}
+.vs-enter-btn{display:inline-flex; align-items:center; gap:14px; background:linear-gradient(180deg, var(--navy2), var(--navy)); color:#fff; border:none; padding:16px 44px; border-radius:9999px; font-size:18px; font-weight:800; cursor:pointer; box-shadow:0 14px 28px rgba(13,32,64,0.28);}
+@media(max-width:1100px){.vs-hero{grid-template-columns:1fr} .vs-grid{grid-template-columns:1fr 1fr} .vs-gavel-card{grid-column:span 2} .vs-trail-svg{display:none}}
 @media(max-width:600px){.vs-grid{grid-template-columns:1fr} .vs-gavel-card{grid-column:span 1}}
 </style>
 </head>
 <body class="vs-landing">
-<svg class="vs-bg-map" viewBox="0 0 500 600"><path fill="#0f2340" d="M210 15 L245 18 L268 32 L285 55 L298 85 L312 115 L325 155 L335 195 L328 235 L315 270 L298 305 L275 340 L250 375 L220 410 L185 395 L165 350 L148 300 L135 250 L125 190 L135 135 L155 85 L185 35 Z"/></svg>
-
-<div class="vs-top">
+<svg class="vs-bg-map" viewBox="0 0 600 700"><path fill="#0d2040" d="M240 12 L285 14 L312 28 L338 52 L360 84 L382 122 L405 168 L418 210 L412 260 L395 300 L372 340 L342 378 L308 415 L268 445 L225 430 L195 385 L172 332 L152 276 L138 220 L130 164 L142 112 L170 64 L205 28 Z"/></svg>
+<div class="vs-bg-dots"></div><div class="vs-blob"></div>
+<header class="vs-top">
   <div class="vs-logo"><div class="vs-logo-badge">⚖️</div><div><div class="vs-logo-text">Vakil Sathi</div><div class="vs-logo-sub">Legal • Assist • Trust</div></div></div>
-  <div class="vs-nav"><div class="vs-nav-pill">Features</div><div class="vs-nav-pill">Courts</div><div class="vs-nav-pill">Help</div></div>
-</div>
-
-<div class="vs-hero">
-  <h1>Justice Journey</h1>
-  <p>Navigate India's judicial system seamlessly — from filing to resolution, all in one place.</p>
-</div>
-
-<div class="vs-trail-section">
-  <svg class="vs-trail-svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
-    <path d="M 110 50 C 280 10, 420 90, 600 50 S 900 5, 1150 40" stroke="#ffdf8a" stroke-width="10" fill="none" opacity="0.22"/>
-    <path d="M 110 50 C 280 10, 420 90, 600 50 S 900 5, 1150 40" stroke="#c89c2e" stroke-width="2.2" fill="none" stroke-dasharray="8 8" opacity="0.7"/>
-  </svg>
-  <div class="vs-grid">
-    <div class="vs-gavel-card">
-      <img class="vs-gavel-img" src="https://cdn3d.iconscout.com/3d/premium/thumb/gavel-3d-icon-download-in-png-blend-fbx-gltf-file-formats--justice-law-legal-court-judge-pack-icons-5187819.png" alt="Gavel"/>
-      <div style="font-size:12px;font-weight:700;color:#2e5a94;margin-top:8px">Premium 3D Justice</div>
-    </div>
-    <div class="vs-card"><div class="vs-card-ic">📄</div><h3>eFiling</h3><p>Submit cases digitally. Pan-India court filings.</p></div>
-    <div class="vs-card"><div class="vs-card-ic">🏛️</div><h3>Hearings</h3><p>Track hearings & dates in real-time.</p></div>
-    <div class="vs-card"><div class="vs-card-ic">⚖️</div><h3>Orders & Judgements</h3><p>Access rulings instantly. All tribunals.</p></div>
+  <nav class="vs-nav"><div class="vs-nav-pill active">Justice Journey</div><div class="vs-nav-pill">Features</div><div class="vs-nav-pill">Courts</div><div class="vs-nav-pill">Help</div></nav>
+</header>
+<section class="vs-hero">
+  <div class="vs-hero-left">
+    <div style="font-size:11px; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:var(--gold); margin-bottom:12px">All India Courts & Tribunals in one Platform</div>
+    <h1><span>Justice</span><span>Journey</span></h1>
+    <p>Navigate India's judicial system seamlessly — from filing to resolution, all in one place. Unified access to High Courts, District Courts, Tribunals & Special Benches.</p>
+    <div class="vs-hero-badges"><div class="vs-badge">✅ MeitY Compliant</div><div class="vs-badge">🔒 Encrypted</div><div class="vs-badge">🇮🇳 Pan-India</div><div class="vs-badge">⚡ Real-time</div></div>
   </div>
-</div>
-
+  <div class="vs-hero-stats"><div class="vs-stat-row"><span class="vs-stat-k">Coverage</span><span class="vs-stat-v">35 High Courts</span></div><div class="vs-stat-row"><span class="vs-stat-k">District Courts</span><span class="vs-stat-v">700+ Live</span></div><div class="vs-stat-row"><span class="vs-stat-k">Tribunals</span><span class="vs-stat-v">25+ Benches</span></div><div class="vs-stat-row"><span class="vs-stat-k">Cases</span><span class="vs-stat-v">2.1L+ Cases</span></div><div class="vs-stat-row"><span class="vs-stat-k">Status</span><span class="vs-stat-v" style="color:#16a34a">● Operational</span></div></div>
+</section>
+<section class="vs-trail-section">
+  <svg class="vs-trail-svg" viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M 120 80 C 300 20, 420 130, 600 80 S 900 10, 1140 70" stroke="#ffdf8a" stroke-width="14" fill="none" opacity="0.18"/><path d="M 120 80 C 300 20, 420 130, 600 80 S 900 10, 1140 70" stroke="#c89c2e" stroke-width="2.4" fill="none" stroke-dasharray="10 10" opacity="0.75"/></svg>
+  <div class="vs-grid">
+    <div class="vs-gavel-card"><img class="vs-gavel-img" src="https://cdn3d.iconscout.com/3d/premium/thumb/gavel-3d-icon-download-in-png-blend-fbx-gltf-file-formats--justice-law-legal-court-judge-pack-icons-5187819.png" alt="Gavel"><div style="width:110px; height:18px; background:radial-gradient(ellipse, rgba(13,32,64,0.18), transparent 70%); filter:blur(5px); border-radius:50%; margin-top:10px"></div><div style="margin-top:12px; font-size:12px; font-weight:800; text-align:center">Premium 3D<br>Justice Gavel</div></div>
+    <div class="vs-card"><div class="vs-card-ic">📄</div><h3>eFiling</h3><p>Submit cases digitally across India. Petition drafting, e-verification & secure documentation.</p></div>
+    <div class="vs-card"><div class="vs-card-ic">🏛️</div><h3>Hearings</h3><p>Track hearings & next dates in real-time. Bench info, court number & notifications.</p></div>
+    <div class="vs-card"><div class="vs-card-ic">⚖️</div><h3>Orders & Judgements</h3><p>Access rulings instantly. All tribunals covered — NCLT, DRT, ITAT, CAT with certified copy.</p></div>
+  </div>
+</section>
 <div class="vs-enter-wrap">
-  <button class="vs-enter-btn" onclick="window.location.href='./portal.html'">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M1 1h10v10H1zM13 1h10v10H13zM1 13h10v10H1zM13 13h10v10H13z"/></svg>
-    Enter Portal — Start Your Journey →
-  </button>
-  <div style="font-size:11px; font-weight:600; color:#6a8ab5;">Secure • Encrypted • MeitY Compliant • DPIIT Certified</div>
+  <button class="vs-enter-btn" onclick="window.location.href='./portal.html'"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M1 1h10v10H1zM13 1h10v10H13zM1 13h10v10H1zM13 13h10v10H13z"/></svg> Enter Portal — Start Your Journey →</button>
+  <div style="font-size:11px; font-weight:700; color:#7a9bc1;">Secure • Encrypted • MeitY Compliant • DPIIT Certified • ISO 27001</div>
 </div>
 </body>
 </html>
