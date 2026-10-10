@@ -1,197 +1,809 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vakil Sathi V9.3 Hover Fixed</title>
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiVmFraWwgU2F0aGkiLCJzaG9ydF9uYW1lIjoiVmFraWwiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2VlZjJmZiIsInRoZW1lX2NvbG9yIjoiIzFlM2FmMCJ9">
-<meta name="theme-color" content="#1e3af0">
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{font-family:'Inter',sans-serif}
-body{background:#eef2ff;padding:12px;transition:all 0.3s}
-body.dark{background:#0f172a}
-.outer{background:white;border-radius:20px;max-width:1320px;margin:auto;border:1px solid #e5e7eb;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08);transition:all 0.3s}
-body.dark.outer{background:#1e293b;border-color:#334155}
-.sci-banner{background: radial-gradient(120% 120% at 15% 20%, #1e3af0 0%, #111b8a 55%, #080d4a 100%)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <title>Vakil Sathi V9.3 - Legal Portals Dashboard</title>
 
-/* BOTH CARDS SAME HOVER NOW - FIXED */
-.card-3d{background:white;border:1px solid #e9ecf3;border-radius:14px;box-shadow:0 4px 0 #e9ecf3, 0 10px 24px rgba(0,0,0,0.05);position:relative;overflow:hidden;transition:all 0.2s ease}
-.card-3d:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6366f1,#3b82f6,#06b6d4)}
-.card-3d:hover{transform:translateY(-4px);box-shadow:0 7px 0 #e9ecf3, 0 16px 32px rgba(0,0,0,0.09)}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-.card-top{background:white;border:1px solid #dbeafe;border-radius:14px;box-shadow:0 4px 0 #dbeafe, 0 10px 24px rgba(0,0,0,0.06);position:relative;overflow:hidden;transition:all 0.2s ease}
-.card-top:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0ea5e9,#3b82f6,#6366f1)}
-.card-top:hover{transform:translateY(-4px);box-shadow:0 7px 0 #dbeafe, 0 16px 32px rgba(59,130,246,0.15)}
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #1d4ed8;
+    }
 
-body.dark.card-3d, body.dark.card-top{background:#1e293b;border-color:#334155;color:white}
-.btn-mini{font-size:10px;font-weight:700;padding:6px 10px;border-radius:9999px;border:1px solid #e5e7eb;background:white;color:#111;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;cursor:pointer}
-body.dark.btn-mini{background:#334155;color:white;border-color:#475569}
-.live-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;box-shadow:0 0 0 3px rgba(34,197,94,0.2);animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)}70%{box-shadow:0 0 0 6px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-.fav-btn{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:#f1f5f9;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px}
-.fav-btn.active{background:#fef3c7;border-color:#fbbf24}
-.search-box{width:100%;padding:12px 16px 12px 40px;border:1px solid #e5e7eb;border-radius:12px;font-size:13px;outline:none;transition:all 0.2s}
-.search-box:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
-.region-title{font-weight:800;font-size:14px;margin-top:20px;margin-bottom:8px;padding-left:6px;border-left:4px solid #3b82f6}
-</style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background .2s, color .2s;
+    }
+
+    body.dark {
+      --bg: #0b1120;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #263244;
+      --accent: #60a5fa;
+    }
+
+    .surface {
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .muted { color: var(--muted); }
+
+    .portal-card {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      min-height: 116px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 8px #0f172a0a;
+      transition: transform .18s, box-shadow .18s, border-color .18s;
+    }
+
+    .portal-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px #0f172a12;
+      border-color: #93c5fd;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 20px;
+    }
+
+    body.dark .card-icon {
+      background: #1e3a5f;
+      color: #bfdbfe;
+    }
+
+    .portal-card h3 {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .portal-card p {
+      margin: 5px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .open-link {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .open-link:hover { text-decoration: underline; }
+
+    .fav-btn {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      width: 32px;
+      height: 30px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .fav-btn.active {
+      color: #eab308;
+      border-color: #facc15;
+      background: #fef9c3;
+    }
+
+    body.dark .fav-btn.active { background: #422006; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 26px 0 12px;
+      font-weight: 800;
+      font-size: 17px;
+    }
+
+    .section-title .line {
+      height: 1px;
+      flex: 1;
+      background: var(--border);
+    }
+
+    .header-link {
+      border: 1px solid #ffffff35;
+      background: #ffffff12;
+      color: white;
+      padding: 8px 11px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .header-link:hover { background: #ffffff24; }
+
+    .control {
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--card);
+      color: var(--text);
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 13px;
+    }
+
+    .control:focus {
+      outline: 2px solid #93c5fd;
+      outline-offset: 1px;
+    }
+
+    .hidden-card { display: none !important; }
+
+    .empty-state {
+      border: 1px dashed var(--border);
+      color: var(--muted);
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .portal-card { padding: 13px; }
+      .card-icon { width: 35px; height: 35px; }
+      .portal-card h3 { font-size: 13px; }
+    }
+  </style>
 </head>
-<body id="body">
-<div class="outer">
-  <div class="flex flex-wrap items-center justify-between gap-3 px-5 py-3.5 bg-white dark:bg-slate-800">
-    <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-600 flex items-center justify-center text-white shadow-lg">⚖️</div><div class="font-extrabold text-[19px] dark:text-white" id="logoText">Vakil Sathi</div><span class="live-dot"></span><span class="text-[10px] font-bold text-green-600">LIVE</span></div>
-    <div class="flex items-center gap-2">
-      <button onclick="toggleLang()" class="text-[11px] font-bold px-3 py-1.5 rounded-full border bg-white dark:bg-slate-700 dark:text-white" id="langBtn">अ / A</button>
-      <button onclick="toggleDark()" class="text-[11px] font-bold px-3 py-1.5 rounded-full border bg-white dark:bg-slate-700 dark:text-white" id="darkBtn">🌙 Dark</button>
-      <button onclick="installPWA()" class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-indigo-600 text-white" id="installBtn" style="display:none">📲 Install</button>
-      <div class="text-[12px] font-bold text-[#8b5a00] dark:text-yellow-400">॥ यतो धर्मस्ततो जयः ॥</div>
+
+<body>
+  <header class="bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-400 text-slate-900 grid place-items-center text-2xl">
+            ⚖️
+          </div>
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              Vakil Sathi <span class="text-amber-400">V9.3</span>
+            </h1>
+            <p class="text-slate-300 text-xs sm:text-sm mt-1">
+              Indian Courts &amp; Legal Portals — Quick Access Dashboard
+            </p>
+          </div>
+        </div>
+
+        <nav class="flex flex-wrap gap-2" aria-label="Important portals">
+          <a class="header-link" href="https://www.sci.gov.in/" target="_blank" rel="noopener noreferrer">Supreme Court</a>
+          <a class="header-link" href="https://www.sci.gov.in/case-status-case-no/" target="_blank" rel="noopener noreferrer">Case Status</a>
+          <a class="header-link" href="https://efiling.sci.gov.in/" target="_blank" rel="noopener noreferrer">E-Filing</a>
+          <a class="header-link" href="https://www.ecourts.gov.in/" target="_blank" rel="noopener noreferrer">eCourts</a>
+        </nav>
+      </div>
     </div>
-  </div>
+  </header>
 
-  <div class="mx-3 sci-banner rounded-[14px] px-6 md:px-8 py-6 flex flex-col md:flex-row justify-between items-start md:items-center text-white">
-    <div><h1 class="text-[28px] font-extrabold" id="sciTitle">Supreme Court of India</h1><p class="text-[12px] opacity-80">Hover Fixed for All Cards</p></div>
-    <div class="flex gap-2 mt-4 md:mt-0"><a href="https://www.sci.gov.in" target="_blank" class="bg-white text-black text-[11px] font-bold px-4 py-2 rounded-full" onclick="trackClick('sci')">🏠 Home</a><a href="https://efiling.sci.gov.in" target="_blank" class="bg-yellow-400 text-black text-[11px] font-bold px-4 py-2 rounded-full" onclick="trackClick('sci')">📤 E-Filing</a><a href="https://vc.sci.gov.in" target="_blank" class="bg-[#dbeafe] text-[#1e3a8a] text-[11px] font-bold px-4 py-2 rounded-full" onclick="trackClick('sci')">📹 VC Hearing</a></div>
-  </div>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+    <section class="surface rounded-2xl p-4 sm:p-5">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 class="font-extrabold text-lg">Legal Portal Finder</h2>
+          <p class="muted text-sm mt-1">
+            Search courts, High Courts, tribunals and legal services.
+          </p>
+        </div>
 
-  <div class="px-4 mt-4">
-    <div class="relative max-w-xl">
-      <span class="absolute left-3 top-3 text-gray-400">🔍</span>
-      <input type="text" id="searchInput" class="search-box dark:bg-slate-800 dark:text-white dark:border-slate-600" placeholder="Search High Court... (Delhi, Bombay, Madras)" onkeyup="filterCards()">
-      <div class="text-[10px] text-gray-500 mt-1" id="searchResult">40 courts loaded</div>
+        <div class="flex flex-wrap gap-2">
+          <button id="themeToggle" class="control" type="button">🌙 Dark Mode</button>
+          <button id="languageToggle" class="control" type="button">हिन्दी</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 mt-5">
+        <input
+          id="searchInput"
+          class="control w-full"
+          type="search"
+          placeholder="Search portal, court, state or tribunal…"
+          aria-label="Search portals"
+          autocomplete="off"
+        >
+        <button id="clearSearch" class="control" type="button">Clear search</button>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-2 mt-3 text-xs muted">
+        <span id="resultCount" aria-live="polite">40 portals</span>
+        <span>Tip: Click ☆ to add a portal to favourites.</span>
+      </div>
+    </section>
+
+    <section id="favoritesSection" class="hidden">
+      <h2 class="section-title">⭐ Favourites <span class="line"></span></h2>
+      <div id="favoritesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"></div>
+      <p id="noFavorites" class="empty-state">Your favourite portals will appear here.</p>
+    </section>
+
+    <section id="recentSection" class="hidden">
+      <h2 class="section-title">🕘 Recently Used <span class="line"></span></h2>
+      <div id="recentGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"></div>
+    </section>
+
+    <div id="portalSections">
+
+      <section class="portal-section" data-section="Core Legal Portals">
+        <h2 class="section-title">🏛️ Core Legal Portals <span class="line"></span></h2>
+
+        <div class="portal-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+          <article class="portal-card" data-id="sci" data-name="Supreme Court of India SCI apex court">
+            <div class="card-top">
+              <div class="card-icon">⚖️</div>
+              <div><h3>Supreme Court of India</h3><p>Apex Court · Official website</p></div>
+            </div>
+            <div class="card-actions">
+              <a class="open-link" href="https://www.sci.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a>
+              <button class="fav-btn" type="button" aria-label="Favourite Supreme Court of India" aria-pressed="false">☆</button>
+            </div>
+          </article>
+
+          <article class="portal-card" data-id="ecourts" data-name="eCourts Services District Courts case status">
+            <div class="card-top">
+              <div class="card-icon">🏢</div>
+              <div><h3>eCourts Services</h3><p>District courts · Case information</p></div>
+            </div>
+            <div class="card-actions">
+              <a class="open-link" href="https://services.ecourts.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a>
+              <button class="fav-btn" type="button" aria-label="Favourite eCourts Services" aria-pressed="false">☆</button>
+            </div>
+          </article>
+
+          <article class="portal-card" data-id="efiling" data-name="Supreme Court e Filing portal">
+            <div class="card-top">
+              <div class="card-icon">📤</div>
+              <div><h3>Supreme Court E-Filing</h3><p>Online filing portal</p></div>
+            </div>
+            <div class="card-actions">
+              <a class="open-link" href="https://efiling.sci.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a>
+              <button class="fav-btn" type="button" aria-label="Favourite Supreme Court E-Filing" aria-pressed="false">☆</button>
+            </div>
+          </article>
+
+          <article class="portal-card" data-id="indiacode" data-name="India Code Central Acts legislation">
+            <div class="card-top">
+              <div class="card-icon">📚</div>
+              <div><h3>India Code</h3><p>Central Acts and legislation</p></div>
+            </div>
+            <div class="card-actions">
+              <a class="open-link" href="https://www.indiacode.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a>
+              <button class="fav-btn" type="button" aria-label="Favourite India Code" aria-pressed="false">☆</button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="portal-section" data-section="High Courts">
+        <h2 class="section-title">🏛️ High Courts of India <span class="line"></span></h2>
+
+        <div class="portal-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+          <article class="portal-card" data-id="allahabad" data-name="Allahabad High Court Uttar Pradesh">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Allahabad High Court</h3><p>Uttar Pradesh</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://www.allahabadhighcourt.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Allahabad High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="andhra" data-name="Andhra Pradesh High Court Amaravati">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Andhra Pradesh High Court</h3><p>Amaravati</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://aphc.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Andhra Pradesh High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="bombay" data-name="Bombay High Court Maharashtra Goa">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Bombay High Court</h3><p>Maharashtra · Goa</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://bombayhighcourt.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Bombay High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="calcutta" data-name="Calcutta High Court West Bengal">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Calcutta High Court</h3><p>West Bengal</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://www.calcuttahighcourt.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Calcutta High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="chhattisgarh" data-name="Chhattisgarh High Court Bilaspur">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Chhattisgarh High Court</h3><p>Bilaspur</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://highcourt.cg.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Chhattisgarh High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="delhi" data-name="Delhi High Court New Delhi">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Delhi High Court</h3><p>New Delhi</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://delhihighcourt.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Delhi High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="gauhati" data-name="Gauhati High Court Assam North East">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Gauhati High Court</h3><p>Assam and North-East states</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://ghconline.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Gauhati High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="gujarat" data-name="Gujarat High Court Ahmedabad">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Gujarat High Court</h3><p>Ahmedabad</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://gujarathighcourt.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Gujarat High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="himachal" data-name="Himachal Pradesh High Court Shimla">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Himachal Pradesh High Court</h3><p>Shimla</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://hphighcourt.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Himachal Pradesh High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="jammukashmir" data-name="High Court Jammu Kashmir Ladakh">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>High Court of J&amp;K and Ladakh</h3><p>Jammu · Kashmir · Ladakh</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://jkhighcourt.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite High Court of J and K and Ladakh" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="jharkhand" data-name="Jharkhand High Court Ranchi">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Jharkhand High Court</h3><p>Ranchi</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://jharkhandhighcourt.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Jharkhand High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="karnataka" data-name="Karnataka High Court Bengaluru">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Karnataka High Court</h3><p>Bengaluru</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://karnatakajudiciary.kar.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Karnataka High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="kerala" data-name="Kerala High Court Ernakulam">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Kerala High Court</h3><p>Ernakulam</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://highcourt.kerala.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Kerala High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="madhyapradesh" data-name="Madhya Pradesh High Court Jabalpur">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Madhya Pradesh High Court</h3><p>Jabalpur</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://mphc.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Madhya Pradesh High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="madras" data-name="Madras High Court Chennai Tamil Nadu">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Madras High Court</h3><p>Chennai · Tamil Nadu</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://www.mhc.tn.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Madras High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="manipur" data-name="Manipur High Court Imphal">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Manipur High Court</h3><p>Imphal</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://hcmimphal.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Manipur High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="meghalaya" data-name="Meghalaya High Court Shillong">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Meghalaya High Court</h3><p>Shillong</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://meghalayahighcourt.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Meghalaya High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="orissa" data-name="Orissa High Court Cuttack Odisha">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Orissa High Court</h3><p>Cuttack · Odisha</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://orissahighcourt.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Orissa High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="patna" data-name="Patna High Court Bihar">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Patna High Court</h3><p>Bihar</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://patnahighcourt.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Patna High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="punjabaryana" data-name="Punjab Haryana High Court Chandigarh">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Punjab &amp; Haryana High Court</h3><p>Chandigarh</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://highcourtchd.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Punjab and Haryana High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="rajasthan" data-name="Rajasthan High Court Jodhpur Jaipur">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Rajasthan High Court</h3><p>Jodhpur · Jaipur Bench</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://hcraj.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Rajasthan High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="sikkim" data-name="Sikkim High Court Gangtok">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Sikkim High Court</h3><p>Gangtok</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://hcs.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Sikkim High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="telangana" data-name="Telangana High Court Hyderabad">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Telangana High Court</h3><p>Hyderabad</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://tshc.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Telangana High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="tripura" data-name="Tripura High Court Agartala">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Tripura High Court</h3><p>Agartala</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://thc.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Tripura High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="uttarakhand" data-name="Uttarakhand High Court Nainital">
+            <div class="card-top"><div class="card-icon">🏛️</div><div><h3>Uttarakhand High Court</h3><p>Nainital</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://highcourtofuttarakhand.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Uttarakhand High Court" aria-pressed="false">☆</button></div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="portal-section" data-section="Tribunals and Services">
+        <h2 class="section-title">📑 Tribunals &amp; Legal Services <span class="line"></span></h2>
+
+        <div class="portal-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+          <article class="portal-card" data-id="nclt" data-name="National Company Law Tribunal NCLT">
+            <div class="card-top"><div class="card-icon">📑</div><div><h3>National Company Law Tribunal</h3><p>NCLT</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://nclt.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite NCLT" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="nclat" data-name="National Company Law Appellate Tribunal NCLAT">
+            <div class="card-top"><div class="card-icon">📑</div><div><h3>National Company Law Appellate Tribunal</h3><p>NCLAT</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://nclat.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite NCLAT" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="itat" data-name="Income Tax Appellate Tribunal ITAT">
+            <div class="card-top"><div class="card-icon">📑</div><div><h3>Income Tax Appellate Tribunal</h3><p>ITAT</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://itat.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite ITAT" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="cat" data-name="Central Administrative Tribunal CAT">
+            <div class="card-top"><div class="card-icon">📑</div><div><h3>Central Administrative Tribunal</h3><p>CAT</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://cgat.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite CAT" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="ngt" data-name="National Green Tribunal NGT">
+            <div class="card-top"><div class="card-icon">🌿</div><div><h3>National Green Tribunal</h3><p>NGT</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://greentribunal.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite NGT" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="drt" data-name="Debt Recovery Tribunal DRT">
+            <div class="card-top"><div class="card-icon">📑</div><div><h3>Debt Recovery Tribunal</h3><p>DRT information</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://drt.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite DRT" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="consumer" data-name="National Consumer Disputes Redressal Commission NCDRC">
+            <div class="card-top"><div class="card-icon">🛡️</div><div><h3>National Consumer Commission</h3><p>NCDRC</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://ncdrc.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite NCDRC" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="cestat" data-name="Customs Excise Service Tax Appellate Tribunal CESTAT">
+            <div class="card-top"><div class="card-icon">📑</div><div><h3>CESTAT</h3><p>Customs, Excise and Service Tax Appellate Tribunal</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://cestat.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite CESTAT" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="rera" data-name="RERA Real Estate Regulatory Authority">
+            <div class="card-top"><div class="card-icon">🏘️</div><div><h3>RERA</h3><p>Real Estate Regulatory Authority</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://rera.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite RERA" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="nalsa" data-name="National Legal Services Authority NALSA legal aid">
+            <div class="card-top"><div class="card-icon">🤝</div><div><h3>National Legal Services Authority</h3><p>NALSA · Legal aid</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://nalsa.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite NALSA" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="lawcommission" data-name="Law Commission of India">
+            <div class="card-top"><div class="card-icon">📘</div><div><h3>Law Commission of India</h3><p>Law reform and reports</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://lawcommissionofindia.nic.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Law Commission of India" aria-pressed="false">☆</button></div>
+          </article>
+
+          <article class="portal-card" data-id="legislative" data-name="Legislative Department Ministry of Law Justice">
+            <div class="card-top"><div class="card-icon">📘</div><div><h3>Legislative Department</h3><p>Ministry of Law and Justice</p></div></div>
+            <div class="card-actions"><a class="open-link" href="https://legislative.gov.in/" target="_blank" rel="noopener noreferrer">Open portal ↗</a><button class="fav-btn" type="button" aria-label="Favourite Legislative Department" aria-pressed="false">☆</button></div>
+          </article>
+
+        </div>
+      </section>
     </div>
 
-    <div id="favSection" style="display:none"><div class="region-title">⭐ Favourites & Recently Used</div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="favGrid"></div></div>
-
-    <h2 class="region-title">Core National Portals - Hover Fixed</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="coreGrid">
-      <div class="card-top p-4 court-card" data-name="ecourt district ecourts"><div class="fav-btn" onclick="toggleFav(this,'ecourt')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[13px] mt-1" data-en="E-Court Service - District Courts" data-hi="ई-कोर्ट सेवा - जिला न्यायालय">🏛️ E-Court Service - District Courts</div><div class="flex gap-2 mt-3"><a href="https://services.ecourts.gov.in/ecourtindia_v6/" target="_blank" class="btn-mini" onclick="trackClick('ecourt')">🏠 Home</a><a href="https://efiling.ecourts.gov.in" target="_blank" class="btn-mini" onclick="trackClick('ecourt')">📤 E-Filing</a></div></div>
-      <div class="card-top p-4 court-card" data-name="ncdrc consumer ejagriti"><div class="fav-btn" onclick="toggleFav(this,'ncdrc')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[13px] mt-1">☰ NCDRC e-Jagriti</div><div class="flex gap-2 mt-3"><a href="https://ncdrc.nic.in" target="_blank" class="btn-mini" onclick="trackClick('ncdrc')">🏠 Home</a><a href="https://e-jagriti.gov.in" target="_blank" class="btn-mini" onclick="trackClick('ncdrc')">📤 E-Filing</a></div></div>
-      <div class="card-top p-4 court-card" data-name="atfp pmla tribunal"><div class="fav-btn" onclick="toggleFav(this,'atfp')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[13px] mt-1">⚖️ ATFP PMLA Tribunal</div><div class="flex gap-2 mt-3"><a href="https://atfp.gov.in" target="_blank" class="btn-mini" onclick="trackClick('atfp')">🏠 Home</a><a href="https://atfp.gov.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('atfp')">📤 E-Filing</a></div></div>
+    <div id="noResults" class="empty-state hidden mt-5">
+      No matching portals found. Try another search term.
     </div>
 
-    <div class="region-title">North India - 6 High Courts</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 court-region">
-      <div class="card-3d p-4 court-card" data-name="delhi"><div class="fav-btn" onclick="toggleFav(this,'delhi')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1" data-en="Delhi High Court" data-hi="दिल्ली उच्च न्यायालय">🏛️ Delhi High Court</div><div class="flex gap-2 mt-3"><a href="https://delhihighcourt.nic.in" target="_blank" class="btn-mini" onclick="trackClick('delhi')">🏠 Home</a><a href="https://efiling-dhc.delhicourts.nic.in" target="_blank" class="btn-mini" onclick="trackClick('delhi')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="allahabad uttar pradesh"><div class="fav-btn" onclick="toggleFav(this,'allahabad')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Allahabad High Court</div><div class="flex gap-2 mt-3"><a href="https://www.allahabadhighcourt.in" target="_blank" class="btn-mini" onclick="trackClick('allahabad')">🏠 Home</a><a href="https://efiling.allahabadhighcourt.in" target="_blank" class="btn-mini" onclick="trackClick('allahabad')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="punjab haryana chandigarh"><div class="fav-btn" onclick="toggleFav(this,'chd')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Punjab & Haryana HC</div><div class="flex gap-2 mt-3"><a href="https://highcourtchd.gov.in" target="_blank" class="btn-mini" onclick="trackClick('chd')">🏠 Home</a><a href="https://efiling-phhc.gov.in" target="_blank" class="btn-mini" onclick="trackClick('chd')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="himachal"><div class="fav-btn" onclick="toggleFav(this,'hp')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Himachal High Court</div><div class="flex gap-2 mt-3"><a href="https://highcourt.hp.gov.in" target="_blank" class="btn-mini" onclick="trackClick('hp')">🏠 Home</a><a href="https://hphighcourt.nic.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('hp')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="uttarakhand"><div class="fav-btn" onclick="toggleFav(this,'uk')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Uttarakhand High Court</div><div class="flex gap-2 mt-3"><a href="https://highcourtofuttarakhand.gov.in" target="_blank" class="btn-mini" onclick="trackClick('uk')">🏠 Home</a><a href="https://efiling.uk.gov.in" target="_blank" class="btn-mini" onclick="trackClick('uk')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="jammu kashmir ladakh"><div class="fav-btn" onclick="toggleFav(this,'jk')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ J&K and Ladakh HC</div><div class="flex gap-2 mt-3"><a href="https://jkhighcourt.nic.in" target="_blank" class="btn-mini" onclick="trackClick('jk')">🏠 Home</a><a href="https://jkhighcourt.nic.in/efiling.php" target="_blank" class="btn-mini" onclick="trackClick('jk')">📤 E-Filing</a></div></div>
-    </div>
+    <footer class="mt-8 border-t pt-4" style="border-color:var(--border)">
+      <p><strong>Vakil Sathi V9.3</strong> · Quick links for reference only. Portal URLs and procedures may change. Verify information on the relevant official website.</p>
+      <p class="mt-1">This dashboard is not affiliated with any court or government department.</p>
+    </footer>
+  </main>
 
-    <div class="region-title">West India - 3 High Courts</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 court-region">
-      <div class="card-3d p-4 court-card" data-name="bombay maharashtra"><div class="fav-btn" onclick="toggleFav(this,'bombay')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Bombay High Court</div><div class="flex gap-2 mt-3"><a href="https://bombayhighcourt.nic.in" target="_blank" class="btn-mini" onclick="trackClick('bombay')">🏠 Home</a><a href="https://bhc.gov.in/bhcsite/bhcefiling/" target="_blank" class="btn-mini" onclick="trackClick('bombay')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="gujarat"><div class="fav-btn" onclick="toggleFav(this,'gujarat')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Gujarat High Court</div><div class="flex gap-2 mt-3"><a href="https://gujarathighcourt.nic.in" target="_blank" class="btn-mini" onclick="trackClick('gujarat')">🏠 Home</a><a href="https://gujarathighcourt.nic.in/hccms" target="_blank" class="btn-mini" onclick="trackClick('gujarat')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="rajasthan"><div class="fav-btn" onclick="toggleFav(this,'rajasthan')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Rajasthan High Court</div><div class="flex gap-2 mt-3"><a href="https://hcraj.nic.in" target="_blank" class="btn-mini" onclick="trackClick('rajasthan')">🏠 Home</a><a href="https://hcraj.nic.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('rajasthan')">📤 E-Filing</a></div></div>
-    </div>
+  <script>
+    (() => {
+      "use strict";
 
-    <div class="region-title">Central India - 2 High Courts</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 court-region">
-      <div class="card-3d p-4 court-card" data-name="madhya pradesh mp"><div class="fav-btn" onclick="toggleFav(this,'mp')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ MP High Court</div><div class="flex gap-2 mt-3"><a href="https://mphc.gov.in" target="_blank" class="btn-mini" onclick="trackClick('mp')">🏠 Home</a><a href="https://mphc.gov.in/e-filing-help" target="_blank" class="btn-mini" onclick="trackClick('mp')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="chhattisgarh"><div class="fav-btn" onclick="toggleFav(this,'cg')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Chhattisgarh High Court</div><div class="flex gap-2 mt-3"><a href="https://highcourt.cg.gov.in" target="_blank" class="btn-mini" onclick="trackClick('cg')">🏠 Home</a><a href="https://highcourt.cg.gov.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('cg')">📤 E-Filing</a></div></div>
-    </div>
+      const $ = (selector, root = document) => root.querySelector(selector);
+      const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-    <div class="region-title">South India - 5 High Courts</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 court-region">
-      <div class="card-3d p-4 court-card" data-name="madras tamil nadu"><div class="fav-btn" onclick="toggleFav(this,'madras')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Madras High Court</div><div class="flex gap-2 mt-3"><a href="https://hcmadras.tn.gov.in/index.php" target="_blank" class="btn-mini" onclick="trackClick('madras')">🏠 Home</a><a href="https://hcmadras.tn.gov.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('madras')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="karnataka"><div class="fav-btn" onclick="toggleFav(this,'karnataka')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Karnataka High Court</div><div class="flex gap-2 mt-3"><a href="https://karnatakajudiciary.kar.nic.in" target="_blank" class="btn-mini" onclick="trackClick('karnataka')">🏠 Home</a><a href="https://kphc.kar.nic.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('karnataka')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="kerala"><div class="fav-btn" onclick="toggleFav(this,'kerala')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Kerala High Court</div><div class="flex gap-2 mt-3"><a href="https://highcourtofkerala.nic.in" target="_blank" class="btn-mini" onclick="trackClick('kerala')">🏠 Home</a><a href="https://efilinghckerala.gov.in" target="_blank" class="btn-mini" onclick="trackClick('kerala')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="telangana"><div class="fav-btn" onclick="toggleFav(this,'telangana')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Telangana High Court</div><div class="flex gap-2 mt-3"><a href="https://tshc.gov.in" target="_blank" class="btn-mini" onclick="trackClick('telangana')">🏠 Home</a><a href="https://tshc.gov.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('telangana')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="andhra pradesh"><div class="fav-btn" onclick="toggleFav(this,'ap')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Andhra Pradesh HC</div><div class="flex gap-2 mt-3"><a href="https://aphc.gov.in" target="_blank" class="btn-mini" onclick="trackClick('ap')">🏠 Home</a><a href="https://aphc.gov.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('ap')">📤 E-Filing</a></div></div>
-    </div>
+      const searchInput = $("#searchInput");
+      const resultCount = $("#resultCount");
+      const noResults = $("#noResults");
+      const portalCards = $$(".portal-card");
+      const originalCards = new Map(
+        portalCards.map(card => [card.dataset.id, card])
+      );
 
-    <div class="region-title">East & North-East India - 9 High Courts</div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 court-region">
-      <div class="card-3d p-4 court-card" data-name="calcutta west bengal"><div class="fav-btn" onclick="toggleFav(this,'calcutta')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Calcutta High Court</div><div class="flex gap-2 mt-3"><a href="https://www.calcuttahighcourt.gov.in" target="_blank" class="btn-mini" onclick="trackClick('calcutta')">🏠 Home</a><a href="https://efiling.calcuttahighcourt.gov.in" target="_blank" class="btn-mini" onclick="trackClick('calcutta')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="patna bihar"><div class="fav-btn" onclick="toggleFav(this,'patna')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Patna High Court</div><div class="flex gap-2 mt-3"><a href="https://patnahighcourt.gov.in" target="_blank" class="btn-mini" onclick="trackClick('patna')">🏠 Home</a><a href="https://patnahighcourt.gov.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('patna')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="orissa odisha"><div class="fav-btn" onclick="toggleFav(this,'orissa')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Orissa High Court</div><div class="flex gap-2 mt-3"><a href="https://orissahighcourt.nic.in" target="_blank" class="btn-mini" onclick="trackClick('orissa')">🏠 Home</a><a href="https://orissahighcourt.nic.in/efiling/" target="_blank" class="btn-mini" onclick="trackClick('orissa')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="jharkhand"><div class="fav-btn" onclick="toggleFav(this,'jharkhand')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Jharkhand High Court</div><div class="flex gap-2 mt-3"><a href="https://jharkhandhighcourt.nic.in" target="_blank" class="btn-mini" onclick="trackClick('jharkhand')">🏠 Home</a><a href="https://efiling.jharkhandhighcourt.nic.in" target="_blank" class="btn-mini" onclick="trackClick('jharkhand')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="gauhati assam"><div class="fav-btn" onclick="toggleFav(this,'gauhati')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Gauhati High Court</div><div class="flex gap-2 mt-3"><a href="https://ghconline.gov.in" target="_blank" class="btn-mini" onclick="trackClick('gauhati')">🏠 Home</a><a href="https://ghconline.gov.in/EFiling" target="_blank" class="btn-mini" onclick="trackClick('gauhati')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="manipur"><div class="fav-btn" onclick="toggleFav(this,'manipur')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Manipur High Court</div><div class="flex gap-2 mt-3"><a href="https://hcmimphal.nic.in" target="_blank" class="btn-mini" onclick="trackClick('manipur')">🏠 Home</a><a href="https://hcmimphal.nic.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('manipur')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="meghalaya"><div class="fav-btn" onclick="toggleFav(this,'meghalaya')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Meghalaya High Court</div><div class="flex gap-2 mt-3"><a href="https://meghalayahighcourt.nic.in" target="_blank" class="btn-mini" onclick="trackClick('meghalaya')">🏠 Home</a><a href="https://meghalayahighcourt.nic.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('meghalaya')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="tripura"><div class="fav-btn" onclick="toggleFav(this,'tripura')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Tripura High Court</div><div class="flex gap-2 mt-3"><a href="https://thc.nic.in" target="_blank" class="btn-mini" onclick="trackClick('tripura')">🏠 Home</a><a href="https://thc.nic.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('tripura')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 court-card" data-name="sikkim"><div class="fav-btn" onclick="toggleFav(this,'sikkim')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ Sikkim High Court</div><div class="flex gap-2 mt-3"><a href="https://highcourtofsikkim.nic.in" target="_blank" class="btn-mini" onclick="trackClick('sikkim')">🏠 Home</a><a href="https://highcourtofsikkim.nic.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('sikkim')">📤 E-Filing</a></div></div>
-    </div>
+      const favorites = new Set();
+      const recent = [];
+      const MAX_RECENT = 4;
 
-    <div class="region-title">Tribunals & Commissions - 12 Cards</div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 court-region">
-      <div class="card-3d p-4 text-center court-card" data-name="cat"><div class="fav-btn" onclick="toggleFav(this,'cat')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🔨 CAT</div><div class="flex justify-center gap-2 mt-3"><a href="https://cgat.gov.in" target="_blank" class="btn-mini" onclick="trackClick('cat')">🏠 Home</a><a href="https://cgat.gov.in/efiling.php" target="_blank" class="btn-mini" onclick="trackClick('cat')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="ngt green"><div class="fav-btn" onclick="toggleFav(this,'ngt')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🌿 NGT</div><div class="flex justify-center gap-2 mt-3"><a href="https://www.greentribunal.gov.in" target="_blank" class="btn-mini" onclick="trackClick('ngt')">🏠 Home</a><a href="https://greentribunal.gov.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('ngt')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="nclat"><div class="fav-btn" onclick="toggleFav(this,'nclat')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏛️ NCLAT</div><div class="flex justify-center gap-2 mt-3"><a href="https://nclat.nic.in" target="_blank" class="btn-mini" onclick="trackClick('nclat')">🏠 Home</a><a href="https://efiling.nclat.gov.in" target="_blank" class="btn-mini" onclick="trackClick('nclat')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="nclt"><div class="fav-btn" onclick="toggleFav(this,'nclt')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">⚖️ NCLT</div><div class="flex justify-center gap-2 mt-3"><a href="https://nclt.gov.in" target="_blank" class="btn-mini" onclick="trackClick('nclt')">🏠 Home</a><a href="https://efiling.nclt.gov.in" target="_blank" class="btn-mini" onclick="trackClick('nclt')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="drat"><div class="fav-btn" onclick="toggleFav(this,'drat')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">📄 DRAT</div><div class="flex justify-center gap-2 mt-3"><a href="https://drt.gov.in/drat.php" target="_blank" class="btn-mini" onclick="trackClick('drat')">🏠 Home</a><a href="https://drt.gov.in/e-filing" target="_blank" class="btn-mini" onclick="trackClick('drat')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="drt"><div class="fav-btn" onclick="toggleFav(this,'drt')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏦 DRT</div><div class="flex justify-center gap-2 mt-3"><a href="https://drt.gov.in" target="_blank" class="btn-mini" onclick="trackClick('drt')">🏠 Home</a><a href="https://drt.gov.in/e-filing.php" target="_blank" class="btn-mini" onclick="trackClick('drt')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="cci competition"><div class="fav-btn" onclick="toggleFav(this,'cci')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏢 CCI</div><div class="flex justify-center gap-2 mt-3"><a href="https://www.cci.gov.in" target="_blank" class="btn-mini" onclick="trackClick('cci')">🏠 Home</a><a href="https://www.cci.gov.in/e-filing" target="_blank" class="btn-mini" onclick="trackClick('cci')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="itat income tax"><div class="fav-btn" onclick="toggleFav(this,'itat')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">📑 ITAT</div><div class="flex justify-center gap-2 mt-3"><a href="https://itat.gov.in" target="_blank" class="btn-mini" onclick="trackClick('itat')">🏠 Home</a><a href="https://itat.gov.in/efiling" target="_blank" class="btn-mini" onclick="trackClick('itat')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="rera"><div class="fav-btn" onclick="toggleFav(this,'rera')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">🏠 RERA</div><div class="flex justify-center gap-2 mt-3"><a href="https://rera.delhi.gov.in" target="_blank" class="btn-mini" onclick="trackClick('rera')">🏠 Home</a><a href="https://rera.delhi.gov.in/online-complaint" target="_blank" class="btn-mini" onclick="trackClick('rera')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="aft armed"><div class="fav-btn" onclick="toggleFav(this,'aft')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">⚔️ AFT</div><div class="flex justify-center gap-2 mt-3"><a href="https://aftdelhi.nic.in" target="_blank" class="btn-mini" onclick="trackClick('aft')">🏠 Home</a><a href="https://aftdelhi.nic.in/efiling.html" target="_blank" class="btn-mini" onclick="trackClick('aft')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="cestat"><div class="fav-btn" onclick="toggleFav(this,'cestat')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">💰 CESTAT</div><div class="flex justify-center gap-2 mt-3"><a href="https://cestat.gov.in" target="_blank" class="btn-mini" onclick="trackClick('cestat')">🏠 Home</a><a href="https://cestat.gov.in/efiling.html" target="_blank" class="btn-mini" onclick="trackClick('cestat')">📤 E-Filing</a></div></div>
-      <div class="card-3d p-4 text-center court-card" data-name="sat sebi"><div class="fav-btn" onclick="toggleFav(this,'sat')">☆</div><span class="live-dot"></span> <span class="text-[9px] font-bold text-green-600">LIVE</span><div class="font-bold text-[12px] mt-1">📈 SAT</div><div class="flex justify-center gap-2 mt-3"><a href="https://sat.gov.in" target="_blank" class="btn-mini" onclick="trackClick('sat')">🏠 Home</a><a href="https://sat.gov.in/efiling/" target="_blank" class="btn-mini" onclick="trackClick('sat')">📤 E-Filing</a></div></div>
-    </div>
+      const favoritesSection = $("#favoritesSection");
+      const favoritesGrid = $("#favoritesGrid");
+      const noFavorites = $("#noFavorites");
+      const recentSection = $("#recentSection");
+      const recentGrid = $("#recentGrid");
 
-    <div class="text-center text-[11px] text-gray-400 py-5 mt-6 border-t">© 2024 Vakil Sathi • V9.3 Hover Fixed • Core Cards Now Move • 40 Cards • Complete</div>
-  </div>
-</div>
+      // Restore favourites and theme preferences.
+      try {
+        const savedFavorites = JSON.parse(
+          localStorage.getItem("vakilsathi-favorites") || "[]"
+        );
 
-<script>
-function filterCards(){
-  let q=document.getElementById('searchInput').value.toLowerCase();
-  let cards=document.querySelectorAll('.court-card');
-  let count=0;
-  cards.forEach(c=>{
-    let name=c.getAttribute('data-name');
-    if(name.includes(q)||q===''){c.style.display='';count++;}else{c.style.display='none';}
-  });
-  document.getElementById('searchResult').innerText=count+' courts found';
-}
-function toggleDark(){
-  document.body.classList.toggle('dark');
-  let isDark=document.body.classList.contains('dark');
-  localStorage.setItem('vakilDark',isDark);
-  document.getElementById('darkBtn').innerText=isDark?'☀️ Light':'🌙 Dark';
-}
-if(localStorage.getItem('vakilDark')==='true'){toggleDark();}
-let isHindi=false;
-function toggleLang(){
-  isHindi=!isHindi;
-  document.querySelectorAll('[data-en]').forEach(el=>{
-    let en=el.getAttribute('data-en'); let hi=el.getAttribute('data-hi');
-    el.innerText='🏛️ '+(isHindi?hi:en);
-  });
-  document.getElementById('langBtn').innerText=isHindi?'A / अ':'अ / A';
-  document.getElementById('logoText').innerText=isHindi?'वकील साथी':'Vakil Sathi';
-  document.getElementById('sciTitle').innerText=isHindi?'भारत का सर्वोच्च न्यायालय':'Supreme Court of India';
-}
-function toggleFav(btn,id){
-  btn.classList.toggle('active');
-  let favs=JSON.parse(localStorage.getItem('vakilFav')||'[]');
-  if(btn.classList.contains('active')){btn.innerText='★'; if(!favs.includes(id)) favs.push(id);}else{btn.innerText='☆'; favs=favs.filter(f=>f!==id);}
-  localStorage.setItem('vakilFav',JSON.stringify(favs)); renderFav();
-}
-function trackClick(id){
-  let recent=JSON.parse(localStorage.getItem('vakilRecent')||'[]');
-  recent=recent.filter(r=>r!==id); recent.unshift(id); recent=recent.slice(0,8);
-  localStorage.setItem('vakilRecent',JSON.stringify(recent));
-}
-function renderFav(){
-  let favs=JSON.parse(localStorage.getItem('vakilFav')||'[]');
-  let recent=JSON.parse(localStorage.getItem('vakilRecent')||'[]');
-  let combined=[...new Set([...favs,...recent])];
-  if(combined.length===0){document.getElementById('favSection').style.display='none';return;}
-  document.getElementById('favSection').style.display='';
-  let favGrid=document.getElementById('favGrid'); favGrid.innerHTML='';
-  combined.slice(0,4).forEach(id=>{
-    let orig=document.querySelector(`.court-card [onclick="toggleFav(this,'${id}')"]`)?.closest('.court-card');
-    if(orig){let clone=orig.cloneNode(true); favGrid.appendChild(clone);}
-  });
-}
-renderFav();
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault(); deferredPrompt=e; document.getElementById('installBtn').style.display='';});
-function installPWA(){if(deferredPrompt){deferredPrompt.prompt(); deferredPrompt.userChoice.then(()=>{deferredPrompt=null; document.getElementById('installBtn').style.display='none';});}}
-if('serviceWorker' in navigator){navigator.serviceWorker.register(URL.createObjectURL(new Blob([`self.addEventListener('fetch',e=>{e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)))})`],{type:'text/javascript'})));}
-</script>
+        savedFavorites.forEach(id => {
+          if (originalCards.has(id)) favorites.add(id);
+        });
+
+        if (localStorage.getItem("vakilsathi-theme") === "dark") {
+          document.body.classList.add("dark");
+        }
+      } catch (error) {
+        console.warn("Saved preferences could not be restored.");
+      }
+
+      function saveFavorites() {
+        try {
+          localStorage.setItem(
+            "vakilsathi-favorites",
+            JSON.stringify([...favorites])
+          );
+        } catch (error) {
+          // The dashboard continues to work if storage is unavailable.
+        }
+      }
+
+      function syncFavoriteButtons() {
+        portalCards.forEach(card => {
+          const button = $(".fav-btn", card);
+          const active = favorites.has(card.dataset.id);
+          const title = $("h3", card).textContent;
+
+          button.classList.toggle("active", active);
+          button.textContent = active ? "★" : "☆";
+          button.setAttribute("aria-pressed", String(active));
+          button.setAttribute(
+            "aria-label",
+            `${active ? "Remove" : "Add"} ${title} ${active ? "from" : "to"} favourites`
+          );
+        });
+      }
+
+      function cloneCard(id) {
+        const source = originalCards.get(id);
+        if (!source) return null;
+
+        const clone = source.cloneNode(true);
+        const button = $(".fav-btn", clone);
+        const link = $(".open-link", clone);
+        const active = favorites.has(id);
+
+        button.classList.toggle("active", active);
+        button.textContent = active ? "★" : "☆";
+        button.setAttribute("aria-pressed", String(active));
+
+        button.addEventListener("click", () => toggleFavorite(id));
+        link.addEventListener("click", () => recordRecent(id));
+
+        return clone;
+      }
+
+      function renderFavorites() {
+        favoritesGrid.replaceChildren();
+
+        favorites.forEach(id => {
+          const card = cloneCard(id);
+          if (card) favoritesGrid.appendChild(card);
+        });
+
+        favoritesSection.classList.toggle("hidden", favorites.size === 0);
+        noFavorites.classList.toggle("hidden", favorites.size !== 0);
+      }
+
+      function renderRecent() {
+        recentGrid.replaceChildren();
+
+        recent.forEach(id => {
+          const card = cloneCard(id);
+          if (card) recentGrid.appendChild(card);
+        });
+
+        recentSection.classList.toggle("hidden", recent.length === 0);
+      }
+
+      function toggleFavorite(id) {
+        if (favorites.has(id)) {
+          favorites.delete(id);
+        } else {
+          favorites.add(id);
+        }
+
+        saveFavorites();
+        syncFavoriteButtons();
+        renderFavorites();
+        renderRecent();
+      }
+
+      function recordRecent(id) {
+        const existingIndex = recent.indexOf(id);
+
+        if (existingIndex !== -1) {
+          recent.splice(existingIndex, 1);
+        }
+
+        recent.unshift(id);
+
+        if (recent.length > MAX_RECENT) {
+          recent.length = MAX_RECENT;
+        }
+
+        renderRecent();
+      }
+
+      function applySearch() {
+        const query = searchInput.value.trim().toLocaleLowerCase();
+        let visibleCount = 0;
+
+        $$(".portal-section").forEach(section => {
+          let sectionCount = 0;
+
+          $$(".portal-card", section).forEach(card => {
+            const searchableText =
+              `${card.dataset.name || ""} ${card.textContent || ""}`
+                .toLocaleLowerCase();
+
+            const matches = !query || searchableText.includes(query);
+
+            card.classList.toggle("hidden-card", !matches);
+
+            if (matches) {
+              visibleCount++;
+              sectionCount++;
+            }
+          });
+
+          section.classList.toggle("hidden", sectionCount === 0);
+        });
+
+        resultCount.textContent =
+          `${visibleCount} portal${visibleCount === 1 ? "" : "s"}${query ? " found" : ""}`;
+
+        noResults.classList.toggle("hidden", visibleCount !== 0);
+      }
+
+      // Dark mode.
+      const themeToggle = $("#themeToggle");
+
+      function updateThemeButton() {
+        const dark = document.body.classList.contains("dark");
+        themeToggle.textContent = dark ? "☀️ Light Mode" : "🌙 Dark Mode";
+        themeToggle.setAttribute("aria-pressed", String(dark));
+      }
+
+      themeToggle.addEventListener("click", () => {
+        const dark = document.body.classList.toggle("dark");
+
+        updateThemeButton();
+
+        try {
+          localStorage.setItem("vakilsathi-theme", dark ? "dark" : "light");
+        } catch (error) {}
+      });
+
+      updateThemeButton();
+
+      // Hindi / English toggle for key interface labels.
+      const languageToggle = $("#languageToggle");
+      let hindiMode = false;
+
+      languageToggle.addEventListener("click", () => {
+        hindiMode = !hindiMode;
+
+        languageToggle.textContent = hindiMode ? "English" : "हिन्दी";
+        document.documentElement.lang = hindiMode ? "hi" : "en";
+
+        const sections = $$(".portal-section .section-title");
+
+        if (sections[0]) {
+          sections[0].childNodes[1].textContent =
+            hindiMode ? " मुख्य कानूनी पोर्टल " : " Core Legal Portals ";
+        }
+
+        if (sections[1]) {
+          sections[1].childNodes[1].textContent =
+            hindiMode ? " भारत के उच्च न्यायालय " : " High Courts of India ";
+        }
+
+        if (sections[2]) {
+          sections[2].childNodes[1].textContent =
+            hindiMode ? " न्यायाधिकरण और कानूनी सेवाएँ " : " Tribunals & Legal Services ";
+        }
+
+        searchInput.placeholder = hindiMode
+          ? "पोर्टल, न्यायालय, राज्य या ट्रिब्यूनल खोजें…"
+          : "Search portal, court, state or tribunal…";
+
+        $("#clearSearch").textContent =
+          hindiMode ? "खोज साफ़ करें" : "Clear search";
+
+        $(".section-title", favoritesSection).childNodes[1].textContent =
+          hindiMode ? " पसंदीदा " : " Favourites ";
+
+        $(".section-title", recentSection).childNodes[1].textContent =
+          hindiMode ? " हाल ही में उपयोग किए गए " : " Recently Used ";
+      });
+
+      // Search and clear.
+      searchInput.addEventListener("input", applySearch);
+
+      $("#clearSearch").addEventListener("click", () => {
+        searchInput.value = "";
+        applySearch();
+        searchInput.focus();
+      });
+
+      // Main card actions.
+      portalCards.forEach(card => {
+        const id = card.dataset.id;
+
+        $(".fav-btn", card).addEventListener("click", () => {
+          toggleFavorite(id);
+        });
+
+        $(".open-link", card).addEventListener("click", () => {
+          recordRecent(id);
+        });
+      });
+
+      syncFavoriteButtons();
+      renderFavorites();
+      applySearch();
+    })();
+  </script>
 </body>
 </html>
